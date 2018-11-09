@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "lottie-web": "^5.4.1",
+    "node-sass": "^4.10.0",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-lottie": "^1.2.3",
