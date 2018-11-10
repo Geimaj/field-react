@@ -12,8 +12,12 @@ export default class Animation extends Component {
         this.animationComplete = this.animationComplete.bind(this)
         this.animationLoaded = this.animationLoaded.bind(this)
         this.loadAnimation = this.loadAnimation.bind(this)
+        this.handleClick = this.handleClick.bind(this)
+        
 
 
+        // console.log(this.props.animationData)
+        
     }
 
     componentDidMount(){
@@ -41,7 +45,6 @@ export default class Animation extends Component {
         } else {
             this.animation.stop()         
             this.animation.play()
-            console.log('play full')
         }
 
     }
@@ -61,15 +64,20 @@ export default class Animation extends Component {
     animationLoaded() {
     }
 
+    handleClick(){
+        if(this.props.onClick){
+            this.props.onClick(this.props)
+        }
+    }
+
     render() {
-        console.log(this.props.animationData)
         return (
             <div id={this.props.id } 
             className={`animation ${this.props.className}`}
             ref={(c) => this.el = c}
             onPointerLeave={this.props.handleMouseLeave || this.handleMouseLeave}
             onPointerEnter={this.props.handleMouseEnter || this.handleMouseOver}
-            onClick={this.props.onClick}>
+            onClick={this.handleClick}>
             </div>
         );
     }

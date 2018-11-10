@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import {
-  Route,
-  NavLink,
-  HashRouter
+    Route,
+    NavLink,
+    HashRouter
 } from "react-router-dom";
 import Portfolio from "./Portfolio";
 import Team from "./Team";
@@ -24,81 +24,120 @@ const closeIcon = require("../assets/icon/Close.svg")
 const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
 
+const portfolioData = require('../data/oldportfolioData.js')
+
+
 class Main extends Component {
+
+    constructor(props) {
+        super(props)
+
+        this.menuAnimationClick = this.menuAnimationClick.bind(this)
+        this.burgerIconClick = this.burgerIconClick.bind(this)
+
+        this.state = {
+            showMenu: true
+        }
+
+    }
+
+    menuAnimationClick() {
+        this.setState({
+            showMenu: false
+        })
+    }
+
+    burgerIconClick() {
+        this.setState({
+            showMenu: true
+        })
+    }
+
     render() {
-    return (
-        
-        <HashRouter>
-            <div id="router">
-            <div id="menu" className="page active">
 
-            <ul className="menu-list">
-                <li>
-                    <NavLink to="/portfolio">
-                        <Animation 
-                            className="portfolioAnimation"
-                            mouseOnFrames = {AnimationMouseOn}
-                            mouseOffFrames = {AnimationMouseOff}
-                            animationData={advertisingAnimation}/>
-                    </NavLink>
-                </li>
-                <li><NavLink to="/art">
-                        <Animation 
-                        className="portfolioAnimation"
-                        mouseOnFrames = {AnimationMouseOn}
-                        mouseOffFrames = {AnimationMouseOff}
-                        animationData={filmAndArtsAnimation}/>
-                    </NavLink>
-                </li>                
-                <li>
-                    <NavLink to="/team">
+        let content;
+
+        if (this.state.showMenu) {
+            content =
+                <div id="menu" className="page active">
+
+                    <ul className="menu-list">
+                        <li>
+                            <NavLink to="/portfolio">
+                                <Animation
+                                    className="portfolioAnimation"
+                                    mouseOnFrames={AnimationMouseOn}
+                                    mouseOffFrames={AnimationMouseOff}
+                                    animationData={advertisingAnimation}
+                                    onClick={this.menuAnimationClick} />
+                            </NavLink>
+                        </li>
+                        <li><NavLink to="/art">
+                            <Animation
+                                className="portfolioAnimation"
+                                mouseOnFrames={AnimationMouseOn}
+                                mouseOffFrames={AnimationMouseOff}
+                                onClick={this.menuAnimationClick} 
+                                animationData={filmAndArtsAnimation} />
+                        </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/team">
+                                <Animation
+                                    className="portfolioAnimation"
+                                    mouseOnFrames={AnimationMouseOn}
+                                    mouseOffFrames={AnimationMouseOff}
+                                    onClick={this.menuAnimationClick} 
+                                    animationData={ourTeamAnimation} />
+                            </NavLink>
+                        </li>
+                    </ul>
+
+                    <div id="email">
                         <Animation
-                            className="portfolioAnimation"
-                            mouseOnFrames = {AnimationMouseOn}
-                            mouseOffFrames = {AnimationMouseOff}
-                            animationData={ourTeamAnimation}/>
-                    </NavLink>
-                </li>
-            </ul>
-                
-                <div id="email">
-                    <Animation
-                        mouseOnFrames = {AnimationMouseOn}
-                        mouseOffFrames = {AnimationMouseOff}
-                        animationData={emailAnimation}/>
+                            mouseOnFrames={AnimationMouseOn}
+                            mouseOffFrames={AnimationMouseOff}
+                            animationData={emailAnimation} />
+                    </div>
+                    <div id="icons">
+                        <Icon href="#"
+                            src={soundcloudIcon}
+                            alt="Soundcloud" />
+                        <Icon href="#"
+                            src={vimeoIcon}
+                            alt="Vimeo" />
+                        <Icon href="#"
+                            src={instagramIcon}
+                            alt="Instagram" />
+                    </div>
+
+
                 </div>
-                <div id="icons">
-                    <Icon href="#" 
-                        src= {soundcloudIcon}
-                        alt="Instagram"/>
-                    <Icon href="#" 
-                        src= {vimeoIcon}
-                        alt="Instagram"/>
-                    <Icon href="#" 
-                        src= {instagramIcon}
-                        alt="Instagram"/>
-                </div>
-
-
-            </div>
-
-            
-
+        } else {
+            content =
                 <div id="content" className="page">
-                    <Route path="/portfolio" component={Portfolio}/>
-                    <Route path="/art" component={Art}/>                
-                    <Route path="/team" component={Team}/>
+                    <Route path="/portfolio" component={() => (<Portfolio portfolioData={portfolioData} />)} />
+                    <Route path="/art" component={Art} />
+                    <Route path="/team" component={Team} />
 
-
-                    <Icon 
+                    <Icon
                         className="menu"
+                        onClick={this.burgerIconClick}
                         src={require('../assets/icon/Close.svg')} />
                 </div>
 
-            </div>
-        </HashRouter>
-    );
-  }
+        }
+
+        return (
+
+            <HashRouter>
+                <div id="router">
+                    {content}
+                </div>
+            </HashRouter>
+        );
+    }
 }
- 
+
+
 export default Main;
