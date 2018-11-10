@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-// import Lottie from 'react-lottie';
 const lottie = require('lottie-web')
-
 
 export default class Animation extends Component {
 
@@ -26,10 +24,6 @@ export default class Animation extends Component {
             animationData: this.props.animationData,
         }
 
-        this.loadAnimation()
-    }
-
-    componentWillUpdate(nextProps){
         this.loadAnimation()
     }
 
@@ -64,6 +58,8 @@ export default class Animation extends Component {
 
     animationLoaded() {
     }
+
+
 
 
     render() {

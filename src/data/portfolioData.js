@@ -249,7 +249,6 @@
     agency: "Ogilvy (JHB)",
     director: "Kim Geldenhuys",
     music: "DJ Maphorisa",
-    agency: "Ogilvy (JHB)"
   },
   {
     className: "title-item boiler-room",

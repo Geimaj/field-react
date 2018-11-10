@@ -1,10 +1,14 @@
 import React, { Component } from "react";
- 
+import Icon from "./Icon"
+
 class Team extends Component {
   render() {
     return (
-      <div>
+      <div className="page">
         <h2>Team</h2>
+        {/* <Icon 
+          className="menu"
+          src={require('../assets/icon/Close.svg')} /> */}
       </div>
     );
   }

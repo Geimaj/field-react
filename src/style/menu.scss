@@ -1,0 +1,37 @@
+#menu {
+
+    .menu-list {
+        padding: 0;
+
+        li{
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .animation {
+            width: 65%;
+        }
+    }
+
+    #email {
+        width: 20%;
+        position: absolute;
+        bottom: 0;
+    }
+
+
+    #icons {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 40px;
+        .icon {
+            width: 40px;
+            height: 100%;
+            display: inline-block;
+            margin-left: 20px;
+            position: relative;
+            bottom: 0;
+        }
+    }
+}
