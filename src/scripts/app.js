@@ -1,20 +1,18 @@
 var $ = require('jquery')
 
 $(document).ready(function() {
-
     
-    //hide menu on click
     $(".portfolioAnimation").click(() => {
-        $("#menu").css('opacity', 0)
-        $("#content").css('opacity', 1)    
+        // displayMenu(false)
+        $("#menu").removeClass('active')
+        $("#content").addClass('active')
+
     })
-    
-    // show menu on click
+
     $(".icon.menu").click(() => {
-        console.log('click')
-        $("#menu").css('opacity', 1)
-        $("#content").css('opacity', 0)   
+        // displayMenu(true)            
+        $("#menu").addClass('active')
+        $("#content").removeClass('active')
     })
-    
-    console.log($(".icon"))
+
 })

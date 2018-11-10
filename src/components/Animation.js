@@ -12,6 +12,8 @@ export default class Animation extends Component {
         this.animationComplete = this.animationComplete.bind(this)
         this.animationLoaded = this.animationLoaded.bind(this)
         this.loadAnimation = this.loadAnimation.bind(this)
+
+
     }
 
     componentDidMount(){
@@ -34,12 +36,12 @@ export default class Animation extends Component {
     }
 
     handleMouseOver() {
-
         if(this.props.mouseOnFrames){
             this.animation.playSegments(this.props.mouseOnFrames, true)
         } else {
             this.animation.stop()         
             this.animation.play()
+            console.log('play full')
         }
 
     }
@@ -48,7 +50,7 @@ export default class Animation extends Component {
         if(this.props.mouseOffFrames){
             this.animation.playSegments(this.props.mouseOffFrames, true)
         } else {
-            this.animation.pause()
+            // this.animation.pause()
         }
     }
 
@@ -59,20 +61,15 @@ export default class Animation extends Component {
     animationLoaded() {
     }
 
-
-
-
     render() {
-
+        console.log(this.props.animationData)
         return (
             <div id={this.props.id } 
             className={`animation ${this.props.className}`}
             ref={(c) => this.el = c}
             onPointerLeave={this.props.handleMouseLeave || this.handleMouseLeave}
-            onPointerEnter={this.props.handleMouseOver || this.handleMouseOver}>
-                {/* <Lottie options={defaultOptions}
-                    isStopped={this.state.isStopped}
-                    isPaused={this.state.isPaused} /> */}
+            onPointerEnter={this.props.handleMouseEnter || this.handleMouseOver}
+            onClick={this.props.onClick}>
             </div>
         );
     }

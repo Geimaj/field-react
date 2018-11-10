@@ -1,6 +1,19 @@
-.page.portfolio {
+.page.portfolio{
+    
+    #title-list {
+        // background: rebeccapurple;
+
+        .title-item {
+            display: inline-block;
+            // background: red;
+            width: 10%;
+        }
+
+    }
+    .portfolioItem {
     // opacity: 1;
     // display: block;
     // z-index: 2;
-    background: red;
+    // background: red;
+    }
 }

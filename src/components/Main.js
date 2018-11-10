@@ -21,12 +21,8 @@ const soundcloudIcon = require("../assets/icon/Soundcloud.svg")
 const vimeoIcon = require("../assets/icon/Vimeo.svg")
 const closeIcon = require("../assets/icon/Close.svg")
 
-
-
-const advertisingAnimationMouseOn = [0, 12]
-const advertisingAnimationMouseOff = [12, 72]
-
-
+const AnimationMouseOn = [0, 12]
+const AnimationMouseOff = [12, 72]
 
 class Main extends Component {
     render() {
@@ -34,23 +30,23 @@ class Main extends Component {
         
         <HashRouter>
             <div id="router">
-            <div id="menu" className="page">
+            <div id="menu" className="page active">
 
             <ul className="menu-list">
                 <li>
                     <NavLink to="/portfolio">
                         <Animation 
                             className="portfolioAnimation"
-                            mouseOnFrames = {advertisingAnimationMouseOn}
-                            mouseOffFrames = {advertisingAnimationMouseOff}
+                            mouseOnFrames = {AnimationMouseOn}
+                            mouseOffFrames = {AnimationMouseOff}
                             animationData={advertisingAnimation}/>
                     </NavLink>
                 </li>
                 <li><NavLink to="/art">
                         <Animation 
                         className="portfolioAnimation"
-                        mouseOnFrames = {advertisingAnimationMouseOn}
-                        mouseOffFrames = {advertisingAnimationMouseOff}
+                        mouseOnFrames = {AnimationMouseOn}
+                        mouseOffFrames = {AnimationMouseOff}
                         animationData={filmAndArtsAnimation}/>
                     </NavLink>
                 </li>                
@@ -58,8 +54,8 @@ class Main extends Component {
                     <NavLink to="/team">
                         <Animation
                             className="portfolioAnimation"
-                            mouseOnFrames = {advertisingAnimationMouseOn}
-                            mouseOffFrames = {advertisingAnimationMouseOff}
+                            mouseOnFrames = {AnimationMouseOn}
+                            mouseOffFrames = {AnimationMouseOff}
                             animationData={ourTeamAnimation}/>
                     </NavLink>
                 </li>
@@ -67,8 +63,8 @@ class Main extends Component {
                 
                 <div id="email">
                     <Animation
-                        mouseOnFrames = {advertisingAnimationMouseOn}
-                        mouseOffFrames = {advertisingAnimationMouseOff}
+                        mouseOnFrames = {AnimationMouseOn}
+                        mouseOffFrames = {AnimationMouseOff}
                         animationData={emailAnimation}/>
                 </div>
                 <div id="icons">
@@ -88,11 +84,16 @@ class Main extends Component {
 
             
 
-            <div id="content">
-                <Route path="/portfolio" component={Portfolio}/>
-                <Route path="/art" component={Art}/>                
-                <Route path="/team" component={Team}/>
-            </div>
+                <div id="content" className="page">
+                    <Route path="/portfolio" component={Portfolio}/>
+                    <Route path="/art" component={Art}/>                
+                    <Route path="/team" component={Team}/>
+
+
+                    <Icon 
+                        className="menu"
+                        src={require('../assets/icon/Close.svg')} />
+                </div>
 
             </div>
         </HashRouter>

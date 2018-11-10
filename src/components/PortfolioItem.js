@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import Animation from "./Animation";
 
 class PortfolioItem extends Component {
   render() {
     return (
         <li className={this.props.className} >
-            {this.props.title}
+          <Animation 
+            animationData={this.props.animationData}/>
         </li>
     );
   }
