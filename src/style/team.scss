@@ -1,0 +1,35 @@
+.page.team {
+    display: flex;
+    justify-content: space-between;
+
+    .names {
+        width: 45%;
+
+        div {
+            display: flex;
+            flex-direction: row;
+
+            .animation {
+                display: inline-block;
+                width: 90%;
+            }
+
+            .icon {
+                display: inline-block;
+                width: 40px;
+            }
+        }
+
+    }
+
+    .content {
+        width: 45%;
+
+
+        img {
+            width: 100%;
+        }
+
+    }
+
+}
