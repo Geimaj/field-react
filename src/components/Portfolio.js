@@ -2,9 +2,19 @@ import React, { Component } from "react";
 import PortfolioItem from "./PortfolioItem"
 import Movie from "./Movie"
 
-var $ = require('jquery')
+const $ = require('jquery')
+
+
+let viewBox = {
+  x: 1700,
+  y: 20,
+  w: 700,
+  h: 3000
+}
+
 
 let scrollInterval;
+
 
 class Portfolio extends Component {
 
@@ -16,8 +26,6 @@ class Portfolio extends Component {
     this.state = {
       active: true
     }
-
-
 
   }
 
@@ -33,6 +41,7 @@ class Portfolio extends Component {
         type={item.type}
         extra={item.extra}
         credits={item.credits}
+        viewBox={viewBox}
         animationData={item.animationData}
         onClick={this.portfolioItemClick} />
     })

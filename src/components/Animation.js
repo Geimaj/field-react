@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 const lottie = require('lottie-web')
+const $ = require('jquery')
 
 export default class Animation extends Component {
 
@@ -58,7 +59,18 @@ export default class Animation extends Component {
     }
 
     animationLoaded() {
-        
+        let $svg = $(this.el).find("svg")
+        let viewBox = this.props.viewBox;
+
+        $svg.attr("preserveAspectRatio", "xMinYMin meet");
+        if(viewBox != null){
+
+            $svg.attr(
+                "viewBox",
+                `${viewBox.x} ${viewBox.y} ${viewBox.w} ${viewBox.h}`
+            );
+            console.log($svg)
+        }
     }
 
     handleClick(){

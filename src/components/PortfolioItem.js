@@ -17,6 +17,7 @@ class PortfolioItem extends Component {
         <li className={this.props.className} 
           onClick={this.handleClick}>
           <Animation 
+            viewBox={this.props.viewBox}
             animationData={this.props.animationData}/>
         </li>
     );

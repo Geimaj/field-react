@@ -119,10 +119,12 @@ class Main extends Component {
                     <Route path="/art" component={Art} />
                     <Route path="/team" component={Team} />
 
-                    <Icon
+                    <Animation
                         className="menu"
+                        mouseOnFrames={AnimationMouseOn}
+                        mouseOffFrames={[12,60]}
                         onClick={this.burgerIconClick}
-                        src={require('../assets/icon/Close.svg')} />
+                        animationData={require('../assets/animation/Hamburger.json')} />
                 </div>
 
         }
