@@ -5,6 +5,7 @@ import Movie from "./Movie"
 const $ = require('jquery')
 
 
+
 let viewBox = {
   x: 1700,
   y: 20,
@@ -120,12 +121,10 @@ $titles.mousemove(function(e) {
   mX2 = Math.min(Math.max(0, mX - mPadd), mmAA) * mmAAr;
 });
 
-$titles.hover(
-  () => {
+
     scrollInterval = setInterval(function() {
       posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
       $titles.scrollLeft(posX * wDiff);
+      console.log('interval')
     }, 10);
-  }
-);
 }

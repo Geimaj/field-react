@@ -5,39 +5,50 @@
     width: 100%;
 
     .icon {
-        // background: dodgerblue;
         height: 40px;
         // align-self: end;
         // justify-self: flex-end;
         // justify-self: flex-end;
     }
 
-    .animation {
-        // background: deeppink;
-        // height: 100%;
-        margin-top: 6rem;
+    .creditAnimation {
+        position: relative;
+        right: 3%;
+
+        .animation {
+            align-self: flex-start;
+            height: 93%;
+        }
     }
 
     .content {
         width: 100%;
         height: 100%;
-        
+        display: flex;
+
         #credits {
             display: none;
-            
+            width: auto;
+            margin:  0 auto;
+
+            #by h2{
+                text-transform: lowercase;
+            }
+    
             &.active {
-                display: block;
+                display: inline-block;
             }
 
             ul {
                 list-style: none;
+                padding: 0
             }
             
         }
 
         #video {
             display: none;
-            width: 100%;
+            width: 90%;
             height: 100%;
 
             &.active {

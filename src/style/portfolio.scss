@@ -1,5 +1,9 @@
 .page.portfolio{
+    margin: 0;
+    padding: 0;
+    width: 100%;
     
+
     #titles {
         overflow: hidden;
         height: 100%;
@@ -8,6 +12,8 @@
     #title-list {
         height: 100%;
         white-space: nowrap;
+        overflow: visible;
+        z-index: 10;
 
         .title-item {
             display: inline-block;
@@ -16,6 +22,8 @@
             width: 8%;
             height:  100%;
 
+
+
             .animation {
                 height: 100%;
             }
@@ -23,6 +31,7 @@
             svg{
                 height: 100%;
                 z-index: 2;
+                overflow: visible;
             }
 
         }

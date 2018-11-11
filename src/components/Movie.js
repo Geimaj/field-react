@@ -7,6 +7,12 @@ const Vimeo = require("react-vimeo");
 const creditAnimation = require('../assets/animation/Credits.json');
 const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
+const viewBox = {
+    y: 0,
+    x: 20,
+    h: 350,
+    w: 150
+}
 
 
 class Movie extends Component {
@@ -79,7 +85,6 @@ class Movie extends Component {
                     onClick={this.handleClick} />
                 <div className="content">
 
-                    {/* {content} */}
 
                     <div id="credits" className={this.state.creditsClass}>
                         <div id="by">
@@ -106,11 +111,11 @@ class Movie extends Component {
                     </div>
 
                 </div>
-                <div onPointerEnter={this.handlePointerEnter} onPointerLeave={this.handlePointerLeave}>
+                <div className="creditAnimation" onPointerEnter={this.handlePointerEnter} onPointerLeave={this.handlePointerLeave}>
                     <Animation
                         className="creditAnimation"
                         onClick={this.creditsClicked}
-
+                        viewBox={viewBox}
                         mouseOnFrames={AnimationMouseOn}
                         mouseOffFrames={AnimationMouseOff}
                         animationData={creditAnimation} />

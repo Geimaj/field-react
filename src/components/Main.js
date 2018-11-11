@@ -134,8 +134,8 @@ class Main extends Component {
         } else {
             content =
                 <div id="content" className="page">
-                    <Route path="/portfolio" component={() => (<Portfolio portfolioData={portfolioData} />)} />
                     <Route path="/art" component={Art} />
+                    <Route path="/portfolio" component={() => (<Portfolio portfolioData={portfolioData} />)} />
                     <Route path="/team" component={Team} />
 
                     <Animation

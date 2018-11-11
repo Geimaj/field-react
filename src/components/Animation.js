@@ -69,7 +69,6 @@ export default class Animation extends Component {
                 "viewBox",
                 `${viewBox.x} ${viewBox.y} ${viewBox.w} ${viewBox.h}`
             );
-            console.log($svg)
         }
     }
 
