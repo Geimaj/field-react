@@ -69,13 +69,16 @@ class Movie extends Component {
         }
 
         return (
-            <div id="movie">
+            <div id="movie" className="page">
                 <Icon
                     className="exitMovie"
                     src={require('../assets/icon/Close.svg')}
                     alt="exit movie"
                     onClick={this.handleClick} />
+                <div className="content">
+
                 {content}
+                </div>
                 <Animation
                     className="creditAnimation"
                     onClick={this.creditsClicked}

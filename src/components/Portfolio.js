@@ -21,7 +21,6 @@ class Portfolio extends Component {
 
   PortfolioItemList(props) {
     const data = this.props.portfolioData
-    console.log(data)
     const portfolioItems = data.map((item, index) => {
       return <PortfolioItem
         key={index}

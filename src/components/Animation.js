@@ -62,6 +62,7 @@ export default class Animation extends Component {
     }
 
     animationLoaded() {
+        
     }
 
     handleClick(){
