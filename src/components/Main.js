@@ -25,6 +25,20 @@ const AnimationMouseOff = [12, 72]
 
 const portfolioData = require('../data/portfolioData.js')
 
+let viewBox = {
+    x: 0,
+    y: 20,
+    w: 350,
+    h: 150
+}
+
+
+let emailViewBox = {
+    x: 0,
+    y: -50,
+    w: 350,
+    h: 200
+}
 
 class Main extends Component {
 
@@ -68,6 +82,7 @@ class Main extends Component {
                                     mouseOnFrames={AnimationMouseOn}
                                     mouseOffFrames={AnimationMouseOff}
                                     animationData={advertisingAnimation}
+                                    viewBox={viewBox}
                                     onClick={this.menuAnimationClick} />
                             </NavLink>
                         </li>
@@ -77,6 +92,7 @@ class Main extends Component {
                                 mouseOnFrames={AnimationMouseOn}
                                 mouseOffFrames={AnimationMouseOff}
                                 onClick={this.menuAnimationClick} 
+                                viewBox={viewBox}
                                 animationData={filmAndArtsAnimation} />
                         </NavLink>
                         </li>
@@ -86,7 +102,8 @@ class Main extends Component {
                                     className="portfolioAnimation"
                                     mouseOnFrames={AnimationMouseOn}
                                     mouseOffFrames={AnimationMouseOff}
-                                    onClick={this.menuAnimationClick} 
+                                    onClick={this.menuAnimationClick}
+                                    viewBox={viewBox}
                                     animationData={ourTeamAnimation} />
                             </NavLink>
                         </li>
@@ -96,6 +113,7 @@ class Main extends Component {
                         <Animation
                             mouseOnFrames={AnimationMouseOn}
                             mouseOffFrames={AnimationMouseOff}
+                            viewBox={emailViewBox}
                             animationData={emailAnimation} />
                     </div>
                     <div id="icons">
@@ -103,6 +121,7 @@ class Main extends Component {
                             src={soundcloudIcon}
                             alt="Soundcloud" />
                         <Icon href="#"
+                            className="vimeo"
                             src={vimeoIcon}
                             alt="Vimeo" />
                         <Icon href="#"

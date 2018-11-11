@@ -85,6 +85,8 @@ export default class Animation extends Component {
             className={`animation ${this.props.className}`}
             ref={(c) => this.el = c}
             onPointerLeave={this.props.handleMouseLeave || this.handleMouseLeave}
+            onMouseLeave={this.props.handleMouseLeave || this.handleMouseLeave}
+            onMouseEnter={this.props.handleMouseEnter || this.handleMouseOver}
             onPointerEnter={this.props.handleMouseEnter || this.handleMouseOver}
             onClick={this.handleClick}>
             </div>
