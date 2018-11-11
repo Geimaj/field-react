@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Icon from "./Icon";
 import Animation from "./Animation";
 
 const artData = require("../data/civviesData")
@@ -93,8 +92,7 @@ class PortfolioItem extends Component {
         </div>
     } else {
       content = 
-      <img  src={`${img}`}
-      />
+      <img  src={`${img}`} alt={artData[this.state.active].title} />
     }
 
     return (

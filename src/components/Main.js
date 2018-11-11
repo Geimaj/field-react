@@ -19,12 +19,11 @@ const emailAnimation = require('../assets/animation/Email.json');
 const instagramIcon = require("../assets/icon/Instagram.svg")
 const soundcloudIcon = require("../assets/icon/Soundcloud.svg")
 const vimeoIcon = require("../assets/icon/Vimeo.svg")
-const closeIcon = require("../assets/icon/Close.svg")
 
 const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
 
-const portfolioData = require('../data/oldportfolioData.js')
+const portfolioData = require('../data/portfolioData.js')
 
 
 class Main extends Component {

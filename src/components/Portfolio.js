@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PortfolioItem from "./PortfolioItem"
-import Icon from "./Icon"
 import Movie from "./Movie"
-// import {portfolioData} from "../data/portfolioData" 
-// const portfolioData = require('../data/oldportfolioData.js')
 
+var $ = require('jquery')
+
+let scrollInterval;
 
 class Portfolio extends Component {
 
@@ -17,6 +17,8 @@ class Portfolio extends Component {
       active: true
     }
 
+
+
   }
 
   PortfolioItemList(props) {
@@ -27,18 +29,27 @@ class Portfolio extends Component {
         title={item.title}
         vimeoID={item.vimeo_id}
         className={item.className}
+        by={item.by}
+        type={item.type}
+        extra={item.extra}
         credits={item.credits}
         animationData={item.animationData}
         onClick={this.portfolioItemClick} />
     })
 
     return (
-      <ul id="title-list">{portfolioItems}</ul>
+      <div id="titles">
+        <ul id="title-list">{portfolioItems}</ul>
+      </div>
     );
   }
 
   componentDidMount() {
+    watchScroll()
+  }
 
+  componentWillUnmount(){
+    clearInterval(scrollInterval)
   }
 
   portfolioItemClick(activeItem) {
@@ -61,11 +72,14 @@ class Portfolio extends Component {
     if (this.state.active) {
       portfolio = this.PortfolioItemList(this.props)
     } else {
-      console.log(this.state.item.props)
       let params = this.state.item.props
       portfolio = <Movie 
                     title={params.title}
                     vimeoID={params.vimeoID}
+                    by={params.by}
+                    extra={params.extra}
+                    type={params.type}
+                    credits={params.credits}
                     onClick={this.exitMovieClick}/>
     }
 
@@ -78,3 +92,31 @@ class Portfolio extends Component {
 }
 
 export default Portfolio;
+
+function watchScroll(){
+  var $titles = $("#titles"),
+  titlesWidth = $titles.outerWidth(true),
+  titlesScrollWidth = $titles[0].scrollWidth,
+  wDiff = titlesScrollWidth / titlesWidth - 1, // widths difference ratio
+  mPadd = 60, // Mousemove Padding
+  damp = 20, // Mousemove response softness
+  mX = 0, // Real mouse position
+  mX2 = 0, // Modified mouse position
+  posX = 0,
+  mmAA = titlesWidth - mPadd * 2, // The mousemove available area
+  mmAAr = titlesWidth / mmAA; // get available mousemove fidderence ratio
+
+$titles.mousemove(function(e) {
+  mX = e.pageX - $(this).offset().left;
+  mX2 = Math.min(Math.max(0, mX - mPadd), mmAA) * mmAAr;
+});
+
+$titles.hover(
+  () => {
+    scrollInterval = setInterval(function() {
+      posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
+      $titles.scrollLeft(posX * wDiff);
+    }, 10);
+  }
+);
+}

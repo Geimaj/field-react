@@ -1,35 +1,69 @@
 #movie {
-    background: magenta;
     display: flex;
-    // position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 
-    .icon.exitMovie {
-        width: 40px;
+    .icon {
+        // background: dodgerblue;
+        height: 40px;
+        // align-self: end;
+        // justify-self: flex-end;
+        // justify-self: flex-end;
     }
 
-    .animation{
-        transform: rotate(90deg) translate(40%, -100%);
-        height: 30vh;
-        margin-left: 5%;
-        position: relative;
-        // right: 0;
-        // top: 0;
-
-
+    .animation {
+        // background: deeppink;
+        // height: 100%;
+        margin-top: 6rem;
     }
 
     .content {
-        background: lightskyblue;
-        width: 100%;
-    }
-
-    #video {
         width: 100%;
         height: 100%;
+        
+        #credits {
+            display: none;
+            
+            &.active {
+                display: block;
+            }
 
-        .vimeo {
-            width: 100% !important;
-            // height: 100%;
+            ul {
+                list-style: none;
+            }
+            
         }
+
+        #video {
+            display: none;
+            width: 100%;
+            height: 100%;
+
+            &.active {
+                display: block;
+            }
+
+            button {
+                width: 40px;
+                margin: 50% 50%;
+            }
+
+            .vimeo {
+                height: 100%;
+
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                }
+
+            }
+
+        }
+
+
+        
     }
+
+
 }

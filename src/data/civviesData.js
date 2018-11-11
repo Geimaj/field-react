@@ -37,9 +37,7 @@ module.exports = [
     title: "Modisakeng - Zion",
     image: require(`../assets/civvies/Zion.jpg`),
     description:
-      "Mohau Modisakeng’s visually striking work is always a pleasure to create immersive sound \
-          worlds for. In this instance, there was no sound recordist on set, and every sound needed to be \
-          meticulously placed in order to create a subtle, realistic sound scape where there was none. ",
+      "Mohau Modisakeng’s visually striking work is always a pleasure to create immersive sound  worlds for. In this instance, there was no sound recordist on set, and every sound needed to be           meticulously placed in order to create a subtle, realistic sound scape where there was none. ",
     type: "Sound Design & Final Mix",
     by: "Field"
   },
@@ -48,10 +46,10 @@ module.exports = [
     title: "Over the Rainbow",
     image: require(`../assets/civvies/OverTheRainbow.jpg`),
     description:
-      "A visual feast, directed by multi-disciplinary artist, Athi Patra-Ruga alongside Jarred Figgins and \
-          Jon Kope as DOPs. This film gave our team an opportunity to delve into a surreal, magical and \
-          flamboyant world of sound, working together with acclaimed avant garde music producer, Angel- \
-          Ho. ",
+      `A visual feast, directed by multi-disciplinary artist, Athi Patra-Ruga alongside Jarred Figgins and 
+          Jon Kope as DOPs. This film gave our team an opportunity to delve into a surreal, magical and 
+          flamboyant world of sound, working together with acclaimed avant garde music producer, Angel- 
+          Ho. `,
     type: "Film Score, Sound Design & Final Mix",
     by: "Field & Andel-Ho"
   },

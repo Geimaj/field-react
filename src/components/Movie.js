@@ -15,10 +15,13 @@ class Movie extends Component {
         super(props);
         this.handleClick = this.handleClick.bind(this)
         this.creditsClicked = this.creditsClicked.bind(this)
-        
-        
+        this.handlePointerEnter = this.handlePointerEnter.bind(this)
+        this.handlePointerLeave = this.handlePointerLeave.bind(this)
+
         this.state = {
-            showCredits: false
+            showCredits: false,
+            creditsClass: "",
+            videoClass: "active"
         }
 
     }
@@ -34,39 +37,38 @@ class Movie extends Component {
         })
     }
 
+    handlePointerEnter() {
+        this.setState({
+            creditsClass: "active",
+            videoClass: ""
+        })
+    }
+
+    handlePointerLeave() {
+        this.setState({
+            creditsClass: "",
+            videoClass: "active"
+
+        })
+    }
+
     render() {
 
-        let content;
+        let credits = Object.keys(this.props.credits).map((key, index) => {
+            let data = this.props.credits[key];
+            if(typeof data === "string"){
+                return <li key={index}>{key}: {data}</li>
+            } else {
+                let lis = data.map((item, index) => {
+                    return (
+                        <li key={key + index}>{key}: {data[index]}</li>
+                    )
+                })
 
-        if (this.state.showCredits) {
-            // let credits = this.props.credits.map((item) => {
-            //     return (
-
-            //         <li>
-            //         item.key : item
-            //     </li>
-            //     )
-            // })
-
-            content =
-                <div id="credits">
-                    <div id="by">
-                        by
-                </div>
-
-                    <ul>
-                        {/* {credits} */}
-
-                    </ul>
-
-                </div>
-        } else {
-            content = 
-                <div id="video">
-                    <Vimeo videoId={this.props.vimeoID}/>
-                    {this.props.title}
-                </div>
-        }
+                return lis;
+            }
+            
+        })
 
         return (
             <div id="movie" className="page">
@@ -77,14 +79,42 @@ class Movie extends Component {
                     onClick={this.handleClick} />
                 <div className="content">
 
-                {content}
+                    {/* {content} */}
+
+                    <div id="credits" className={this.state.creditsClass}>
+                        <div id="by">
+                            <h2>
+                                by {this.props.by}
+                            </h2>
+                        </div>
+                        <p>
+                            {this.props.extra}
+                        </p>
+                        <p>
+                            {this.props.type}
+                        </p>
+
+                        <ul>
+                            {credits}
+                        </ul>
+
+                    </div>
+
+                    <div id="video" className={this.state.videoClass}>
+                        <Vimeo videoId={this.props.vimeoID} 
+                            autoplay={true}/>
+                    </div>
+
                 </div>
-                <Animation
-                    className="creditAnimation"
-                    onClick={this.creditsClicked}
-                    mouseOnFrames={AnimationMouseOn}
-                    mouseOffFrames={AnimationMouseOff}
-                    animationData={creditAnimation} />
+                <div onPointerEnter={this.handlePointerEnter} onPointerLeave={this.handlePointerLeave}>
+                    <Animation
+                        className="creditAnimation"
+                        onClick={this.creditsClicked}
+
+                        mouseOnFrames={AnimationMouseOn}
+                        mouseOffFrames={AnimationMouseOff}
+                        animationData={creditAnimation} />
+                </div>
             </div>
         );
     }

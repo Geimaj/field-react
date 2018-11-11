@@ -17,10 +17,10 @@ export default class Icon extends Component {
 
         return (
             <div className={`icon ${this.props.className}`}>
-                <a onClick={this.handleClick}>
                     <img
-                        src={this.props.src} />
-                </a>
+                        src={this.props.src} 
+                        alt={this.props.alt}
+                        onClick={this.handleClick}/>
             </div>
         );
     }

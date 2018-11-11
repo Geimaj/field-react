@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import Icon from "./Icon"
 import Animation from "./Animation"
 
-const simon = require('../assets/animation/Simon.json');
-const nic = require('../assets/animation/Nicolaas.json');
-const daniel = require('../assets/animation/Daniel.json');
-const dylan = require('../assets/animation/Dylan.json');
-
 const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
 
@@ -82,10 +77,9 @@ class Team extends Component {
   render() {
 
     let content;
-    let roles = teamData[this.state.active].roles.map((item) => {
-      return <li><h2>{item}</h2></li>
+    let roles = teamData[this.state.active].roles.map((item, key) => {
+      return <li key={key}><h2>{item}</h2></li>
     })
-
 
     if(this.state.showInfo){
       content = 
@@ -97,7 +91,7 @@ class Team extends Component {
         </div>
     } else {
       content = 
-        <img src={teamData[this.state.active].image} />
+        <img src={teamData[this.state.active].image} alt={teamData[this.state.active].name} />
         
     }
 

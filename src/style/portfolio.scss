@@ -1,12 +1,20 @@
 .page.portfolio{
     
+    #titles {
+        overflow: hidden;
+    }
+
     #title-list {
         // background: rebeccapurple;
+
+        white-space: nowrap;
 
         .title-item {
             display: inline-block;
             // background: red;
-            width: 10%;
+            padding: 0;
+            margin: 0;
+            width: 15%;
         }
 
     }

@@ -14,10 +14,6 @@ export default class Animation extends Component {
         this.loadAnimation = this.loadAnimation.bind(this)
         this.handleClick = this.handleClick.bind(this)
         
-
-
-        // console.log(this.props.animationData)
-        
     }
 
     componentDidMount(){
