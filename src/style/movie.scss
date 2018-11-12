@@ -1,26 +1,34 @@
 #movie {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     width: 100%;
+    height: 100%;
 
     .icon {
-        height: 40px;
-        // align-self: end;
-        // justify-self: flex-end;
-        // justify-self: flex-end;
+        position: absolute;
+        right: 0;
+        width: 70px;
     }
 
     .creditAnimation {
-        position: relative;
-        right: 3%;
+        margin: 0;
+        padding: 0;
+        width: 100px;
+        display: flex;
+        flex-direction: row;
+        
 
         .animation {
-            height: 93%;
-            
+            align-self: center;
+            right: 0;
+            height: 70%;
+
             svg {
-                
+                width: 100%;
+                height: 100%;
                 overflow: visible;
+
+
             }
         }
     }
@@ -29,44 +37,35 @@
         width: 100%;
         height: 100%;
         display: flex;
-
-        #credits {
-            display: none;
-            width: auto;
-            margin:  0 auto;
-
-            #by h2{
-                text-transform: lowercase;
-            }
-    
-            &.active {
-                display: inline-block;
-            }
-
-            ul {
-                list-style: none;
-                padding: 0
-            }
-            
-        }
+        padding: 0;
+        margin: 0;
 
         #video {
-            display: none;
-            width: 90%;
+            position: relative;
             height: 100%;
-
-            &.active {
-                display: block;
-            }
-
+            width: 90%;
+            display: flex;
+            
             button {
                 width: 40px;
                 margin: 50% 50%;
             }
 
-            .vimeo {
-                height: 100%;
+            #player {
+                opacity: 0;
+                transition-property: opacity;
+                transition-duration: $fadeTime;
 
+                &.active {
+                    opacity: 1;
+                }
+            }
+            
+            .vimeo {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                
                 iframe {
                     width: 100%;
                     height: 100%;
@@ -74,11 +73,37 @@
 
             }
 
+            #credits {
+                position: absolute;
+                opacity: 0;
+                width: 100%;
+                height: 78%;
+                align-self: center;
+                display: flex;
+                flex-direction: column;
+
+                #by h2{
+                    margin: 0;
+                    padding: 0;
+                    display: inline-block;
+                    align-self: flex-start;
+                    text-transform: lowercase;
+                }
+        
+                &.active {
+                    opacity: 1;
+                }
+    
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    text-transform: capitalize;
+                }
+                
+            }
+
         }
-
-
         
     }
-
 
 }

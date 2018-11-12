@@ -3,17 +3,17 @@ import Animation from "./Animation";
 import Icon from "./Icon";
 
 const Vimeo = require("react-vimeo");
+const $ = require("jquery");
 
 const creditAnimation = require('../assets/animation/Credits.json');
 const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
 const viewBox = {
     y: 0,
-    x: 20,
-    h: 350,
-    w: 150
+    x: 25,
+    h: 100,
+    w: 100
 }
-
 
 class Movie extends Component {
 
@@ -24,30 +24,45 @@ class Movie extends Component {
         this.handlePointerEnter = this.handlePointerEnter.bind(this)
         this.handlePointerLeave = this.handlePointerLeave.bind(this)
 
-        this.state = {
-            showCredits: false,
-            creditsClass: "",
-            videoClass: "active"
-        }
+        // this.state = {
+        //     showCredits: false,
+        //     creditsClass: "",
+        //     videoClass: "active"
+        // }
 
     }
+
+    componentWillMount(){
+        $(".animation.menu").css('display', "none")
+    }
+
+
+    componentWillUnmount(){
+        $(".animation.menu").css('display', "block")
+    }
+
+    
 
     handleClick() {
         this.props.onClick(this.props.props)
     }
 
     creditsClicked() {
-        console.log('credits clicked')
-        this.setState({
-            showCredits: true
-        })
+        // this.setState({
+        //     showCredits: true
+        // })
     }
 
     handlePointerEnter() {
-        this.setState({
-            creditsClass: "active",
-            videoClass: ""
-        })
+        // this.setState({
+        //     creditsClass: "active",
+        //     videoClass: ""
+        // })
+
+        $("#player").removeClass("active")
+        $("#credits").addClass("active")
+
+
     }
 
     handlePointerLeave() {
@@ -56,6 +71,10 @@ class Movie extends Component {
             videoClass: "active"
 
         })
+
+        $("#player").addClass("active")
+        $("#credits").removeClass("active")
+
     }
 
     render() {
@@ -77,7 +96,7 @@ class Movie extends Component {
         })
 
         return (
-            <div id="movie" className="page">
+            <div id="movie" >
                 <Icon
                     className="exitMovie"
                     src={require('../assets/icon/Close.svg')}
@@ -85,33 +104,38 @@ class Movie extends Component {
                     onClick={this.handleClick} />
                 <div className="content">
 
+                    <div id="video" >
+                        <div id="credits">
+                            <div id="by">
+                                <h2>
+                                    by {this.props.by}
+                                </h2>
+                            </div>
+                            <p>
+                                {this.props.extra}
+                            </p>
+                            <p>
+                                {this.props.type}
+                            </p>
 
-                    <div id="credits" className={this.state.creditsClass}>
-                        <div id="by">
-                            <h2>
-                                by {this.props.by}
-                            </h2>
+                            <ul>
+                                {credits}
+                            </ul>
+
                         </div>
-                        <p>
-                            {this.props.extra}
-                        </p>
-                        <p>
-                            {this.props.type}
-                        </p>
 
-                        <ul>
-                            {credits}
-                        </ul>
-
-                    </div>
-
-                    <div id="video" className={this.state.videoClass}>
-                        <Vimeo videoId={this.props.vimeoID} 
-                            autoplay={true}/>
+                        <div id="player" className="active">
+                            <Vimeo videoId={this.props.vimeoID} 
+                                autoplay={true}/>
+                        </div>
                     </div>
 
                 </div>
-                <div className="creditAnimation" onPointerEnter={this.handlePointerEnter} onPointerLeave={this.handlePointerLeave}>
+                <div className="creditAnimation" 
+                        onPointerEnter={this.handlePointerEnter} 
+                        onMouseEnter={this.handlePointerEnter} 
+                        onMouseLeave={this.handlePointerLeave}
+                        onPointerLeave={this.handlePointerLeave}>
                     <Animation
                         className="creditAnimation"
                         onClick={this.creditsClicked}
