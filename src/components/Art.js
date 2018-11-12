@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import Animation from "./Animation";
 
+const $ = require('jquery')
 const artData = require("../data/civviesData")
 const watchAnimation = require("../assets/animation/WatchFilm.json")
 const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
+
+let scrollInterval;
 
 
 class PortfolioItem extends Component {
@@ -16,32 +19,80 @@ class PortfolioItem extends Component {
     this.imageHoverOn = this.imageHoverOn.bind(this)    
     this.imageHoverOff = this.imageHoverOff.bind(this)    
     this.artLinkClicked = this.artLinkClicked.bind(this)    
-    
-    
 
     this.state = {
       active: 0,
       showDetails: false
     }
 
+    this.art = artData.map((item, key) => {
+      return (
+        <li key={key}
+          onClick={() => this.artItemClick(key)}>
+            <h2>
+            {item.title}
+            </h2>
+        </li>
+      )
+    })
+
+    this.content = artData.map((item, key) => {
+
+      return (
+        <div className="artContent">
+          <img className="artImage"
+            src={item.image} />
+            <div className="details">
+              <p>
+                {item.description}
+              </p>
+              <p className="type">
+                {item.type}
+              </p>
+              <p className="by">
+                By: {item.by}
+              </p>
+            </div>
+        </div>
+      )
+    })
+
+  }
+
+  componentDidMount(){
+    $(".artContent").eq(0).addClass('active')
+    $(".artList li").eq(0).addClass('active')
+
+    watchScroll();
   }
 
   artItemClick(key){
     this.setState({
       active: key
     })
+    $(".artContent").removeClass('active')
+    $(".artContent").eq(key).addClass('active')
+
+    $(".artList li").removeClass('active')    
+    $(".artList li").eq(key).addClass('active')
+
   }
 
-  imageHoverOn(){
+  imageHoverOn(item){
     this.setState({
       showDetails: true
     })
+
+    $('.artContent').eq(this.state.active).addClass('showDetails')
+
   }
 
   imageHoverOff(){
     this.setState({
       showDetails: false
     })
+
+    $('.artContent').eq(this.state.active).removeClass('showDetails')
   }
 
   artLinkClicked(){
@@ -50,65 +101,44 @@ class PortfolioItem extends Component {
 
   render() {
 
-    let art = artData.map((item, key) => {
-      let cls;
-      if(key === this.state.active){
-        cls = "active"
-      }
-      return (
-        <li key={key}
-          className={cls}
-          onClick={() => this.artItemClick(key)}>
-          <h2>
-            {item.title}
-          </h2>
-        </li>
-      )
-    })
-
-    let img = artData[this.state.active].image;
-
-    let content;
-
-    if(this.state.showDetails){
-      content = 
-        <div>
-          <p>
-            {artData[this.state.active].description}
-          </p>
-          <p>
-            {artData[this.state.active].type}
-          </p>
-          <p>
-            {artData[this.state.active].by}
-          </p>
-
-          <Animation 
-            mouseOnFrames={AnimationMouseOn}
-            mouseOffFrames={AnimationMouseOff}
-            animationData={watchAnimation}
-            onClick={this.artLinkClicked}/>
-
-        </div>
-    } else {
-      content = 
-      <img  src={`${img}`} alt={artData[this.state.active].title} />
-    }
-
     return (
       <div className={`page art`}>
         <div className="content"
-          onPointerEnter={this.imageHoverOn}
+          onPointerEnter={() => this.imageHoverOn(this)}
           onPointerLeave={this.imageHoverOff}>
-          {content}
+          {this.content}
         </div>
         <ul className="artList">
-          {art}
+          {this.art}
         </ul>
       </div>
     );
   }
 
 }
- 
 export default PortfolioItem;
+
+function watchScroll(){
+
+  var $civvies_list = $(".artList"),
+  civviesHeight = $civvies_list.outerHeight(true),
+  civviesScrollHeight = $civvies_list[0].scrollHeight,
+  wDiff = civviesScrollHeight / civviesHeight - 1, // widths difference ratio
+  mPadd = 60, // Mousemove Padding
+  damp = 20, // Mousemove response softness
+  mX = 0, // Real mouse position
+  mX2 = 0, // Modified mouse position
+  posX = 0,
+  mmAA = civviesHeight - mPadd * 2, // The mousemove available area
+  mmAAr = civviesHeight / mmAA; // get available mousemove fidderence ratio
+  
+  $civvies_list.mousemove(function(e) {
+    mX = e.pageY - $(this).offset().top;
+    mX2 = Math.min(Math.max(0, mX - mPadd), mmAA) * mmAAr;
+  });
+  
+  setInterval(function() {
+    posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
+    $civvies_list.scrollTop(posX * wDiff);
+  }, 10);
+}

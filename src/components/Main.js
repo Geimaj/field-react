@@ -25,15 +25,14 @@ const AnimationMouseOff = [12, 72]
 
 const portfolioData = require('../data/portfolioData.js')
 
-let viewBox = {
+const viewBox = {
     x: 0,
     y: 20,
     w: 350,
     h: 150
 }
 
-
-let emailViewBox = {
+const emailViewBox = {
     x: 0,
     y: -50,
     w: 350,
