@@ -10,6 +10,8 @@ export default class Icon extends Component {
     handleClick(){
         if(this.props.onClick){
             this.props.onClick()
+        } else if(this.props.href){
+            window.open(this.props.href, "_blank")
         }
     }
 

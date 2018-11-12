@@ -110,20 +110,21 @@ class Main extends Component {
 
                     <div id="email">
                         <Animation
+                            onClick={emailClicked}
                             mouseOnFrames={AnimationMouseOn}
                             mouseOffFrames={AnimationMouseOff}
                             viewBox={emailViewBox}
                             animationData={emailAnimation} />
                     </div>
                     <div id="icons">
-                        <Icon href="#"
+                        <Icon href="https://soundcloud.com/fieldcpt"
                             src={soundcloudIcon}
                             alt="Soundcloud" />
-                        <Icon href="#"
+                        <Icon href="https://vimeo.com/user89211135"
                             className="vimeo"
                             src={vimeoIcon}
                             alt="Vimeo" />
-                        <Icon href="#"
+                        <Icon href="https://www.instagram.com/field.ct/"
                             src={instagramIcon}
                             alt="Instagram" />
                     </div>
@@ -160,3 +161,7 @@ class Main extends Component {
 
 
 export default Main;
+
+function emailClicked(){
+    window.open("mailto:info@field.audio", "_blank");
+}
