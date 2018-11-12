@@ -16,8 +16,12 @@
         right: 3%;
 
         .animation {
-            align-self: flex-start;
             height: 93%;
+            
+            svg {
+                
+                overflow: visible;
+            }
         }
     }
 
