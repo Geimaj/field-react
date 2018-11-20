@@ -15,7 +15,6 @@ const viewBox = {
   h: 100
 }
 
-
 class Team extends Component {
 
   constructor(props) {
@@ -100,7 +99,7 @@ class Team extends Component {
           onClick={this.exitClick}
           src={require('../assets/icon/Close.svg')} />
       return (
-        <div onPointerEnter={() => this.handleNameHover(key)} key={key}>
+        <div onMouseEnter={() => this.handleNameHover(key)} onPointerEnter={() => this.handleNameHover(key)} key={key}>
           <Animation
             className="teamAnimation"
             mouseOnFrames={AnimationMouseOn}

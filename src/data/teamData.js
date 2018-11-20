@@ -9,7 +9,7 @@ module.exports = [
             Simon is applauded for his deep sensitivities, diplomacy and gentle nature; his beats though, are 
             big as f%&amp;k.`,
         image: require('../assets/team/Simon.jpg'),
-        animationData: require('../assets/animation/Simon.json'),
+        animationData: require('../assets/animation/team/Simon.json'),
         name: "Simon Kohler"
     },
     {
@@ -21,7 +21,7 @@ module.exports = [
             having worked with projects such as Bateleur, Spoek Mathambo, Follower, Petit Noir, Bongeziwe 
             Mabandla, Fever Trails, Ex Olympic &amp; more.`,
         image: require('../assets/team/Nicolaas.jpg'),
-        animationData: require('../assets/animation/Nicolaas.json'),
+        animationData: require('../assets/animation/team/Nicolaas.json'),
         name: "Nicolaas Van Reenen"    
     },
     {
@@ -32,7 +32,7 @@ module.exports = [
             frown upon. He is also a co-founder and mixing engineer of the record label '1991', and produces 
             music under Maxime Alexander`,
         image: require('../assets/team/Daniel.jpg'),
-        animationData: require('../assets/animation/Daniel.json'),
+        animationData: require('../assets/animation/team/Daniel.json'),
         name: "Daniel Lidchi"
     }, 
     {
@@ -40,7 +40,7 @@ module.exports = [
         description: `At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
         `,
         image: require('../assets/team/Dylan.jpg'),
-        animationData: require('../assets/animation/Dylan.json'),
+        animationData: require('../assets/animation/team/Dylan.json'),
         name: "Dylan Godfrey"
     }
 ]

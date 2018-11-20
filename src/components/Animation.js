@@ -14,6 +14,9 @@ export default class Animation extends Component {
         this.animationLoaded = this.animationLoaded.bind(this)
         this.loadAnimation = this.loadAnimation.bind(this)
         this.handleClick = this.handleClick.bind(this)
+
+        this.canPlay = true;
+        this.didPlay = false;
         
     }
 
@@ -34,28 +37,47 @@ export default class Animation extends Component {
         this.animation = lottie.loadAnimation(this.options)
         this.animation.addEventListener("DOMLoaded", this.animationLoaded)
         this.animation.onComplete = this.animationComplete
+
+
+        $(this.el).find('svg').find('g').hover(()=> {
+            if(this.props.handleMouseEnter){
+                this.props.handleMouseEnter()
+            } else {
+                this.handleMouseOver()
+            }
+        }, () => {
+            if(this.props.handleMouseLeave){
+                this.props.handleMouseLeave()
+            } else {
+                this.handleMouseLeave()
+            }
+        })
+
     }
 
     handleMouseOver() {
-        if(this.props.mouseOnFrames){
-            this.animation.playSegments(this.props.mouseOnFrames, true)
-        } else {
-            this.animation.stop()         
-            this.animation.play()
+        if(this.canPlay){
+            this.didPlay = true
+            this.canPlay = false;
+            if(this.props.mouseOnFrames){
+                this.animation.playSegments(this.props.mouseOnFrames, true)
+            } else {
+                this.animation.stop()         
+                this.animation.play()
+            }
         }
-
     }
 
     handleMouseLeave() {
-        if(this.props.mouseOffFrames){
+        if(this.props.mouseOffFrames && this.didPlay){
             this.animation.playSegments(this.props.mouseOffFrames, true)
-        } else {
-            // this.animation.pause()
+            this.canPlay = false;
+            this.didPlay = false;
         }
     }
 
     animationComplete(){
-        // this.animation.stop()
+        this.canPlay = true;
     }
 
     animationLoaded() {
@@ -83,10 +105,10 @@ export default class Animation extends Component {
             <div id={this.props.id } 
             className={`animation ${this.props.className}`}
             ref={(c) => this.el = c}
-            onPointerLeave={this.props.handleMouseLeave || this.handleMouseLeave}
-            onMouseLeave={this.props.handleMouseLeave || this.handleMouseLeave}
-            onMouseEnter={this.props.handleMouseEnter || this.handleMouseOver}
-            onPointerEnter={this.props.handleMouseEnter || this.handleMouseOver}
+            // onPointerLeave={this.props.handleMouseLeave || this.handleMouseLeave}
+            // onMouseLeave={this.props.handleMouseLeave || this.handleMouseLeave}
+            // onMouseEnter={this.props.handleMouseEnter || this.handleMouseOver}
+            // onPointerEnter={this.props.handleMouseEnter || this.handleMouseOver}
             onClick={this.handleClick}>
             </div>
         );
