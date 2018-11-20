@@ -10,6 +10,7 @@ import Animation from "./Animation"
 import Art from "./Art"
 import Icon from "./Icon"
 
+const $ = require('jquery')
 
 const advertisingAnimation = require('../assets/animation/Advertising.json');
 const filmAndArtsAnimation = require('../assets/animation/Film&Arts.json');
@@ -52,6 +53,7 @@ class Main extends Component {
         }
 
     }
+
 
     menuAnimationClick() {
         this.setState({

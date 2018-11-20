@@ -9,6 +9,15 @@ const AnimationMouseOff = [12, 72]
 
 let scrollInterval;
 
+// const watchFilmAnimation = require('../assets/animation/WatchFilm.json')
+
+// const viewBox = {
+//     x: 0,
+//     y: 20,
+//     w: 350,
+//     h: 150
+// }
+
 
 class PortfolioItem extends Component {
 
@@ -40,10 +49,18 @@ class PortfolioItem extends Component {
 
       return (
         <div className="artContent">
-          <img className="artImage"
-            src={item.image} />
+
+          <div className="imageContainer">
+            <div className="info">info</div>
+          
+            <img className="artImage"
+              src={item.image} />
+          
+        
+          </div>
+          
             <div className="details">
-              <p>
+              <p className="description">
                 {item.description}
               </p>
               <p className="type">
@@ -52,6 +69,12 @@ class PortfolioItem extends Component {
               <p className="by">
                 By: {item.by}
               </p>
+
+              <Animation 
+                mouseOnFrames={AnimationMouseOn}
+                mouseOffFrames={AnimationMouseOff}
+                animationData={watchAnimation}
+                onClick={this.artLinkClicked}/>
             </div>
         </div>
       )
@@ -84,7 +107,6 @@ class PortfolioItem extends Component {
     })
 
     $('.artContent').eq(this.state.active).addClass('showDetails')
-
   }
 
   imageHoverOff(){
@@ -102,10 +124,12 @@ class PortfolioItem extends Component {
   render() {
 
     return (
-      <div className={`page art`}>
+      <div className={`art`}>
         <div className="content"
           onPointerEnter={() => this.imageHoverOn(this)}
-          onPointerLeave={this.imageHoverOff}>
+          onPointerLeave={this.imageHoverOff}
+          onMouseEnter={() => this.imageHoverOn(this)}
+          onMouseLeave={this.imageHoverOff}>
           {this.content}
         </div>
         <ul className="artList">
