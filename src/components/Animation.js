@@ -94,19 +94,6 @@ export default class Animation extends Component {
             );
         }
 
-
-        // $(this.el).find('svg').find('g').hover(()=> {
-        //     console.log('hover')
-        //     if(this.props.handleMouseEnter){
-        //         this.props.handleMouseEnter()
-        //     }
-        //         this.handleMouseOver()
-        // }, () => {
-        //     if(this.props.handleMouseLeave){
-        //         this.props.handleMouseLeave()
-        //     }
-        //         this.handleMouseLeave()
-        // })
     }
 
     handleClick(){
@@ -120,10 +107,6 @@ export default class Animation extends Component {
             <div id={this.props.id } 
             className={`animation ${this.props.className}`}
             ref={(c) => this.el = c}
-            // onPointerLeave={this.props.handleMouseLeave || this.handleMouseLeave}
-            // onMouseLeave={this.props.handleMouseLeave || this.handleMouseLeave}
-            // onMouseEnter={this.props.handleMouseEnter || this.handleMouseOver}
-            // onPointerEnter={this.props.handleMouseEnter || this.handleMouseOver}
             onPointerLeave={this.handleMouseLeave}
             onMouseLeave={this.handleMouseLeave}
             onMouseEnter={this.handleMouseOver}
