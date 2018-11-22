@@ -1,4 +1,7 @@
 $fadeTime: 500ms;
+$cursor-click:  pointer;
+$cursor-default: default;
+
 
 
 @font-face {
@@ -13,6 +16,7 @@ $fadeTime: 500ms;
 html {
     height: 100%;
     overflow: hidden;
+    cursor: $cursor-default;
 }
 body {
     background: #000;
@@ -66,6 +70,30 @@ body {
 .icon {
     width: 40px;
     height: 40px;
+    cursor: $cursor-click;
+    
+    img {
+        cursor: $cursor-click;
+    }
+
+    &.exit {
+        display: inline-block;
+        opacity: 1;
+        transform: rotate(0deg);
+        transition: transform $fadeTime ease-in-out;
+        margin: auto 0;
+        width: 70px;
+        height: 70px;
+
+        img {
+            // width: 100%;
+        }
+
+        &:hover {
+            transform: rotate(90deg);                    
+        }
+
+    }
 }
 
 h2 {
@@ -81,11 +109,13 @@ p {
 
 .animation {
     overflow: visible;
-
+    
     svg {
         overflow: visible;
- 
+        cursor: $cursor-click;
+
         g {
+            cursor: $cursor-click;
             stroke: rgba(255, 0, 0, 0);
             stroke-width: 75;
         }

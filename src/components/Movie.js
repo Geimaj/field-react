@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Animation from "./Animation";
-import Icon from "./Icon";
+import ExitIcon from "./ExitIcon";
 
 const Vimeo = require("react-vimeo");
 const $ = require("jquery");
@@ -66,11 +66,11 @@ class Movie extends Component {
     }
 
     handlePointerLeave() {
-        this.setState({
-            creditsClass: "",
-            videoClass: "active"
+        // this.setState({
+        //     creditsClass: "",
+        //     videoClass: "active"
 
-        })
+        // })
 
         $("#player").addClass("active")
         $("#credits").removeClass("active")
@@ -97,11 +97,14 @@ class Movie extends Component {
 
         return (
             <div id="movie" >
-                <Icon
+                {/* <Icon
                     className="exitMovie"
                     src={require('../assets/icon/Close.svg')}
                     alt="exit movie"
-                    onClick={this.handleClick} />
+                    onClick={this.handleClick} /> */}
+
+                <ExitIcon onClick={this.handleClick} />
+
                 <div className="content">
 
                     <div id="video" >
@@ -132,17 +135,17 @@ class Movie extends Component {
 
                 </div>
                 <div className="creditAnimation" 
-                        onPointerEnter={this.handlePointerEnter} 
-                        onMouseEnter={this.handlePointerEnter} 
-                        onMouseLeave={this.handlePointerLeave}
-                        onPointerLeave={this.handlePointerLeave}>
+>
                     <Animation
                         className="creditAnimation"
                         onClick={this.creditsClicked}
                         viewBox={viewBox}
                         mouseOnFrames={AnimationMouseOn}
                         mouseOffFrames={AnimationMouseOff}
-                        animationData={creditAnimation} />
+                        animationData={creditAnimation}
+                        handleMouseOver={this.handlePointerEnter} 
+                        handleMouseLeave={this.handlePointerLeave}
+                        />
                 </div>
             </div>
         );

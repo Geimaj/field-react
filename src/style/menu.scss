@@ -15,15 +15,6 @@
         li{
             text-decoration: none;
             list-style: none;
-            // background: red;
-
-            .animation {
-                // background: wheat;
-
-                svg {
-                    // background: lightblue;
-                }
-            }
         }
 
         .animation {
@@ -37,7 +28,7 @@
         padding: 0;
         position: absolute;
         bottom: 0;
-        cursor: pointer;
+        cursor: $cursor-click;
     }
 
 

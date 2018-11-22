@@ -7,7 +7,6 @@ const watchAnimation = require("../assets/animation/WatchFilm.json")
 const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
 
-let scrollInterval;
 
 // const watchFilmAnimation = require('../assets/animation/WatchFilm.json')
 
@@ -45,41 +44,6 @@ class PortfolioItem extends Component {
       )
     })
 
-    this.content = artData.map((item, key) => {
-
-      return (
-        <div className="artContent">
-
-          <div className="imageContainer">
-            <div className="info">info</div>
-          
-            <img className="artImage"
-              src={item.image} />
-          
-        
-          </div>
-          
-            <div className="details">
-              <p className="description">
-                {item.description}
-              </p>
-              <p className="type">
-                {item.type}
-              </p>
-              <p className="by">
-                By: {item.by}
-              </p>
-
-              <Animation 
-                mouseOnFrames={AnimationMouseOn}
-                mouseOffFrames={AnimationMouseOff}
-                animationData={watchAnimation}
-                onClick={this.artLinkClicked}/>
-            </div>
-        </div>
-      )
-    })
-
   }
 
   componentDidMount(){
@@ -90,15 +54,16 @@ class PortfolioItem extends Component {
   }
 
   artItemClick(key){
-    this.setState({
-      active: key
-    })
     $(".artContent").removeClass('active')
-    $(".artContent").eq(key).addClass('active')
+    // $(".artContent").eq(key).addClass('active')
+    $(".artContent").addClass('active') 
 
     $(".artList li").removeClass('active')    
     $(".artList li").eq(key).addClass('active')
-
+    
+    this.setState({
+      active: key
+    })
   }
 
   imageHoverOn(item){
@@ -106,7 +71,8 @@ class PortfolioItem extends Component {
       showDetails: true
     })
 
-    $('.artContent').eq(this.state.active).addClass('showDetails')
+    // $('.artContent').eq(this.state.active).addClass('showDetails')
+    $('.artContent').addClass('showDetails')    
   }
 
   imageHoverOff(){
@@ -114,7 +80,9 @@ class PortfolioItem extends Component {
       showDetails: false
     })
 
-    $('.artContent').eq(this.state.active).removeClass('showDetails')
+    // $('.artContent').eq(this.state.active).removeClass('showDetails')
+    $('.artContent').removeClass('showDetails')
+
   }
 
   artLinkClicked(){
@@ -123,14 +91,50 @@ class PortfolioItem extends Component {
 
   render() {
 
+    let item = artData[this.state.active]
+    let details = 
+      <div className="artContent">
+
+      <div className="imageContainer">
+        <div className="info">info</div>
+      
+        <img className="artImage"
+          src={item.image} 
+          alt={item.link}/>
+    
+      </div>
+      
+        <div className="details">
+          <p className="description">
+            {item.description}
+          </p>
+          <p className="type">
+            {item.type}
+          </p>
+          <p className="by">
+            By: {item.by}
+          </p>
+
+          <Animation 
+            mouseOnFrames={AnimationMouseOn}
+            mouseOffFrames={AnimationMouseOff}
+            animationData={watchAnimation}
+            onClick={this.artLinkClicked}/>
+        </div>
+    </div>
+    
+
     return (
       <div className={`art`}>
         <div className="content"
           onPointerEnter={() => this.imageHoverOn(this)}
           onPointerLeave={this.imageHoverOff}
           onMouseEnter={() => this.imageHoverOn(this)}
-          onMouseLeave={this.imageHoverOff}>
-          {this.content}
+          onMouseLeave={this.imageHoverOff}
+          >
+
+          {details}
+          {/* {this.content} */}
         </div>
         <ul className="artList">
           {this.art}

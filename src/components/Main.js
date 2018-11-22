@@ -10,8 +10,6 @@ import Animation from "./Animation"
 import Art from "./Art"
 import Icon from "./Icon"
 
-const $ = require('jquery')
-
 const advertisingAnimation = require('../assets/animation/Advertising.json');
 const filmAndArtsAnimation = require('../assets/animation/Film&Arts.json');
 const ourTeamAnimation = require('../assets/animation/OurTeam.json');
@@ -126,7 +124,7 @@ class Main extends Component {
                             className="vimeo"
                             src={vimeoIcon}
                             alt="Vimeo" />
-                        <Icon href="https://www.instagram.com/field.ct/"
+                        <Icon href="https://www.instagram.com/field.cpt/"
                             src={instagramIcon}
                             alt="Instagram" />
                     </div>
@@ -160,7 +158,6 @@ class Main extends Component {
         );
     }
 }
-
 
 export default Main;
 

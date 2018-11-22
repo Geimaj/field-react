@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Icon from "./Icon"
+import ExitIcon from "./ExitIcon"
 import Animation from "./Animation"
 
 const AnimationMouseOn = [0, 12]
@@ -94,10 +95,11 @@ class Team extends Component {
     let team = teamData.map((item, key) => {
       let cross;
       cross =
-        <Icon
-          className="exit"
-          onClick={this.exitClick}
-          src={require('../assets/icon/Close.svg')} />
+        // <Icon
+        //   className="exit"
+        //   onClick={this.exitClick}
+        //   src={require('../assets/icon/Close.svg')} />
+        <ExitIcon onClick={this.exitClick}/>
       return (
         <div onMouseEnter={() => this.handleNameHover(key)} onPointerEnter={() => this.handleNameHover(key)} key={key}>
           <Animation

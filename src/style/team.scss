@@ -31,24 +31,11 @@ $fadeTime: 500ms;
                 align-self: center;
                 overflow: visible;
 
-                svg {
-                //     width: 100%;
-                //     background: yellow;
-                }
             }
-
+            
             .icon.exit {
-                display: inline-block;
+                flex-shrink: 0;
                 opacity: 0;
-                transform: rotate(0deg);
-                transition: transform $fadeTime ease-in-out;
-                margin: auto 0;
-                width: 70px;
-                height: 70px;
-
-                &:hover {
-                    transform: rotate(90deg);                    
-                }
 
                 &.active {
                     opacity: 1;

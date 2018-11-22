@@ -430,7 +430,7 @@ module.exports = [
     director: ["Jesse Vos", "Alistair Blair"],
     type: "origional coposition, sound design & final mix",
     by: "nicolaas van reenen",
-    animationData: require('../assets/animation/portfolio/nicholascoutts.json'),
+    animationData: require('../assets/animation/portfolio/niccoutts.json'),
     credits: {}
   },
   {

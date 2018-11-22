@@ -3,7 +3,15 @@
     padding: 0;
     width: 100%;
     height: 100%;
+    overflow: visible;
     
+    &.fixed {
+        position: fixed;
+        left: 0;
+        top: 0;
+        margin: 0;
+        padding: 0;
+    }
 
     #titles {
         overflow: hidden;
@@ -14,7 +22,7 @@
         height: 100%;
         white-space: nowrap;
         overflow: visible;
-        z-index: 10;
+        margin: 0;
 
         .title-item {
             display: inline-block;
@@ -22,16 +30,17 @@
             margin: 0 1%;
             width: 8%;
             height:  100%;
-
-
+            overflow: visible;
+            cursor: $cursor-click;
 
             .animation {
                 height: 100%;
+                overflow: visible;
             }
 
             svg{
                 height: 100%;
-                z-index: 2;
+                // z-index: 2;
                 overflow: visible;
             }
 

@@ -7,7 +7,6 @@
     .icon {
         position: absolute;
         right: 0;
-        width: 70px;
     }
 
     .creditAnimation {
@@ -16,12 +15,14 @@
         width: 100px;
         display: flex;
         flex-direction: row;
+        overflow: visible;
         
         .animation {
             align-self: flex-end;
             position: relative;
             right: 0;
             height: 81%;
+            overflow: visible;
 
             svg {
                 width: 100%;
@@ -76,6 +77,9 @@
             #credits {
                 position: absolute;
                 opacity: 0;
+                transition-property: opacity;
+                transition-duration: $fadeTime;
+
                 width: 100%;
                 height: 78%;
                 align-self: center;

@@ -31,28 +31,21 @@ export default class Animation extends Component {
         }
 
         this.loadAnimation()
+
+    }
+
+    componentWillUnmount(){
+        this.destroyAnimation()
     }
 
     loadAnimation(){
         this.animation = lottie.loadAnimation(this.options)
         this.animation.addEventListener("DOMLoaded", this.animationLoaded)
         this.animation.onComplete = this.animationComplete
+    }
 
-
-        $(this.el).find('svg').find('g').hover(()=> {
-            if(this.props.handleMouseEnter){
-                this.props.handleMouseEnter()
-            } else {
-                this.handleMouseOver()
-            }
-        }, () => {
-            if(this.props.handleMouseLeave){
-                this.props.handleMouseLeave()
-            } else {
-                this.handleMouseLeave()
-            }
-        })
-
+    destroyAnimation(){
+        this.animation.destroy()
     }
 
     handleMouseOver() {
@@ -66,6 +59,10 @@ export default class Animation extends Component {
                 this.animation.play()
             }
         }
+
+        if(this.props.handleMouseOver){
+            this.props.handleMouseOver()
+        }
     }
 
     handleMouseLeave() {
@@ -73,6 +70,10 @@ export default class Animation extends Component {
             this.animation.playSegments(this.props.mouseOffFrames, true)
             this.canPlay = false;
             this.didPlay = false;
+        }
+
+        if(this.props.handleMouseLeave){
+            this.props.handleMouseLeave()
         }
     }
 
@@ -92,6 +93,20 @@ export default class Animation extends Component {
                 `${viewBox.x} ${viewBox.y} ${viewBox.w} ${viewBox.h}`
             );
         }
+
+
+        // $(this.el).find('svg').find('g').hover(()=> {
+        //     console.log('hover')
+        //     if(this.props.handleMouseEnter){
+        //         this.props.handleMouseEnter()
+        //     }
+        //         this.handleMouseOver()
+        // }, () => {
+        //     if(this.props.handleMouseLeave){
+        //         this.props.handleMouseLeave()
+        //     }
+        //         this.handleMouseLeave()
+        // })
     }
 
     handleClick(){
@@ -109,6 +124,10 @@ export default class Animation extends Component {
             // onMouseLeave={this.props.handleMouseLeave || this.handleMouseLeave}
             // onMouseEnter={this.props.handleMouseEnter || this.handleMouseOver}
             // onPointerEnter={this.props.handleMouseEnter || this.handleMouseOver}
+            onPointerLeave={this.handleMouseLeave}
+            onMouseLeave={this.handleMouseLeave}
+            onMouseEnter={this.handleMouseOver}
+            onPointerEnter={this.handleMouseOver}
             onClick={this.handleClick}>
             </div>
         );
