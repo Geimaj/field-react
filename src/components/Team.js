@@ -100,14 +100,15 @@ class Team extends Component {
         //   onClick={this.exitClick}
         //   src={require('../assets/icon/Close.svg')} />
         <ExitIcon onClick={this.exitClick}/>
+
       return (
         <div onMouseEnter={() => this.handleNameHover(key)} onPointerEnter={() => this.handleNameHover(key)} key={key}>
           <Animation
-            className="teamAnimation"
+            className={`teamAnimation ${item.name.toLowerCase().split(' ')[0]}`}
             mouseOnFrames={AnimationMouseOn}
             mouseOffFrames={AnimationMouseOff}
             animationData={item.animationData}
-            viewBox={viewBox}
+            viewBox={item.viewBox}
             onClick={() => this.teamNameClick(key)} />
 
           {cross}

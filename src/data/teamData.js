@@ -10,7 +10,13 @@ module.exports = [
             big as f%&amp;k.`,
         image: require('../assets/team/Simon.jpg'),
         animationData: require('../assets/animation/team/Simon.json'),
-        name: "Simon Kohler"
+        name: "Simon Kohler",
+        viewBox: {
+            x: 0,
+            y: 35,
+            w: 3,
+            h: 100
+          }
     },
     {
         roles: ["composer", "co-founder"],
@@ -22,7 +28,13 @@ module.exports = [
             Mabandla, Fever Trails, Ex Olympic &amp; more.`,
         image: require('../assets/team/Nicolaas.jpg'),
         animationData: require('../assets/animation/team/Nicolaas.json'),
-        name: "Nicolaas Van Reenen"    
+        name: "Nicolaas Van Reenen",
+        viewBox: {
+            x: 0,
+            y: 35,
+            w: 300,
+            h: 100
+          }
     },
     {
         roles: ["composer"],
@@ -33,7 +45,13 @@ module.exports = [
             music under Maxime Alexander`,
         image: require('../assets/team/Daniel.jpg'),
         animationData: require('../assets/animation/team/Daniel.json'),
-        name: "Daniel Lidchi"
+        name: "Daniel Lidchi",
+        viewBox: {
+            x: 0,
+            y: 35,
+            w: 300,
+            h: 100
+          }
     }, 
     {
         roles: ["designer"],
@@ -41,6 +59,12 @@ module.exports = [
         `,
         image: require('../assets/team/Dylan.jpg'),
         animationData: require('../assets/animation/team/Dylan.json'),
-        name: "Dylan Godfrey"
+        name: "Dylan Godfrey",
+        viewBox: {
+            x: 0,
+            y: 35,
+            w: 300,
+            h: 100
+          }
     }
 ]

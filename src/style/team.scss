@@ -2,6 +2,8 @@ $fadeTime: 500ms;
 
 .page.team {
     display: flex;
+    display: -webkit-flex;
+
     // flex-direction: row;
     justify-content: space-between;
     width: 100%;
@@ -21,9 +23,26 @@ $fadeTime: 500ms;
             flex-direction: row;
             margin-bottom: 5%;
             overflow: visible;
-            // width: 100%;
+            background: royalblue;
+            // width: 105%;
+
+            &.simon {
+                background: rebeccapurple;
+                // width: 40%;
+
+                
+                svg {
+                    background: red;
+                    // width: 20%;
+
+                    g {
+                        background: palegoldenrod;
+                    }
+                }
+            }
             
             .animation {
+                
                 display: inline-block;
                 // width: 105%;
                 margin-bottom: 5%;

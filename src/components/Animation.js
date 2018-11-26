@@ -49,7 +49,7 @@ export default class Animation extends Component {
     }
 
     handleMouseOver() {
-        if(this.canPlay){
+        // if(this.canPlay){
             this.didPlay = true
             this.canPlay = false;
             if(this.props.mouseOnFrames){
@@ -58,7 +58,7 @@ export default class Animation extends Component {
                 this.animation.stop()         
                 this.animation.play()
             }
-        }
+        // }
 
         if(this.props.handleMouseOver){
             this.props.handleMouseOver()
