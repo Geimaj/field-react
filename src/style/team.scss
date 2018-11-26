@@ -23,23 +23,23 @@ $fadeTime: 500ms;
             flex-direction: row;
             margin-bottom: 5%;
             overflow: visible;
-            background: royalblue;
+            // background: royalblue;
             // width: 105%;
 
-            &.simon {
-                background: rebeccapurple;
-                // width: 40%;
+            // &.simon {
+            //     background: rebeccapurple;
+            //     // width: 40%;
 
                 
-                svg {
-                    background: red;
-                    // width: 20%;
+            //     svg {
+            //         background: red;
+            //         // width: 20%;
 
-                    g {
-                        background: palegoldenrod;
-                    }
-                }
-            }
+            //         g {
+            //             background: palegoldenrod;
+            //         }
+            //     }
+            // }
             
             .animation {
                 

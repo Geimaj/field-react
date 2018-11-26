@@ -3,7 +3,7 @@ module.exports = [
     className: "title-item hp1",
     title: "HP",
     vimeo_id: "288511865",
-    type: "Original Composition, Sound Design & Final Mix",
+    type: "original composition, sound design & final mix",
     by: "daniel lidchi",
     animationData: require('../assets/animation/portfolio/hp.json'),
     credits: {
@@ -17,7 +17,7 @@ module.exports = [
     className: "title-item superbalist2",
     title: "superbalist",
     vimeo_id: "288528360",
-    type: "Original Composition",
+    type: "origional composition",
     by: "nicolaas van reenen",
     animationData: require('../assets/animation/portfolio/superbalist.json'),
     credits: {
@@ -32,7 +32,7 @@ module.exports = [
     className: "title-item salomon",
     title: "salomon",
     vimeo_id: "",
-    type: "Sound Design & Final Mix",
+    type: "sound design & final mix",
     by: "simon kohler",
     animationData: require('../assets/animation/portfolio/salomon.json'),
     credits: {
@@ -46,7 +46,7 @@ module.exports = [
     className: "title-item guinness",
     title: "guinness",
     vimeo_id: "288512009",
-    type: "Final Mix",
+    type: "final mix",
     by: "daniel lidchi",
     animationData: require('../assets/animation/portfolio/guinness.json'),
     credits: {
@@ -61,7 +61,7 @@ module.exports = [
     className: "title-item arwa",
     title: "arwa",
     vimeo_id: "288511664",
-    type: "Original Score",
+    type: "original score",
     by: "nicolaas van reenen",
     animationData: require('../assets/animation/portfolio/arwa.json'),
     credits: {
@@ -77,7 +77,7 @@ module.exports = [
     title: "Discovery",
     vimeo_id: "288511966",
     type: "Original Composition",
-    by: "daniel lidchi *& markus wormstorm",
+    by: "Daniel Lidchi & Markus Wormstorm",
     animationData: require('../assets/animation/portfolio/discovery.json'),
     credits: {
       campaign: "Discovery & Wayde Van Niekerk",
@@ -89,7 +89,7 @@ module.exports = [
     title: "Jaguar",
     vimeo_id: "288527166",
     type: "Original Composition, Sound Design & Final Mix",
-    by: "daniel lidchi",
+    by: "Daniel Lidchi",
     animationData: require('../assets/animation/portfolio/jaguar.json'),
     credits: {
       campaign: "Spec",
@@ -102,7 +102,7 @@ module.exports = [
     title: "Virgin Active",
     vimeo_id: "288527214",
     type: "Original Composition & Sound Design",
-    by: "simon kohler",
+    by: "Simon Kohler",
     animationData: require('../assets/animation/portfolio/virginactive.json'),
     credits: {
       campaign: "Lets 2015",
@@ -116,7 +116,7 @@ module.exports = [
     title: "Vigo",
     vimeo_id: "288528530",
     type: "Original Composition, Sound Design & Final Mix",
-    by: "simon kohler",
+    by: "Simon Kohler",
     animationData: require('../assets/animation/portfolio/vigo.json'),
     credits: {
       feat: "Tumi Molekane & Nonku Phiri",
@@ -130,8 +130,8 @@ module.exports = [
     className: "title-item adidas",
     title: "Adidas",
     vimeo_id: "288511643",
-    type: "Original Composition",
-    by: "nicolaas van reenen",
+    type: "Original composition",
+    by: "Nicolaas Van Reenen",
     animationData: require('../assets/animation/portfolio/adidas.json'),
     credits: {
       director: "Travys Owen",
@@ -144,7 +144,7 @@ module.exports = [
     title: "Status",
     vimeo_id: "288528330",
     type: "Original Composition & Sound Design",
-    by: "simon kohler",
+    by: "Simon Kohler",
     animationData: require('../assets/animation/portfolio/status.json'),
     credits: {
       director: "Paul Ward",
@@ -161,7 +161,7 @@ module.exports = [
     campaign: "Why do you Love the World",
     agency: "Erste Liebe Filmproduktion",
     type: "Original Composition, Sound Design & Final Mix",
-    by: "Nicolaas Van Reenen *& Simon Kohler",
+    by: "Nicolaas Van Reenen & Simon Kohler",
     animationData: require('../assets/animation/portfolio/lufthansa.json'),
     credits: {
       director: "Viviane Blumenschein",
@@ -189,7 +189,7 @@ module.exports = [
     title: "Ubisoft",
     vimeo_id: "288528397",
     type: "Original Composition & Final Mix",
-    by: "Nicolaas Van Reenen *& Daniel Lidchi",
+    by: "Nicolaas Van Reenen & Daniel Lidchi",
     animationData: require('../assets/animation/portfolio/ubisoft.json'),
     credits: {
       campaign: "The Crew 2",
@@ -232,7 +232,7 @@ module.exports = [
     title: "Toyota",
     vimeo_id: "288526920",
     type: "Original Composition, Sound Design & Final Mix",
-    by: "Nicolaas Van Reenen *& Simon Kohler",
+    by: "Nicolaas Van Reenen & Simon Kohler",
     animationData: require('../assets/animation/portfolio/toyota.json'),
     credits: {
       campaign: "Start Your Impossible",
@@ -248,7 +248,7 @@ module.exports = [
     campaign: "Ricky Rick - Ballys and Bibles",
     director: "Adriaan Louw",
     producer: "Alison Swank",
-    type: "Sound Design",
+    type: "sound design",
     by: "field",
     animationData: require('../assets/animation/portfolio/rickyrick.json'),
     credits: {}
@@ -257,7 +257,7 @@ module.exports = [
     className: "title-item metropolitan",
     title: "metropolitan",
     vimeo_id: "294748511",
-    type: "Origional Composition",
+    type: "origional composition",
     by: "nicolaas van reenen",
     animationData: require('../assets/animation/portfolio/metropolitan.json'),
     credits: {
@@ -300,7 +300,7 @@ module.exports = [
     className: "title-item castle1",
     title: "Castle",
     vimeo_id: "288511782",
-    type: "Arrangement & Sound Design",
+    type: "arrangement & sound design",
     by: "field",
     animationData: require('../assets/animation/portfolio/castle.json'),
     credits: {
@@ -369,7 +369,7 @@ module.exports = [
     title: "Puma",
     vimeo_id: "288528011",
     type: "Original Composition, Sound Design & Final Mix",
-    by: "Nicolaas Van Reenen *& Simon Kohler",
+    by: "Nicolaas Van Reenen & Simon Kohler",
     animationData: require('../assets/animation/portfolio/puma.json'),
     credits: {
       campaign: "Do You",
@@ -428,7 +428,7 @@ module.exports = [
     campaign: "A/W 2018 Campaign",
     brand: "Nicholas Coutts",
     director: ["Jesse Vos", "Alistair Blair"],
-    type: "Origional Composition, Sound Design & Final Mix",
+    type: "origional coposition, sound design & final mix",
     by: "nicolaas van reenen",
     animationData: require('../assets/animation/portfolio/niccoutts.json'),
     credits: {}
@@ -437,7 +437,7 @@ module.exports = [
     className: "title-item lovisenberg",
     title: "lovisenberg",
     vimeo_id: "288527664",
-    type: "Original Score",
+    type: "original score",
     by: "nicolaas van reenen",
     animationData: require('../assets/animation/portfolio/lovisenberg.json'),
     credits: {
@@ -449,7 +449,7 @@ module.exports = [
     className: "title-item autodesk",
     title: "autodesk",
     vimeo_id: "288511688",
-    type: "Sound Design & Final Mix",
+    type: "sound design & final mix",
     by: "simon kohler",
     animationData: require('../assets/animation/portfolio/autodesk.json'),
     credits: {
@@ -460,7 +460,7 @@ module.exports = [
     className: "title-item superbalist1",
     title: "superbalist",
     vimeo_id: "288528360",
-    type: "Sound Design & Final Mix",
+    type: "sound design & final mix",
     by: "simon kohler",
     animationData: require('../assets/animation/portfolio/superbalist.json'),
     credits: {
@@ -475,7 +475,7 @@ module.exports = [
     className: "title-item puma1",
     title: "puma",
     vimeo_id: "288511432",
-    type: "Sound Design",
+    type: "sound design",
     by: "simon kohler",
     animationData: require('../assets/animation/portfolio/puma.json'),
     credits: {
@@ -491,7 +491,7 @@ module.exports = [
     className: "title-item virgin-active1",
     title: "Virgin Active",
     vimeo_id: "288527230",
-    type: "Original Composition & Sound Design",
+    type: "original composition & sound design",
     by: "simon kohler",
     animationData: require('../assets/animation/portfolio/virginactive.json'),
     credits: {

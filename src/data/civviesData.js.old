@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: "Edun",
+    title: "Edun 'Karibu'",
     image: require(`../assets/civvies/Edun.jpg`),
     description:
       "Edun is a fashion brand based in New York, who collaborate with artisans across the African continent to produce sustainable, high quality garments. Adriaan Louw directed this mini-documentary, focussing on the brand outlook and the relationships between them and their partners in Nairobi, Kenya. Adriaan did a great job of recording a hand loom, operated by one of the films subjects, which was used as the starting point of the score’s tempo and steady, hypnotic atmosphere. Many cues were also taken from traditional Masaai music and chants.",
@@ -11,7 +11,7 @@ module.exports = [
   },
 
   {
-    title: "Mohau Modisakeng",
+    title: "Modisakeng - Kin ",
     image: require(`../assets/civvies/Kin.jpg`),
     description:
       "Kin explores the centrality of the concept of kinship to the African lived experience.",
@@ -23,7 +23,7 @@ module.exports = [
   },
 
   {
-    title: "Boiler Room",
+    title: "Boiler Room ",
     image: require(`../assets/civvies/BoilerRoomA.jpg`),
     description:
       "Breakfast with Snoochie Shy - An episodic interview & variety show by Boiler Room TV.",
@@ -34,7 +34,16 @@ module.exports = [
   },
 
   {
-    title: "Athi Patra-Ruga",
+    title: "Modisakeng - Zion",
+    image: require(`../assets/civvies/Zion.jpg`),
+    description:
+      "Mohau Modisakeng’s visually striking work is always a pleasure to create immersive sound  worlds for. In this instance, there was no sound recordist on set, and every sound needed to be           meticulously placed in order to create a subtle, realistic sound scape where there was none. ",
+    type: "Sound Design & Final Mix",
+    by: "Field"
+  },
+
+  {
+    title: "Over the Rainbow",
     image: require(`../assets/civvies/OverTheRainbow.jpg`),
     description:
       `A visual feast, directed by multi-disciplinary artist, Athi Patra-Ruga alongside Jarred Figgins and 
@@ -72,7 +81,7 @@ module.exports = [
       Garry Crawford and Jazz Monkey’s. Watch CNN’s Inside Africa episode ‘Saving elephants 
       through puppetry’ to meet the team.`,
     type:
-      "Musical Director, Original Score, Sound Design & Sound-Prop Design",
+      "Musical Director, Original Score, Sound Design & Sound-Prop Designer",
     by: "Simon Kohler, Co-Directed and performed by Nicolaas Van Reenen",
     link:
       "https://edition.cnn.com/videos/world/2017/01/31/inside-africa-puppetry-block-a.cnn",
@@ -80,7 +89,7 @@ module.exports = [
   },
 
   {
-    title: "Deep Blue Middle C",
+    title: "Deep Blue / Middle C",
     image: require(`../assets/civvies/DeepBlueMiddleC.jpg`),
     description: `A genre bending documentary film inspired by the west coast of South Africa. “I don’t have a tribal 
       dance, there are no manhood rituals for me. Sitting around this fire with my friends, surfing these 
@@ -94,6 +103,16 @@ module.exports = [
   },
 
   {
+    title: "Modisakeng - Passage",
+    image: require(`../assets/civvies/Passage.jpg`),
+    description: `Another engrossing work by Mohau Modisakeng, in which we were tasked with creating frantic 
+      splashes, whips and creaks for a minimalist piece in which 3 performers (including the artist) are 
+      pictured, stranded on sinking life rafts in various phases of submersion. `,
+    type: "Sound Design & Final Mix",
+    by: "Nic Van Reenen & Simon Kohler"
+  },
+
+  {
     title: "Ebisu Drit Matsuri",
     image: require(`../assets/civvies/EbisuDrift.jpg`),
     description: `Shot and directed by Deon Van Zyl at the Ebisu drift circuit in Japan, he captures the underground and nuanced essence of drift culture.`,
@@ -104,7 +123,7 @@ module.exports = [
   },
 
   {
-    title: "Khoi Uprising",
+    title: "Khoi Uprising ",
     image: require(`../assets/civvies/KhoiUprising.jpg`),
     description: `Praying mantis original people, a short film by Tedeusz Sazcek.`,
     type: "Film Score & Sound Design",
@@ -112,7 +131,7 @@ module.exports = [
   },
 
   {
-    title: "Fugard Theatre",
+    title: "The Mother",
     image: require(`../assets/civvies/TheMother.jpg`),
     description: `Florian Zeller’s _The Mother_ had its South African premiere at the Fugard Theatre in February 
       2017. The play, directed by Janice Honeyman, dealt with themes of abandonment, separation, 
@@ -126,7 +145,20 @@ module.exports = [
   },
 
   {
-    title: "Cameron Platter",
+    title: "Modisakeng - Endabeni",
+    image: require(`../assets/civvies/Endabeni.jpg`),
+    description: ` Informed by his experience as a young boy in Soweto, at the crossroads of a violent 
+      political transition, Modisakeng uses memory as a portal between past and present to explore 
+      themes of history, body and place within the post-apartheid context. His photography, films, 
+      performance and installation grapple with the conflicting politics of leadership and nationhood, 
+      whilst also attempting to unpack the legacy of inequality, capital, labour and extraction of mineral 
+      wealth in contemporary South Africa.`,
+    type: "Sound Design & Final Mix",
+    by: "Field"
+  },
+
+  {
+    title: "U-SAVED-ME",
     image: require(`../assets/civvies/USavedMe.jpg`),
     description: `U-SAVED-ME is an immersive installation combining video, sound, sculpture, tapestry, and 
       drawings. Platter, inspired by the surplus of information and access afforded by portable digital 
@@ -134,7 +166,7 @@ module.exports = [
       Constantin Brâncuși, historical South African artists and Arts and Crafts movements, LSD, 
       Deepak Chopra, interracial pornography, cheese curls, and psycho-collage, to name a few of the 
       artist’s sources.`,
-    type: "Original Composition, Sound Design & Final Mix",
+    type: "Original composition, Sound Design & Final Mix",
     by: "Nic Van Reenen & Simon Kohler"
   },
 
@@ -158,14 +190,14 @@ module.exports = [
     description: `An immersive installation experience on Rhodes drive, Cape Town South Africa. A future film 
       experiment by filmmaker Bryan Little, featuring a location aware, soundscape score by Simon 
       Kohler.`,
-    type: "Location Aware, Geo-Tagged Soundscape",
+    type: "Location aware, Geo-tagged Soundscape",
     by: "Simon Kohler",
     link: "https://vimeo.com/127006805",
     link_text: "Watch Video"
   },
 
   {
-    title: "Red Bull",
+    title: "Travalien",
     image: require(`../assets/civvies/Travailen.jpg`),
     description: `At midnight on Monday, March 24, 2014, trailblazers Ryan Sandes and Ryno Griesel embarked 
       on the ultimate Drakensberg adventure, the Drakensberg Grand Traverse, in an attempt to break 
