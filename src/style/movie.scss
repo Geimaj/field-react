@@ -92,6 +92,14 @@
                     display: inline-block;
                     align-self: flex-start;
                     text-transform: lowercase;
+
+                    span {
+                        display: block;
+
+                        &:first-of-type {
+                            display: inline-block;
+                        }
+                    }
                 }
         
                 &.active {

@@ -95,14 +95,15 @@ class Movie extends Component {
             
         })
 
+        let tokens = this.props.by.split("*");
+        let byLines = tokens.map((by) => {
+            return (
+                <span>{by}</span>
+            );
+        })
+
         return (
             <div id="movie" >
-                {/* <Icon
-                    className="exitMovie"
-                    src={require('../assets/icon/Close.svg')}
-                    alt="exit movie"
-                    onClick={this.handleClick} /> */}
-
                 <ExitIcon onClick={this.handleClick} />
 
                 <div className="content">
@@ -111,7 +112,7 @@ class Movie extends Component {
                         <div id="credits">
                             <div id="by">
                                 <h2>
-                                    by {this.props.by}
+                                    by {byLines}
                                 </h2>
                             </div>
                             <p>
