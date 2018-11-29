@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Animation from "./Animation";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 const $ = require('jquery')
 const artData = require("../data/civviesData")
@@ -152,19 +153,26 @@ class PortfolioItem extends Component {
 
     return (
       <div className={`art`}>
-        <div className="content"
-          onPointerEnter={() => this.imageHoverOn(this)}
-          onPointerLeave={this.imageHoverOff}
-          onMouseEnter={() => this.imageHoverOn(this)}
-          onMouseLeave={this.imageHoverOff}
-          >
+        <ReactCSSTransitionGroup
+          transitionName="fade"
+          transitionAppear = {true} transitionAppearTimeout = {500}
+          transitionEnter = {false} transitionLeave = {false}
+        >
 
-          {details}
-          {/* {this.content} */}
-        </div>
-        <ul className="artList">
-          {this.art}
-        </ul>
+          <div className="content"
+            onPointerEnter={() => this.imageHoverOn(this)}
+            onPointerLeave={this.imageHoverOff}
+            onMouseEnter={() => this.imageHoverOn(this)}
+            onMouseLeave={this.imageHoverOff}
+            key={1}>
+
+            {details}
+            {/* {this.content} */}
+          </div>
+          <ul className="artList" key="2">
+            {this.art}
+          </ul>
+        </ReactCSSTransitionGroup>
       </div>
     );
   }

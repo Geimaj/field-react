@@ -9,7 +9,15 @@
     &.active {
         opacity: 1
     }
-    
+
+    .fade-enter {
+        background: blue;
+    }
+
+    .fade-enter-active {
+        background: red;
+    }
+
     .content {
         width: 45%;
         height: 100%;
