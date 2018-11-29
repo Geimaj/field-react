@@ -38,6 +38,8 @@ body {
     margin: 4% 5%;
     // background: royalblue;
 
+
+
     .menu {
         width: 50px;
         position: absolute;
@@ -51,11 +53,6 @@ body {
     position: absolute;
     top: 0;
     width: 86%;
-
-    &.active {
-        display: block;
-        opacity: 1;
-    }
     
     .menu {
         position: absolute;

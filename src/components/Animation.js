@@ -39,13 +39,16 @@ export default class Animation extends Component {
     }
 
     loadAnimation(){
+        this.destroyAnimation()
         this.animation = lottie.loadAnimation(this.options)
         this.animation.addEventListener("DOMLoaded", this.animationLoaded)
         this.animation.onComplete = this.animationComplete
     }
 
     destroyAnimation(){
-        this.animation.destroy()
+        if(this.animation){
+            this.animation.destroy()
+        }
     }
 
     handleMouseOver() {

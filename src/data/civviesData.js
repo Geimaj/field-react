@@ -7,7 +7,8 @@ module.exports = [
     type: "Film Score & Final Mix",
     by: "Nicolaas Van Reenen",
     link: "https://vimeo.com/259820652",
-    link_text: "Watch film"
+    link_text: "Watch film",
+    animation: require("../assets/animation/WatchFilm.json")
   },
 
   {
@@ -19,7 +20,8 @@ module.exports = [
     by: "Nic Van Reenen & Simon Kohler",
     link:
       "http://www.sabrinaamrani.com/the-gallery/shows/now/kin-mohau-modisakeng-en",
-    link_text: "More Info"
+    link_text: "More Info",
+    animation: require("../assets/animation/WatchVideo.json")    
   },
 
   {

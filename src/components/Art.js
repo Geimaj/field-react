@@ -3,7 +3,10 @@ import Animation from "./Animation";
 
 const $ = require('jquery')
 const artData = require("../data/civviesData")
-const watchAnimation = require("../assets/animation/WatchFilm.json")
+const watchFilmAnimation = require("../assets/animation/WatchFilm.json")
+const watchShowAnimation = require("../assets/animation/WatchShow.json")
+const watchVideoAnimation = require("../assets/animation/WatchVideo.json")
+
 const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
 
@@ -46,7 +49,18 @@ class PortfolioItem extends Component {
 
   }
 
+  componentWillMount(){
+    $(".art").addClass("active")
+  }
+  
+  componentWillUnmount(){
+    $(".art").removeClass("active")
+  }
+  
   componentDidMount(){
+    $(".art").addClass("active")
+    $(".art").addClass("active-opening")
+    // $(".art").removeClass("active-opening")    
     $(".artContent").eq(0).addClass('active')
     $(".artList li").eq(0).addClass('active')
 
@@ -92,6 +106,20 @@ class PortfolioItem extends Component {
   render() {
 
     let item = artData[this.state.active]
+
+    let animationData = watchShowAnimation;
+
+    if(item.animation){
+      animationData = item.animation
+    }
+
+    this.animation = 
+          <Animation 
+            mouseOnFrames={AnimationMouseOn}
+            mouseOffFrames={AnimationMouseOff}
+            animationData={animationData}
+            onClick={this.artLinkClicked}/>
+      
     let details = 
       <div className="artContent">
 
@@ -115,14 +143,12 @@ class PortfolioItem extends Component {
             By: {item.by}
           </p>
 
-          <Animation 
-            mouseOnFrames={AnimationMouseOn}
-            mouseOffFrames={AnimationMouseOff}
-            animationData={watchAnimation}
-            onClick={this.artLinkClicked}/>
+          {this.animation}
+
         </div>
     </div>
     
+
 
     return (
       <div className={`art`}>
