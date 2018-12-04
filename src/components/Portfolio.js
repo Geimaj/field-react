@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import { Fade } from 'react-animation-components'
+
 
 import PortfolioItem from "./PortfolioItem"
 import Movie from "./Movie"
@@ -140,11 +142,14 @@ class Portfolio extends Component {
 
     let classes = `page portfolio ${className}`;
     return (
+      <Fade in>
+
       <div className={classes}
         onMouseEnter={this.handleMouseEnter}
         onPointerEnter={this.handleMouseEnter}>
         {portfolio}
       </div>
+      </Fade>
     );
   }
 

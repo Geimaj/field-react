@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Animation from "./Animation";
 import ExitIcon from "./ExitIcon";
+import { Fade } from 'react-animation-components'
+
 
 const Vimeo = require("react-vimeo");
 const $ = require("jquery");
