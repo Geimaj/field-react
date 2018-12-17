@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Animation from "./Animation";
+import ArtContentItem from "./ArtConentItem";
 import { Fade } from 'react-animation-components'
 
 const $ = require('jquery')
@@ -57,6 +58,7 @@ class PortfolioItem extends Component {
   
   componentWillUnmount(){
     $(".art").removeClass("active")
+    console.log('will unmount')
   }
   
   componentDidMount(){
@@ -70,25 +72,26 @@ class PortfolioItem extends Component {
   }
 
   artItemClick(key){
+    
     $(".artContent").removeClass('active')
     // $(".artContent").eq(key).addClass('active')
     $(".artContent").addClass('active') 
-
+    
     $(".artList li").removeClass('active')    
     $(".artList li").eq(key).addClass('active')
     
+    //TODO: REFACTOR
+   // fade active image out and new image in
     this.setState({
-      active: key,
-      // in: false
+      in: false
     })
 
-    // //TODO: REFACTOR
-    // setTimeout(()=> {
-
-    // this.setState({
-    //   in: true
-    // })
-    // }, 500)
+    setTimeout(()=> {
+      this.setState({
+        active: key,
+        in: true
+      })
+    }, 250)
   }
 
   imageHoverOn(item){
@@ -132,35 +135,47 @@ class PortfolioItem extends Component {
             animationData={animationData}
             onClick={this.artLinkClicked}/>
       
+    // let details = 
+    //   <div className="artContent">
+
+    //   <div className="imageContainer">
+    //     <div className="info">info</div>
+      
+    //  <Fade in={this.state.in} delay={0} duration={500} className="artImage-fade" unmountOnExit>
+      
+    //     <img className="artImage"
+    //       src={item.image} 
+    //       alt={item.link}/>
+    //   </Fade>
+
+    //   </div>
+      
+    //     <div className="details">
+    //       <p className="description">
+    //         {item.description}
+    //       </p>
+    //       <p className="type">
+    //         {item.type}
+    //       </p>
+    //       <p className="by">
+    //         By: {item.by}
+    //       </p>
+
+    //       {this.animation}
+
+    //     </div>
+    // </div>
+
     let details = 
-      <div className="artContent">
-
-      <div className="imageContainer">
-        <div className="info">info</div>
-      
-        <img className="artImage"
-          src={item.image} 
-          alt={item.link}/>
+     <Fade in={this.state.in} delay={0} duration={500} className="artImage-fade" unmountOnExit>
     
-      </div>
-      
-        <div className="details">
-          <p className="description">
-            {item.description}
-          </p>
-          <p className="type">
-            {item.type}
-          </p>
-          <p className="by">
-            By: {item.by}
-          </p>
-
-          {this.animation}
-
-        </div>
-    </div>
+    <ArtContentItem type={item.type} 
+                    description={item.description}
+                    animation={this.animation}
+                    image={item.image}
+                    linke={item.link}/>
     
-
+      </Fade>
 
     return (
       <div className={`art`}>
@@ -172,11 +187,11 @@ class PortfolioItem extends Component {
             onMouseEnter={() => this.imageHoverOn(this)}
             onMouseLeave={this.imageHoverOff}
             key={1}>
-     <Fade in={this.state.in} delay={0} duration={500} className="artImage-fade" unmountOnExit>
+     {/* <Fade in={this.state.in} delay={0} duration={500} className="artImage-fade" unmountOnExit> */}
 
             {details}
             {/* {this.content} */}
-      </Fade>
+      {/* </Fade> */}
           </div>
 
           <ul className="artList" key="2">
