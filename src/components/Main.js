@@ -5,11 +5,6 @@ import {
     HashRouter
 } from "react-router-dom";
 
-// import {
-//     CSSTransition,
-//     TransitionGroup,
-// } from 'react-transition-group';
-// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Fade } from 'react-animation-components'
 
 import Portfolio from "./Portfolio";
@@ -21,6 +16,8 @@ import FadeTransition from "../transitions/FadeTransition"
 
 import "../style/fades.css"
 
+const $ = require('jquery')
+    
 const advertisingAnimation = require('../assets/animation/Advertising.json');
 const filmAndArtsAnimation = require('../assets/animation/Film&Arts.json');
 const ourTeamAnimation = require('../assets/animation/OurTeam.json');
@@ -34,6 +31,9 @@ const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
 
 const portfolioData = require('../data/portfolioData.js')
+
+export const fadeDuration = 500
+export const fadeDelay = fadeDuration/2
 
 const viewBox = {
     x: 0,
@@ -197,4 +197,18 @@ export default Main;
 
 function emailClicked() {
     window.open("mailto:info@field.audio", "_blank");
+}
+
+export function hideMenu(){
+    let $menu = $(".animation.menu")
+    $($menu).css("opacity", 0)
+}
+
+export function showMenu(fd=fadeDelay){
+    //delay
+    setTimeout(()=> {
+        let $menu = $(".animation.menu")
+        $($menu).animate({"opacity": 1}, fadeDuration)
+        console.log("1")
+    },fd)
 }

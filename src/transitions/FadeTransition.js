@@ -29,8 +29,6 @@ export default class FadeTransition extends React.Component {
     // }
 
     render(){
-        console.log(this)
-
         return (
         <ReactCSSTransitionGroup
             transitionName="example"

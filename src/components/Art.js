@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Animation from "./Animation";
 import ArtContentItem from "./ArtConentItem";
 import { Fade } from 'react-animation-components'
+import {hideMenu, showMenu, fadeDelay, fadeDuration} from "./Main"
+
 
 const $ = require('jquery')
 const artData = require("../data/civviesData")
@@ -58,10 +60,11 @@ class PortfolioItem extends Component {
   
   componentWillUnmount(){
     $(".art").removeClass("active")
-    console.log('will unmount')
   }
   
   componentDidMount(){
+    hideMenu();
+
     $(".art").addClass("active")
     $(".art").addClass("active-opening")
     // $(".art").removeClass("active-opening")    
@@ -134,40 +137,9 @@ class PortfolioItem extends Component {
             mouseOffFrames={AnimationMouseOff}
             animationData={animationData}
             onClick={this.artLinkClicked}/>
-      
-    // let details = 
-    //   <div className="artContent">
-
-    //   <div className="imageContainer">
-    //     <div className="info">info</div>
-      
-    //  <Fade in={this.state.in} delay={0} duration={500} className="artImage-fade" unmountOnExit>
-      
-    //     <img className="artImage"
-    //       src={item.image} 
-    //       alt={item.link}/>
-    //   </Fade>
-
-    //   </div>
-      
-    //     <div className="details">
-    //       <p className="description">
-    //         {item.description}
-    //       </p>
-    //       <p className="type">
-    //         {item.type}
-    //       </p>
-    //       <p className="by">
-    //         By: {item.by}
-    //       </p>
-
-    //       {this.animation}
-
-    //     </div>
-    // </div>
 
     let details = 
-     <Fade in={this.state.in} delay={0} duration={500} className="artImage-fade" unmountOnExit>
+     <Fade in={this.state.in} delay={0} duration={fadeDuration} className="artImage-fade" unmountOnExit>
     
     <ArtContentItem type={item.type} 
                     description={item.description}
@@ -187,15 +159,12 @@ class PortfolioItem extends Component {
             onMouseEnter={() => this.imageHoverOn(this)}
             onMouseLeave={this.imageHoverOff}
             key={1}>
-     {/* <Fade in={this.state.in} delay={0} duration={500} className="artImage-fade" unmountOnExit> */}
 
             {details}
-            {/* {this.content} */}
-      {/* </Fade> */}
           </div>
 
           <ul className="artList" key="2">
-      <Fade in delay={250} duration={500}>
+      <Fade in delay={fadeDelay} duration={fadeDuration} onEntered={() => showMenu(fadeDelay*2)}>
             {this.art}
       </Fade>
           </ul>

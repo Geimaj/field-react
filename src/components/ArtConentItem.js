@@ -17,11 +17,9 @@ export default class ArtContentIemt extends Component {
     }
 
     componentWillMount(){
-        console.log("should mounting")
     }
 
     componentWillUnmount(){
-        console.log('will unmounting')
     }
 
     render() {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { Fade } from 'react-animation-components'
-
+import { Fade, Stagger } from 'react-animation-components'
+import {hideMenu, showMenu, fadeDelay, fadeDuration} from "./Main"
 
 import PortfolioItem from "./PortfolioItem"
 import Movie from "./Movie"
@@ -54,7 +54,7 @@ class Portfolio extends Component {
     })
     
     return (
-      <Fade in className="portfolio-fade" component="span">      
+      <Fade in className="portfolio-fade" component="span" onEntered={() => showMenu(fadeDelay)}>      
       <div id="titles" 
       ref={(c) => this.el = c}>
         <ul id="title-list">
@@ -66,17 +66,16 @@ class Portfolio extends Component {
   }
 
   componentDidMount() {
+    hideMenu()
     this.setState({
       update: true
     })
-    console.log('mount')
     watchScroll();
 
 
   }
 
   shouldComponentUpdate(){
-    console.log('should update')
     // watchScroll()
     if(this.state.active){
       if($("#titles")){
@@ -93,12 +92,8 @@ class Portfolio extends Component {
     // this.setState({
     //   update: false
     // })
-    console.log('unmount')
-    console.log(scrollInterval)    
     clearInterval(scrollInterval)
 
-    console.log('cleared')    
-    console.log(scrollInterval)    
     
   }
 
@@ -114,8 +109,6 @@ class Portfolio extends Component {
       active: true
     })
 
-    // clearInterval(scrollInterval)
-    // this.render()
   }
 
   handleMouseEnter(){
@@ -149,42 +142,14 @@ class Portfolio extends Component {
 
     let classes = `page portfolio ${className}`;
     return (
-      
-      // <Fade in className="fade">
+
         <div className={classes}
           onMouseEnter={this.handleMouseEnter}
           onPointerEnter={this.handleMouseEnter}>
           {portfolio}
         </div>
-      // </Fade>
     );
   }
-
-
-
-  // watchScroll(){
-  //   this.$titles = $("#titles");
-  //   this.titlesWidth = this.$titles.outerWidth(true);
-  //   this.titlesScrollWidth = this.$titles[0].scrollWidth;
-  //   this.wDiff = this.titlesScrollWidth / this.titlesWidth - 1; // widths difference ratio
-  //   this.mPadd = 60; // Mousemove Padding
-  //   this.damp = 20; // Mousemove response softness
-  //   this.mX = 0; // Real mouse position
-  //   this.mX2 = 0; // Modified mouse position
-  //   this.posX = 0;
-  //   this.mmAA = this.titlesWidth - this.mPadd * 2; // The mousemove available area
-  //   this.mmAAr = this.titlesWidth / this.mmAA; // get available mousemove fidderence ratio
-  
-  //   this.$titles.mousemove(function(e) {
-  //     this.mX = e.pageX - $(this).offset().left;
-  //     this.mX2 = Math.min(Math.max(0, this.mX - this.mPadd), this.mmAA) * this.mmAAr;
-  //   });
-  
-  
-   
-  // }
-
-
 
 }
 
@@ -212,6 +177,5 @@ function watchScroll(){
   scrollInterval = setInterval(function() {
     posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
     $titles.scrollLeft(posX * wDiff);
-    console.log('interval')
   }, 10);
 }

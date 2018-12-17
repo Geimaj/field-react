@@ -3,6 +3,7 @@ import Icon from "./Icon"
 import ExitIcon from "./ExitIcon"
 import Animation from "./Animation"
 import { Fade } from 'react-animation-components'
+import {hideMenu, showMenu, fadeDelay, fadeDuration} from "./Main"
 
 
 const AnimationMouseOn = [0, 12]
@@ -55,6 +56,7 @@ class Team extends Component {
 
   componentDidMount() {
     $(".teamContent").eq(0).addClass('active')
+    hideMenu()
   }
 
   handleNameHover(key) {
@@ -86,8 +88,6 @@ class Team extends Component {
     $(".teamContent").removeClass('showDetails')
     $(".exit").removeClass("active")
 
-
-
     this.setState({
       showInfo: false
     })
@@ -97,14 +97,10 @@ class Team extends Component {
     let team = teamData.map((item, key) => {
       let cross;
       cross =
-        // <Icon
-        //   className="exit"
-        //   onClick={this.exitClick}
-        //   src={require('../assets/icon/Close.svg')} />
         <ExitIcon onClick={this.exitClick}/>
 
       return (
-        <Fade in delay={250*key} duration={500}>
+        <Fade in delay={fadeDelay*key} duration={fadeDuration}>
         <div className="name-item" onMouseEnter={() => this.handleNameHover(key)} onPointerEnter={() => this.handleNameHover(key)} key={key}>
             <Animation
               className={`teamAnimation ${item.name.toLowerCase().split(' ')[0]}`}
@@ -131,7 +127,7 @@ class Team extends Component {
         <div className="names">
           {this.teamNames()}
         </div>
-     <Fade in delay={1000} duration={500}>
+     <Fade in delay={fadeDelay*teamData.length} duration={fadeDuration} onEntered={() => showMenu(fadeDelay*(teamData.length +1))}>
         
         <div className="content">
           {this.content}
