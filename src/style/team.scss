@@ -18,12 +18,16 @@ $fadeTime: 500ms;
         padding: 0;
         
 
-        div {
+        .name-item {
             display: flex;
             flex-direction: row;
             margin-bottom: 5%;
             overflow: visible;
             // background: royalblue;
+             
+            // div {
+            //     background: palevioletred;
+            // }
             // width: 105%;
 
             // &.simon {

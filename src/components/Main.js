@@ -9,7 +9,7 @@ import {
 //     CSSTransition,
 //     TransitionGroup,
 // } from 'react-transition-group';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Fade } from 'react-animation-components'
 
 import Portfolio from "./Portfolio";
@@ -84,12 +84,13 @@ class Main extends Component {
             content =
                 <div id="menu" className="page active">
 
-                    
+
                     <ul className="menu-list">
                         <li>
-                            <Fade in delay={0} duration={500}>
 
-                                <NavLink to="/portfolio">
+                            <NavLink to="/portfolio">
+                                <Fade in delay={0} duration={500}
+                                    className="fade">
                                     <Animation
                                         className="portfolioAnimation"
                                         mouseOnFrames={AnimationMouseOn}
@@ -97,8 +98,8 @@ class Main extends Component {
                                         animationData={advertisingAnimation}
                                         viewBox={viewBox}
                                         onClick={this.menuAnimationClick} />
-                                </NavLink>
-                            </Fade>
+                                </Fade>
+                            </NavLink>
 
                         </li>
                         <li>

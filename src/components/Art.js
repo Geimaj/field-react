@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Animation from "./Animation";
+import { Fade } from 'react-animation-components'
 
 const $ = require('jquery')
 const artData = require("../data/civviesData")
@@ -33,7 +34,8 @@ class PortfolioItem extends Component {
 
     this.state = {
       active: 0,
-      showDetails: false
+      showDetails: false,
+      in: true
     }
 
     this.art = artData.map((item, key) => {
@@ -76,8 +78,17 @@ class PortfolioItem extends Component {
     $(".artList li").eq(key).addClass('active')
     
     this.setState({
-      active: key
+      active: key,
+      // in: false
     })
+
+    // //TODO: REFACTOR
+    // setTimeout(()=> {
+
+    // this.setState({
+    //   in: true
+    // })
+    // }, 500)
   }
 
   imageHoverOn(item){
@@ -101,6 +112,7 @@ class PortfolioItem extends Component {
 
   artLinkClicked(){
     window.open(artData[this.state.active].link,"_blank")
+
   }
 
   render() {
@@ -152,18 +164,25 @@ class PortfolioItem extends Component {
 
     return (
       <div className={`art`}>
+
+
           <div className="content"
             onPointerEnter={() => this.imageHoverOn(this)}
             onPointerLeave={this.imageHoverOff}
             onMouseEnter={() => this.imageHoverOn(this)}
             onMouseLeave={this.imageHoverOff}
             key={1}>
+     <Fade in={this.state.in} delay={0} duration={500} className="artImage-fade" unmountOnExit>
 
             {details}
             {/* {this.content} */}
+      </Fade>
           </div>
+
           <ul className="artList" key="2">
+      <Fade in delay={250} duration={500}>
             {this.art}
+      </Fade>
           </ul>
       </div>
     );

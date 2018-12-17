@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Icon from "./Icon"
 import ExitIcon from "./ExitIcon"
 import Animation from "./Animation"
+import { Fade } from 'react-animation-components'
+
 
 const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
@@ -102,18 +104,20 @@ class Team extends Component {
         <ExitIcon onClick={this.exitClick}/>
 
       return (
-        <div onMouseEnter={() => this.handleNameHover(key)} onPointerEnter={() => this.handleNameHover(key)} key={key}>
-          <Animation
-            className={`teamAnimation ${item.name.toLowerCase().split(' ')[0]}`}
-            mouseOnFrames={AnimationMouseOn}
-            mouseOffFrames={AnimationMouseOff}
-            animationData={item.animationData}
-            viewBox={item.viewBox}
-            onClick={() => this.teamNameClick(key)} />
+        <Fade in delay={250*key} duration={500}>
+        <div className="name-item" onMouseEnter={() => this.handleNameHover(key)} onPointerEnter={() => this.handleNameHover(key)} key={key}>
+            <Animation
+              className={`teamAnimation ${item.name.toLowerCase().split(' ')[0]}`}
+              mouseOnFrames={AnimationMouseOn}
+              mouseOffFrames={AnimationMouseOff}
+              animationData={item.animationData}
+              viewBox={item.viewBox}
+              onClick={() => this.teamNameClick(key)} />
 
-          {cross}
+            {cross}
 
-        </div>
+          </div>
+        </Fade>  
       )
     })
 
@@ -122,34 +126,18 @@ class Team extends Component {
 
   render() {
 
-    // let content;
-    // let roles = teamData[this.state.active].roles.map((item, key) => {
-    //   return <li key={key}><h2>{item}</h2></li>
-    // })
-
-    // if(this.state.showInfo){
-    //   content = 
-    //     <div className="details">
-    //     <ul>
-    //       {roles}
-    //     </ul>
-    //       {teamData[this.state.active].description}
-    //     </div>
-    // } else {
-    //   content = 
-    //     <img src={teamData[this.state.active].image} alt={teamData[this.state.active].name} />
-
-    // }
-
     return (
       <div className="page team">
         <div className="names">
           {this.teamNames()}
         </div>
+     <Fade in delay={1000} duration={500}>
+        
         <div className="content">
           {this.content}
         </div>
-      </div>
+    </Fade>
+     </div>
     );
   }
 }

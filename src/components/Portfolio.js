@@ -36,25 +36,32 @@ class Portfolio extends Component {
   PortfolioItemList(props) {
     const data = this.props.portfolioData
     const portfolioItems = data.map((item, index) => {
-      return <PortfolioItem
-        key={index}
-        title={item.title}
-        vimeoID={item.vimeo_id}
-        className={item.className}
-        by={item.by}
-        type={item.type}
-        extra={item.extra}
-        credits={item.credits}
-        viewBox={viewBox}
-        animationData={item.animationData}
-        onClick={this.portfolioItemClick} />
-    })
+      return (
 
+        <PortfolioItem
+          key={index}
+          title={item.title}
+          vimeoID={item.vimeo_id}
+          className={item.className}
+          by={item.by}
+          type={item.type}
+          extra={item.extra}
+          credits={item.credits}
+          viewBox={viewBox}
+          animationData={item.animationData}
+          onClick={this.portfolioItemClick} />
+      )
+    })
+    
     return (
+      <Fade in className="portfolio-fade" component="span">      
       <div id="titles" 
-        ref={(c) => this.el = c}>
-        <ul id="title-list">{portfolioItems}</ul>
+      ref={(c) => this.el = c}>
+        <ul id="title-list">
+          {portfolioItems}
+        </ul>
       </div>
+      </Fade>
     );
   }
 
@@ -142,14 +149,14 @@ class Portfolio extends Component {
 
     let classes = `page portfolio ${className}`;
     return (
-      <Fade in>
-
-      <div className={classes}
-        onMouseEnter={this.handleMouseEnter}
-        onPointerEnter={this.handleMouseEnter}>
-        {portfolio}
-      </div>
-      </Fade>
+      
+      // <Fade in className="fade">
+        <div className={classes}
+          onMouseEnter={this.handleMouseEnter}
+          onPointerEnter={this.handleMouseEnter}>
+          {portfolio}
+        </div>
+      // </Fade>
     );
   }
 
