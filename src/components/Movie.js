@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Animation from "./Animation";
 import ExitIcon from "./ExitIcon";
 import { Fade } from 'react-animation-components'
+import { hideMenu, showMenu, fadeDelay, fadeDuration } from "./Main"
+
 
 
 const Vimeo = require("react-vimeo");
@@ -34,16 +36,16 @@ class Movie extends Component {
 
     }
 
-    componentWillMount(){
+    componentWillMount() {
         $(".animation.menu").css('display', "none")
     }
 
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         $(".animation.menu").css('display', "block")
     }
 
-    
+
 
     handleClick() {
         this.props.onClick(this.props.props)
@@ -83,7 +85,7 @@ class Movie extends Component {
 
         let credits = Object.keys(this.props.credits).map((key, index) => {
             let data = this.props.credits[key];
-            if(typeof data === "string"){
+            if (typeof data === "string") {
                 return <li key={index}>{key}: {data}</li>
             } else {
                 let lis = data.map((item, index) => {
@@ -94,7 +96,7 @@ class Movie extends Component {
 
                 return lis;
             }
-            
+
         })
 
         let tokens = this.props.by.split("*");
@@ -106,7 +108,12 @@ class Movie extends Component {
 
         return (
             <div id="movie" >
-                <ExitIcon onClick={this.handleClick} />
+
+                <Fade in delay={fadeDelay} duration={fadeDuration}>
+
+                    <ExitIcon onClick={this.handleClick} />
+
+                </Fade>
 
                 <div className="content">
 
@@ -131,25 +138,27 @@ class Movie extends Component {
                         </div>
 
                         <div id="player" className="active">
-                            <Vimeo videoId={this.props.vimeoID} 
-                                autoplay={true}/>
+                            <Vimeo videoId={this.props.vimeoID}
+                                autoplay={true} />
                         </div>
                     </div>
 
                 </div>
-                <div className="creditAnimation" 
->
-                    <Animation
-                        className="creditAnimation"
-                        onClick={this.creditsClicked}
-                        viewBox={viewBox}
-                        mouseOnFrames={AnimationMouseOn}
-                        mouseOffFrames={AnimationMouseOff}
-                        animationData={creditAnimation}
-                        handleMouseOver={this.handlePointerEnter} 
-                        handleMouseLeave={this.handlePointerLeave}
+                    {/* <Fade in delay={fadeDelay * 2} duration={fadeDuration} className="credit-fade"> */}
+                <div className="creditAnimation">
+
+                        <Animation
+                            className="creditAnimation"
+                            onClick={this.creditsClicked}
+                            viewBox={viewBox}
+                            mouseOnFrames={AnimationMouseOn}
+                            mouseOffFrames={AnimationMouseOff}
+                            animationData={creditAnimation}
+                            handleMouseOver={this.handlePointerEnter}
+                            handleMouseLeave={this.handlePointerLeave}
                         />
                 </div>
+                    {/* </Fade> */}
             </div>
         );
     }

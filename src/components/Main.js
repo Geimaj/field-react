@@ -209,6 +209,5 @@ export function showMenu(fd=fadeDelay){
     setTimeout(()=> {
         let $menu = $(".animation.menu")
         $($menu).animate({"opacity": 1}, fadeDuration)
-        console.log("1")
     },fd)
 }
