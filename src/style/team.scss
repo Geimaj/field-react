@@ -19,7 +19,8 @@ $fadeTime: 500ms;
         
 
         .name-item {
-            display: flex;
+            // display: flex;
+            display: -webkit-flex;
             flex-direction: row;
             margin-bottom: 5%;
             overflow: visible;

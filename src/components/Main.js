@@ -148,7 +148,8 @@ class Main extends Component {
                         <Fade className={'fade'} in delay={750} duration={500}>
                             <Icon href="https://soundcloud.com/fieldcpt"
                                 src={soundcloudIcon}
-                                alt="Soundcloud" />
+                                alt="Soundcloud"
+                                className="soundcloud" />
 
 
                             <Icon href="https://vimeo.com/user89211135"

@@ -43,6 +43,7 @@ class Movie extends Component {
 
     componentWillUnmount() {
         $(".animation.menu").css('display', "block")
+        console.log("movie unmounting")
     }
 
 
@@ -100,9 +101,9 @@ class Movie extends Component {
         })
 
         let tokens = this.props.by.split("*");
-        let byLines = tokens.map((by) => {
+        let byLines = tokens.map((by, key) => {
             return (
-                <span>{by}</span>
+                <span key={key}>{by}</span>
             );
         })
 

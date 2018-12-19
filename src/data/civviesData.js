@@ -26,7 +26,7 @@ module.exports = [
     link:
       "http://www.sabrinaamrani.com/the-gallery/shows/now/kin-mohau-modisakeng-en",
     link_text: "More Info",
-    animation: watchVideo//require("../assets/animation/WatchVideo.json")    
+    animation: watchVideo  
   },
 
   {
