@@ -1,3 +1,8 @@
+const watchShow = "watchShow";
+const watchFilm = "watchFilm";
+const watchVideo = "watchVideo";
+
+
 module.exports = [
   {
     title: "Edun",
@@ -8,7 +13,7 @@ module.exports = [
     by: "Nicolaas Van Reenen",
     link: "https://vimeo.com/259820652",
     link_text: "Watch film",
-    animation: require("../assets/animation/WatchFilm.json")
+    animation: watchFilm
   },
 
   {
@@ -21,7 +26,7 @@ module.exports = [
     link:
       "http://www.sabrinaamrani.com/the-gallery/shows/now/kin-mohau-modisakeng-en",
     link_text: "More Info",
-    animation: require("../assets/animation/WatchVideo.json")    
+    animation: watchVideo//require("../assets/animation/WatchVideo.json")    
   },
 
   {
@@ -32,7 +37,8 @@ module.exports = [
     type: "Final Mix",
     by: "Daniel Lidchi",
     link: "https://www.youtube.com/watch?v=ldFu5JQm8CE",
-    link_text: "Watch Show"
+    link_text: "Watch Show",
+    animation: watchShow
   },
 
   {
@@ -60,7 +66,8 @@ module.exports = [
     type: "Film Score, Music Supervision, Sound Design & Recording",
     by: "Simon Kohler",
     link: "https://vimeo.com/ondemand/theafricancypher/61875765",
-    link_text: "Watch Film"
+    link_text: "Watch Film",
+    animation: watchFilm
   },
 
   {
@@ -78,7 +85,8 @@ module.exports = [
     by: "Simon Kohler, Co-Directed and performed by Nicolaas Van Reenen",
     link:
       "https://edition.cnn.com/videos/world/2017/01/31/inside-africa-puppetry-block-a.cnn",
-    link_text: "Watch Video"
+    link_text: "Watch Video",
+    animation: watchVideo
   },
 
   {
@@ -92,7 +100,8 @@ module.exports = [
     type: "Film Score, Sound Design, Recording & Final Mix",
     by: "Simon Kohler",
     link: "Film Score, Sound Design, Recording & Final Mix",
-    link_text: "Watch Film"
+    link_text: "Watch Film",
+    animation: watchFilm
   },
 
   {
@@ -102,7 +111,8 @@ module.exports = [
     type: "Original Composition, Sound Design & Final Mix",
     by: "Daniel Lidchi Feat: Alexander Pankiv Greene",
     link: "https://vimeo.com/210711392",
-    link_text: "Watch Video"
+    link_text: "Watch Video",
+    animation: watchVideo
   },
 
   {
@@ -124,7 +134,8 @@ module.exports = [
     type: "Original Composition & Sound Design",
     by: "Nicolaas Van Reenen",
     link: "https://www.facebook.com/TheFugardTheatre/videos/10154022904712030/",
-    link_text: "Watch Video"
+    link_text: "Watch Video",
+    animation: watchVideo
   },
 
   {
@@ -151,7 +162,8 @@ module.exports = [
     type: "Original Composition, Sound Design & Final Mix",
     by: "Simon Kohler",
     link: "https://vimeo.com/206018940",
-    link_text: "Watch Video"
+    link_text: "Watch Video",
+    animation: watchVideo
   },
 
   {
@@ -163,7 +175,8 @@ module.exports = [
     type: "Location Aware, Geo-Tagged Soundscape",
     by: "Simon Kohler",
     link: "https://vimeo.com/127006805",
-    link_text: "Watch Video"
+    link_text: "Watch Video",
+    animation: watchVideo
   },
 
   {
@@ -177,6 +190,7 @@ module.exports = [
     by: "Simon Kohler, Co-Composed with Staurt Ziegler & SignPost Sound",
     link:
       "https://players.brightcove.net/1439051358001/4JE31Ysng_default/index.html?directedMigration=true&videoId=3735561258001&",
-    link_text: "Watch Video"
+    link_text: "Watch Video",
+    animation: watchVideo
   }
 ];

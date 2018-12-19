@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Animation from "./Animation";
 import ArtContentItem from "./ArtConentItem";
 import { Fade } from 'react-animation-components'
-import {hideMenu, showMenu, fadeDelay, fadeDuration} from "./Main"
+import { hideMenu, showMenu, fadeDelay, fadeDuration } from "./Main"
 
 
 const $ = require('jquery')
@@ -27,13 +27,13 @@ const AnimationMouseOff = [12, 72]
 
 class PortfolioItem extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
 
     this.artItemClick = this.artItemClick.bind(this)
-    this.imageHoverOn = this.imageHoverOn.bind(this)    
-    this.imageHoverOff = this.imageHoverOff.bind(this)    
-    this.artLinkClicked = this.artLinkClicked.bind(this)    
+    this.imageHoverOn = this.imageHoverOn.bind(this)
+    this.imageHoverOff = this.imageHoverOff.bind(this)
+    this.artLinkClicked = this.artLinkClicked.bind(this)
 
     this.state = {
       active: 0,
@@ -45,24 +45,24 @@ class PortfolioItem extends Component {
       return (
         <li key={key}
           onClick={() => this.artItemClick(key)}>
-            <h2>
+          <h2>
             {item.title}
-            </h2>
+          </h2>
         </li>
       )
     })
 
   }
 
-  componentWillMount(){
+  componentWillMount() {
     $(".art").addClass("active")
   }
-  
-  componentWillUnmount(){
+
+  componentWillUnmount() {
     $(".art").removeClass("active")
   }
-  
-  componentDidMount(){
+
+  componentDidMount() {
     hideMenu();
 
     $(".art").addClass("active")
@@ -74,22 +74,22 @@ class PortfolioItem extends Component {
     watchScroll();
   }
 
-  artItemClick(key){
-    
+  artItemClick(key) {
+
     $(".artContent").removeClass('active')
     // $(".artContent").eq(key).addClass('active')
-    $(".artContent").addClass('active') 
-    
-    $(".artList li").removeClass('active')    
+    $(".artContent").addClass('active')
+
+    $(".artList li").removeClass('active')
     $(".artList li").eq(key).addClass('active')
-    
+
     //TODO: REFACTOR
-   // fade active image out and new image in
+    // fade active image out and new image in
     this.setState({
       in: false
     })
 
-    setTimeout(()=> {
+    setTimeout(() => {
       this.setState({
         active: key,
         in: true
@@ -97,16 +97,16 @@ class PortfolioItem extends Component {
     }, 250)
   }
 
-  imageHoverOn(item){
+  imageHoverOn(item) {
     this.setState({
       showDetails: true
     })
 
     // $('.artContent').eq(this.state.active).addClass('showDetails')
-    $('.artContent').addClass('showDetails')    
+    $('.artContent').addClass('showDetails')
   }
 
-  imageHoverOff(){
+  imageHoverOff() {
     this.setState({
       showDetails: false
     })
@@ -116,58 +116,91 @@ class PortfolioItem extends Component {
 
   }
 
-  artLinkClicked(){
-    window.open(artData[this.state.active].link,"_blank")
+  artLinkClicked() {
+    window.open(artData[this.state.active].link, "_blank")
 
   }
 
   render() {
 
+    let animation =
+      <Animation
+        mouseOnFrames={AnimationMouseOn}
+        mouseOffFrames={AnimationMouseOff}
+        animationData={watchFilmAnimation}
+        onClick={this.artLinkClicked} />
+
     let item = artData[this.state.active]
 
-    let animationData = watchShowAnimation;
-
-    if(item.animation){
-      animationData = item.animation
+    console.log(item.animation)
+    if (item.animation === "watchShow") {
+      animation =
+        <Animation
+          key={1}
+          mouseOnFrames={AnimationMouseOn}
+          mouseOffFrames={AnimationMouseOff}
+          animationData={watchShowAnimation}
+          onClick={this.artLinkClicked} />
+    } else if (item.animation === "watchFillm") {
+      animation =
+        <Animation
+          key={2}
+          mouseOnFrames={AnimationMouseOn}
+          mouseOffFrames={AnimationMouseOff}
+          animationData={watchFilmAnimation}
+          onClick={this.artLinkClicked} />
+    } else if (item.animation === "watchVideo") {
+      animation =
+        <Animation
+          key={3}
+          mouseOnFrames={AnimationMouseOn}
+          mouseOffFrames={AnimationMouseOff}
+          animationData={watchVideoAnimation}
+          onClick={this.artLinkClicked} />
     }
 
-    this.animation = 
-          <Animation 
-            mouseOnFrames={AnimationMouseOn}
-            mouseOffFrames={AnimationMouseOff}
-            animationData={animationData}
-            onClick={this.artLinkClicked}/>
+    // if(item.animation){
+    //   animationData = item.animation
+    // }
 
-    let details = 
-     <Fade in={this.state.in} delay={0} duration={fadeDuration} className="artImage-fade" unmountOnExit>
-    
-    <ArtContentItem type={item.type} 
-                    description={item.description}
-                    animation={this.animation}
-                    image={item.image}
-                    linke={item.link}/>
-    
+    // let animation = 
+    //       <Animation 
+    //         key={1}
+    //         mouseOnFrames={AnimationMouseOn}
+    //         mouseOffFrames={AnimationMouseOff}
+    //         animationData={animationData}
+    //         onClick={this.artLinkClicked}/>
+
+    let details =
+      <Fade in={this.state.in} delay={0} duration={fadeDuration} className="artImage-fade" unmountOnExit>
+
+        <ArtContentItem type={item.type}
+          description={item.description}
+          animation={animation}
+          image={item.image}
+          linke={item.link} />
+
       </Fade>
 
     return (
       <div className={`art`}>
 
 
-          <div className="content"
-            onPointerEnter={() => this.imageHoverOn(this)}
-            onPointerLeave={this.imageHoverOff}
-            onMouseEnter={() => this.imageHoverOn(this)}
-            onMouseLeave={this.imageHoverOff}
-            key={1}>
+        <div className="content"
+          onPointerEnter={() => this.imageHoverOn(this)}
+          onPointerLeave={this.imageHoverOff}
+          onMouseEnter={() => this.imageHoverOn(this)}
+          onMouseLeave={this.imageHoverOff}
+          key={1}>
 
-            {details}
-          </div>
+          {details}
+        </div>
 
-          <ul className="artList" key="2">
-      <Fade in delay={fadeDelay} duration={fadeDuration} onEntered={() => showMenu(fadeDelay*2)}>
+        <ul className="artList" key="2">
+          <Fade in delay={fadeDelay} duration={fadeDuration} onEntered={() => showMenu(fadeDelay * 2)}>
             {this.art}
-      </Fade>
-          </ul>
+          </Fade>
+        </ul>
       </div>
     );
   }
@@ -175,26 +208,26 @@ class PortfolioItem extends Component {
 }
 export default PortfolioItem;
 
-function watchScroll(){
+function watchScroll() {
 
   var $civvies_list = $(".artList"),
-  civviesHeight = $civvies_list.outerHeight(true),
-  civviesScrollHeight = $civvies_list[0].scrollHeight,
-  wDiff = civviesScrollHeight / civviesHeight - 1, // widths difference ratio
-  mPadd = 60, // Mousemove Padding
-  damp = 20, // Mousemove response softness
-  mX = 0, // Real mouse position
-  mX2 = 0, // Modified mouse position
-  posX = 0,
-  mmAA = civviesHeight - mPadd * 2, // The mousemove available area
-  mmAAr = civviesHeight / mmAA; // get available mousemove fidderence ratio
-  
-  $civvies_list.mousemove(function(e) {
+    civviesHeight = $civvies_list.outerHeight(true),
+    civviesScrollHeight = $civvies_list[0].scrollHeight,
+    wDiff = civviesScrollHeight / civviesHeight - 1, // widths difference ratio
+    mPadd = 60, // Mousemove Padding
+    damp = 20, // Mousemove response softness
+    mX = 0, // Real mouse position
+    mX2 = 0, // Modified mouse position
+    posX = 0,
+    mmAA = civviesHeight - mPadd * 2, // The mousemove available area
+    mmAAr = civviesHeight / mmAA; // get available mousemove fidderence ratio
+
+  $civvies_list.mousemove(function (e) {
     mX = e.pageY - $(this).offset().top;
     mX2 = Math.min(Math.max(0, mX - mPadd), mmAA) * mmAAr;
   });
-  
-  setInterval(function() {
+
+  setInterval(function () {
     posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
     $civvies_list.scrollTop(posX * wDiff);
   }, 10);
