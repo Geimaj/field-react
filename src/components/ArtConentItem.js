@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import Icon from "./Icon"
-import { Fade } from 'react-animation-components'
-
 
 export default class ArtContentIemt extends Component {
 

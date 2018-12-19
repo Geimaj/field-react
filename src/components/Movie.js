@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Animation from "./Animation";
 import ExitIcon from "./ExitIcon";
 import { Fade } from 'react-animation-components'
-import { hideMenu, showMenu, fadeDelay, fadeDuration } from "./Main"
+import {fadeDelay, fadeDuration } from "./Main"
 
 
 

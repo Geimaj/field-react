@@ -12,7 +12,6 @@ import Team from "./Team";
 import Animation from "./Animation"
 import Art from "./Art"
 import Icon from "./Icon"
-import FadeTransition from "../transitions/FadeTransition"
 
 import "../style/fades.css"
 

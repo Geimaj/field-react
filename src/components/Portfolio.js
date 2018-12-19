@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import { Fade, Stagger } from 'react-animation-components'
-import {hideMenu, showMenu, fadeDelay, fadeDuration} from "./Main"
+import { Fade } from 'react-animation-components'
+import {hideMenu, showMenu, fadeDelay} from "./Main"
 
 import PortfolioItem from "./PortfolioItem"
 import Movie from "./Movie"

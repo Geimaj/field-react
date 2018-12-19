@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Icon from "./Icon"
 import ExitIcon from "./ExitIcon"
 import Animation from "./Animation"
 import { Fade } from 'react-animation-components'
@@ -12,12 +11,6 @@ const AnimationMouseOff = [12, 72]
 const $ = require('jquery')
 
 const teamData = require("../data/teamData")
-const viewBox = {
-  x: 0,
-  y: 35,
-  w: 300,
-  h: 100
-}
 
 class Team extends Component {
 
