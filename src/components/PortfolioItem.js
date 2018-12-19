@@ -20,6 +20,7 @@ class PortfolioItem extends Component {
           onClick={this.handleClick}>
           <Animation 
             viewBox={this.props.viewBox}
+            waitUntillComplete={true}
             animationData={this.props.animationData}/>
         </li>
     );

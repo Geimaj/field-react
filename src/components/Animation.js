@@ -52,16 +52,17 @@ export default class Animation extends Component {
     }
 
     handleMouseOver() {
-        // if(this.canPlay){
-            this.didPlay = true
-            this.canPlay = false;
-            if(this.props.mouseOnFrames){
-                this.animation.playSegments(this.props.mouseOnFrames, true)
-            } else {
+        if(this.props.mouseOnFrames){
+            this.animation.playSegments(this.props.mouseOnFrames, true)
+        } else {
+            if(!this.props.waitUntillComplete || this.canPlay){
+                
                 this.animation.stop()         
                 this.animation.play()
+                    this.didPlay = true
+                    this.canPlay = false;
+                }
             }
-        // }
 
         if(this.props.handleMouseOver){
             this.props.handleMouseOver()
