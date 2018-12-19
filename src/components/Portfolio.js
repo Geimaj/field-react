@@ -25,6 +25,8 @@ class Portfolio extends Component {
     this.exitMovieClick = this.exitMovieClick.bind(this)    
     this.handleMouseEnter = this.handleMouseEnter.bind(this)        
     
+    this.inMovie = false
+
     this.state = {
       active: true,
       update: true
@@ -70,14 +72,13 @@ class Portfolio extends Component {
     this.setState({
       update: true
     })
-    watchScroll();
+    // watchScroll();
 
 
   }
 
   shouldComponentUpdate(){
-    // watchScroll()
-    if(this.state.active){
+    if(!this.inMovie && this.state.active){
       if($("#titles")){
         watchScroll()
       }
@@ -89,15 +90,11 @@ class Portfolio extends Component {
   }
 
   componentWillUnmount(){
-    // this.setState({
-    //   update: false
-    // })
     clearInterval(scrollInterval)
-
-    
   }
 
   portfolioItemClick(activeItem) {
+    this.inMovie = true;
     this.setState({
       active: false,
       item: activeItem
@@ -105,16 +102,11 @@ class Portfolio extends Component {
   }
 
   exitMovieClick() {
+    // this.inMovie = false
     this.setState({
       active: true
     })
-
-  }
-
-  handleMouseEnter(){
-    this.setState({redraw: true})
-
-  
+    
   }
 
   render() {
