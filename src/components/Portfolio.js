@@ -23,8 +23,6 @@ class Portfolio extends Component {
     this.portfolioItemClick = this.portfolioItemClick.bind(this)
     this.exitMovieClick = this.exitMovieClick.bind(this)    
     
-    this.inMovie = false
-
     this.state = {
       active: true,
       update: true
@@ -75,8 +73,9 @@ class Portfolio extends Component {
 
   }
 
-  shouldComponentUpdate(){
-    if(!this.inMovie && this.state.active){
+  componentDidUpdate(){
+    console.log('should update')
+    if(this.state.active){
       if($("#titles")){
         watchScroll()
       }
@@ -92,7 +91,6 @@ class Portfolio extends Component {
   }
 
   portfolioItemClick(activeItem) {
-    this.inMovie = true;
     this.setState({
       active: false,
       item: activeItem
@@ -100,7 +98,6 @@ class Portfolio extends Component {
   }
 
   exitMovieClick() {
-    // this.inMovie = false
     this.setState({
       active: true
     })
@@ -145,7 +142,7 @@ class Portfolio extends Component {
 
 export default Portfolio;
 
-function watchScroll(){
+export function watchScroll(){
   var $titles = $("#titles"),
   titlesWidth = $titles.outerWidth(true),
   titlesScrollWidth = $titles[0].scrollWidth,
@@ -167,5 +164,6 @@ function watchScroll(){
   scrollInterval = setInterval(function() {
     posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
     $titles.scrollLeft(posX * wDiff);
+    console.log('tick')
   }, 10);
 }

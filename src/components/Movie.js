@@ -4,8 +4,6 @@ import ExitIcon from "./ExitIcon";
 import { Fade } from 'react-animation-components'
 import {fadeDelay, fadeDuration } from "./Main"
 
-
-
 const Vimeo = require("react-vimeo");
 const $ = require("jquery");
 
