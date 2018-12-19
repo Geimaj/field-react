@@ -23,7 +23,6 @@ class Portfolio extends Component {
     super(props)
     this.portfolioItemClick = this.portfolioItemClick.bind(this)
     this.exitMovieClick = this.exitMovieClick.bind(this)    
-    this.handleMouseEnter = this.handleMouseEnter.bind(this)        
     
     this.inMovie = false
 
