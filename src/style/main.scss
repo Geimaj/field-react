@@ -2,7 +2,11 @@ $fadeTime: 500ms;
 $cursor-click:  pointer;
 $cursor-default: default;
 
-
+// display: -webkit-box;
+// display: -moz-box;
+// display: -ms-flexbox;
+// display: -webkit-flex;
+// display: flex;
 
 @font-face {
     font-family: HKGothic;
