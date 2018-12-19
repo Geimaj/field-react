@@ -17,6 +17,7 @@ export default class Animation extends Component {
 
         this.canPlay = true;
         this.didPlay = false;
+        this.cycleOver = true;
         
     }
 
@@ -52,15 +53,16 @@ export default class Animation extends Component {
     }
 
     handleMouseOver() {
+        this.didPlay = true
+        this.canPlay = false;
         if(this.props.mouseOnFrames){
             this.animation.playSegments(this.props.mouseOnFrames, true)
         } else {
-            if(!this.props.waitUntillComplete || this.canPlay){
+            if(!this.props.waitUntillComplete || this.cycleOver){
                 
                 this.animation.stop()         
                 this.animation.play()
-                    this.didPlay = true
-                    this.canPlay = false;
+                this.cycleOver = false
                 }
             }
 
@@ -83,6 +85,7 @@ export default class Animation extends Component {
 
     animationComplete(){
         this.canPlay = true;
+        this.cycleOver = true;
     }
 
     animationLoaded() {
