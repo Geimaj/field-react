@@ -10,6 +10,7 @@ const artData = require("../data/civviesData")
 const watchFilmAnimation = require("../assets/animation/WatchFilm.json")
 const watchShowAnimation = require("../assets/animation/WatchShow.json")
 const watchVideoAnimation = require("../assets/animation/WatchVideo.json")
+const moreInfoAnimation = require("../assets/animation/MoreInfo.json")
 
 const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
@@ -156,6 +157,14 @@ class PortfolioItem extends Component {
           mouseOnFrames={AnimationMouseOn}
           mouseOffFrames={AnimationMouseOff}
           animationData={watchVideoAnimation}
+          onClick={this.artLinkClicked} />
+    } else if (item.animation === "moreInfo") {
+      animation =
+        <Animation
+          key={3}
+          mouseOnFrames={AnimationMouseOn}
+          mouseOffFrames={AnimationMouseOff}
+          animationData={moreInfoAnimation}
           onClick={this.artLinkClicked} />
     }
 

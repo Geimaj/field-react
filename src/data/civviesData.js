@@ -1,6 +1,7 @@
 const watchShow = "watchShow";
 const watchFilm = "watchFilm";
 const watchVideo = "watchVideo";
+const moreInfo = "moreInfo";
 
 
 module.exports = [
@@ -26,7 +27,7 @@ module.exports = [
     link:
       "http://www.sabrinaamrani.com/the-gallery/shows/now/kin-mohau-modisakeng-en",
     link_text: "More Info",
-    animation: watchVideo  
+    animation: moreInfo  
   },
 
   {
