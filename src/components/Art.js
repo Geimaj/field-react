@@ -4,7 +4,6 @@ import ArtContentItem from "./ArtConentItem";
 import { Fade } from 'react-animation-components'
 import { hideMenu, showMenu, fadeDelay, fadeDuration } from "./Main"
 
-
 const $ = require('jquery')
 const artData = require("../data/civviesData")
 const watchFilmAnimation = require("../assets/animation/WatchFilm.json")
@@ -14,17 +13,6 @@ const moreInfoAnimation = require("../assets/animation/MoreInfo.json")
 
 const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
-
-
-// const watchFilmAnimation = require('../assets/animation/WatchFilm.json')
-
-// const viewBox = {
-//     x: 0,
-//     y: 20,
-//     w: 350,
-//     h: 150
-// }
-
 
 class PortfolioItem extends Component {
 

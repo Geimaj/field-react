@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import ExitIcon from "./ExitIcon"
 import Animation from "./Animation"
 import { Fade } from 'react-animation-components'
-import {hideMenu, showMenu, fadeDelay, fadeDuration} from "./Main"
+import { hideMenu, showMenu, fadeDelay, fadeDuration } from "./Main"
+import { TeamMemberContent } from "./TeamMemberContent"
 
 
 const AnimationMouseOn = [0, 12]
@@ -22,58 +23,36 @@ class Team extends Component {
     this.exitClick = this.exitClick.bind(this)
 
     this.state = {
-      showInfo: false
+      showInfo: false,
+      activeIndex: 0,
+      className: "active"
     }
-
-    this.content = teamData.map((item, key) => {
-      let roles = teamData[key].roles.map((item1, key1) => {
-        return <li key={key1}><h2>{item1}</h2></li>
-      })
-      return (
-
-        <div className="teamContent" key={key}>
-          <img src={item.image} alt={item.name} />
-          <div className="details">
-            <ul>
-              {roles}
-            </ul>
-            <div>
-              {item.description}
-            </div>
-          </div>
-        </div>
-      )
-    })
 
   }
 
   componentDidMount() {
-    $(".teamContent").eq(0).addClass('active')
     hideMenu()
   }
 
   handleNameHover(key) {
     if (!this.state.showInfo) {
 
-      $(".teamContent").removeClass('active')
-      $(".teamContent").eq(key).addClass('active')
-
+      this.setState({
+        activeIndex: key
+      })
     }
   }
 
   teamNameClick(key) {
-    if (!this.state.showInfo) {
-    
-    $(".teamContent").removeClass('showDetails')
-    $(".teamContent").eq(key).addClass('showDetails')
 
     $(".exit").removeClass("active")
     $(".exit").eq(key).addClass('active')
 
     this.setState({
-      showInfo: true
+      showInfo: true,
+      activeIndex: key,
+      className: "active showDetails"
     })
-  }
 
   }
 
@@ -90,11 +69,11 @@ class Team extends Component {
     let team = teamData.map((item, key) => {
       let cross;
       cross =
-        <ExitIcon onClick={this.exitClick}/>
+        <ExitIcon onClick={this.exitClick} />
 
       return (
-        <Fade in delay={fadeDelay*key} duration={fadeDuration}>
-        <div className="name-item" onMouseEnter={() => this.handleNameHover(key)} onPointerEnter={() => this.handleNameHover(key)} key={key}>
+        <Fade in delay={fadeDelay * key} duration={fadeDuration} key={key}>
+          <div className="name-item" onMouseEnter={() => this.handleNameHover(key)} onPointerEnter={() => this.handleNameHover(key)} key={key}>
             <Animation
               className={`teamAnimation ${item.name.toLowerCase().split(' ')[0]}`}
               mouseOnFrames={AnimationMouseOn}
@@ -106,7 +85,7 @@ class Team extends Component {
             {cross}
 
           </div>
-        </Fade>  
+        </Fade>
       )
     })
 
@@ -115,18 +94,23 @@ class Team extends Component {
 
   render() {
 
+    let item = teamData[this.state.activeIndex]
+
+    let content =
+      <TeamMemberContent item={teamData[this.state.activeIndex]} showInfo={this.state.showInfo} />
+
     return (
       <div className="page team">
         <div className="names">
           {this.teamNames()}
         </div>
-     <Fade in delay={fadeDelay*teamData.length} duration={fadeDuration} onEntered={() => showMenu(fadeDelay*(teamData.length +1))}>
-        
-        <div className="content">
-          {this.content}
-        </div>
-    </Fade>
-     </div>
+        <Fade in delay={fadeDelay * teamData.length} duration={fadeDuration} onEntered={() => showMenu(fadeDelay * (teamData.length + 1))}>
+
+          <div className="content">
+            {content}
+          </div>
+        </Fade>
+      </div>
     );
   }
 }
