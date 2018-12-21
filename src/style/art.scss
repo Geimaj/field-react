@@ -70,9 +70,7 @@
                         margin: 0;
                         padding: 0;
                     }
-
-
-                    
+                   
                 }
                 
 
@@ -101,7 +99,6 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
-        // background: lightyellow;
     }
 
     li {
@@ -111,22 +108,15 @@
             margin-top: 0;
             padding: 0;
             text-transform: lowercase;
-        // background: limegreen;            
         }
-        // background: royalblue;
             
 
         &.active {
             h2:before {
                 content: "• ";
                 font-family: Arial, Helvetica, sans-serif;
-                // font-size: 5rem;
                 display: inline-block;
-                // height: 20%;
-                // position: relative;
-                // top: 1.5vh;
                 margin-right: 0.5rem;
-                // background: rebeccapurple;
                 padding: 0;
             }
         }

@@ -92,7 +92,7 @@ class PortfolioItem extends Component {
     })
 
     // $('.artContent').eq(this.state.active).addClass('showDetails')
-    $('.artContent').addClass('showDetails')
+    // $('.artContent').addClass('showDetails')
   }
 
   imageHoverOff() {
@@ -101,7 +101,7 @@ class PortfolioItem extends Component {
     })
 
     // $('.artContent').eq(this.state.active).removeClass('showDetails')
-    $('.artContent').removeClass('showDetails')
+    // $('.artContent').removeClass('showDetails')
 
   }
 
@@ -121,7 +121,6 @@ class PortfolioItem extends Component {
 
     let item = artData[this.state.active]
 
-    console.log(item.animation)
     if (item.animation === "watchShow") {
       animation =
         <Animation
@@ -156,33 +155,19 @@ class PortfolioItem extends Component {
           onClick={this.artLinkClicked} />
     }
 
-    // if(item.animation){
-    //   animationData = item.animation
-    // }
-
-    // let animation = 
-    //       <Animation 
-    //         key={1}
-    //         mouseOnFrames={AnimationMouseOn}
-    //         mouseOffFrames={AnimationMouseOff}
-    //         animationData={animationData}
-    //         onClick={this.artLinkClicked}/>
-
     let details =
       <Fade in={this.state.in} delay={0} duration={fadeDuration} className="artImage-fade" unmountOnExit>
-
         <ArtContentItem type={item.type}
           description={item.description}
           animation={animation}
           image={item.image}
-          linke={item.link} />
-
+          link={item.link}
+          by={item.by}
+          showDetails={this.state.showDetails} />
       </Fade>
 
     return (
       <div className={`art`}>
-
-
         <div className="content"
           onPointerEnter={() => this.imageHoverOn(this)}
           onPointerLeave={this.imageHoverOff}

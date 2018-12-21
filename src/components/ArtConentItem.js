@@ -21,8 +21,13 @@ export default class ArtContentIemt extends Component {
 
     render() {
 
+        let detailsOn = ""
+        if(this.props.showDetails){
+            detailsOn = "showDetails";
+        }
+
         return (
-            <div className="artContent">
+            <div className={`artContent ${detailsOn}`}>
 
             <div className="imageContainer">
               <div className="info">info</div>
