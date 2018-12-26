@@ -108,11 +108,7 @@ class Movie extends Component {
         return (
             <div id="movie" >
 
-                <Fade in delay={fadeDelay} duration={fadeDuration}>
 
-                    <ExitIcon onClick={this.handleClick} />
-
-                </Fade>
 
                 <div className="content">
 
@@ -143,7 +139,7 @@ class Movie extends Component {
                     </div>
 
                 </div>
-                    {/* <Fade in delay={fadeDelay * 2} duration={fadeDuration} className="credit-fade"> */}
+                    <Fade in delay={fadeDelay * 2} duration={fadeDuration} className="credit-fade">
                 <div className="creditAnimation">
 
                         <Animation
@@ -157,7 +153,13 @@ class Movie extends Component {
                             handleMouseLeave={this.handlePointerLeave}
                         />
                 </div>
-                    {/* </Fade> */}
+                    </Fade>
+
+                                    <Fade in delay={fadeDelay} duration={fadeDuration}>
+
+<ExitIcon onClick={this.handleClick} />
+
+</Fade>
             </div>
         );
     }
