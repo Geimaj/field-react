@@ -48,6 +48,8 @@
                 .info {
                     position: absolute;
                     opacity: 1;
+                    transition-property: opacity;
+                    transition-duration: $fadeTime;
                     z-index: 2;
                     font-family: HKGothic;
                     padding: 0;
