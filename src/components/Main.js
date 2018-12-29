@@ -168,7 +168,10 @@ class Main extends Component {
         } else {
             content =
                 <div id="content" className="page">
+                    <Fade in delay={0} duration={fadeDuration}>
+                    
                     <Route path="/art" component={Art} />
+                    </Fade>
                     <Route path="/portfolio" component={() => (<Portfolio portfolioData={portfolioData} />)} />
                     <Route path="/team" component={Team} />
 
