@@ -174,6 +174,7 @@ class PortfolioItem extends Component {
         <ArtContentItem type={item.type}
           description={item.description}
           animation={animation}
+          by={item.by}
           image={item.image}
           linke={item.link} />
 
