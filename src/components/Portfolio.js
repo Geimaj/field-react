@@ -35,7 +35,6 @@ class Portfolio extends Component {
     const data = this.props.portfolioData
     const portfolioItems = data.map((item, index) => {
       return (
-
         <PortfolioItem
           key={index}
           title={item.title}
@@ -59,7 +58,7 @@ class Portfolio extends Component {
           {portfolioItems}
         </ul>
       </div>
-      </Fade>
+       </Fade>
     );
   }
 
