@@ -156,24 +156,13 @@ class PortfolioItem extends Component {
           onClick={this.artLinkClicked} />
     }
 
-    // if(item.animation){
-    //   animationData = item.animation
-    // }
-
-    // let animation = 
-    //       <Animation 
-    //         key={1}
-    //         mouseOnFrames={AnimationMouseOn}
-    //         mouseOffFrames={AnimationMouseOff}
-    //         animationData={animationData}
-    //         onClick={this.artLinkClicked}/>
-
     let details =
       <Fade in={this.state.in} delay={0} duration={fadeDuration} className="artImage-fade" unmountOnExit>
 
         <ArtContentItem type={item.type}
           description={item.description}
           animation={animation}
+          by={item.by}
           image={item.image}
           linke={item.link} />
 
