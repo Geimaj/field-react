@@ -8,7 +8,7 @@ module.exports = [
             alongside his impressive comrades. Celebrated for his ability to weave tapestries of sound, 
             Simon is applauded for his deep sensitivities, diplomacy and gentle nature; his beats though, are 
             big as f%&amp;k.`,
-        image: require('../assets/team/Simon.jpg'),
+        image: require('../assets/team/A.jpg'),
         animationData: require('../assets/animation/team/Simon.json'),
         name: "Simon Kohler",
         viewBox: {
@@ -26,7 +26,7 @@ module.exports = [
             compelling and moving musical forms. Nic has a varied and eclectic creative musical resume, 
             having worked with projects such as Bateleur, Spoek Mathambo, Follower, Petit Noir, Bongeziwe 
             Mabandla, Fever Trails, Ex Olympic &amp; more.`,
-        image: require('../assets/team/Nicolaas.jpg'),
+        image: require('../assets/team/B.jpg'),
         animationData: require('../assets/animation/team/Nicolaas.json'),
         name: "Nicolaas Van Reenen",
         viewBox: {
@@ -43,7 +43,7 @@ module.exports = [
             how to get "PERFECT ROOM ACOUSTICS" or DJ'ing in dungeons at hours Helen Zille would 
             frown upon. He is also a co-founder and mixing engineer of the record label '1991', and produces 
             music under Maxime Alexander`,
-        image: require('../assets/team/Daniel.jpg'),
+        image: require('../assets/team/C.jpg'),
         animationData: require('../assets/animation/team/Daniel.json'),
         name: "Daniel Lidchi",
         viewBox: {
@@ -57,7 +57,7 @@ module.exports = [
         roles: ["designer"],
         description: `At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
         `,
-        image: require('../assets/team/Dylan.jpg'),
+        image: require('../assets/team/D.jpg'),
         animationData: require('../assets/animation/team/Dylan.json'),
         name: "Dylan Godfrey",
         viewBox: {
