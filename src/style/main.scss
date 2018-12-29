@@ -79,19 +79,25 @@ body {
 
     &.exit {
         display: inline-block;
-        opacity: 1;
+        opacity: 0;
         transform: rotate(0deg);
-        transition: transform $fadeTime ease-in-out;
         margin: auto 0;
         width: 70px;
         height: 70px;
-
+        flex-shrink: 0;
+        transition-property: opacity, transform;
+        transition-duration: $fadeTime;
+        
         img {
             // width: 100%;
         }
 
         &:hover {
             transform: rotate(90deg);                    
+        }
+        
+        &.active {
+            opacity: 1;
         }
 
     }

@@ -36,16 +36,6 @@ $fadeTime: 500ms;
                 align-self: center;
                 overflow: visible;
             }
-            
-            .icon.exit {
-                flex-shrink: 0;
-                opacity: 0;
-
-                &.active {
-                    opacity: 1;
-                }
-            }
-
     }
 }
 
