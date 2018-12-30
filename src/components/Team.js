@@ -93,21 +93,14 @@ class Team extends Component {
   }
 
   render() {
-
-    // <TeamMemberContent 
-    // key={key}
-    // item={teamData[this.state.activeIndex]}
-    // showInfo={this.state.showInfo} />
-
     let content = teamData.map((item, key) => {
-    return (
-      <TeamMemberContent 
-        key={key}
-        item={item}
-        active={this.state.activeIndex == key}
-        showInfo={this.state.showInfo} />
-    ) 
-
+      return (
+        <TeamMemberContent
+          key={key}
+          item={item}
+          active={this.state.activeIndex === key}
+          showInfo={this.state.showInfo} />
+      )
     })
 
     return (

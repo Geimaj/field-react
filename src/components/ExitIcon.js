@@ -17,7 +17,7 @@ export default class ExitIcon extends Component {
     render() {
 
         return (
-            <Icon className={`exit`}
+            <Icon className={`exit ${this.props.className}`}
                 src={require('../assets/icon/Close.svg')}
                 alt="exit movie"
                 onClick={this.handleClick}>

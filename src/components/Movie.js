@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Animation from "./Animation";
 import ExitIcon from "./ExitIcon";
 import { Fade } from 'react-animation-components'
-import {fadeDelay, fadeDuration } from "./Main"
+import { fadeDelay, fadeDuration } from "./Main"
 
 const Vimeo = require("react-vimeo");
 const $ = require("jquery");
@@ -139,8 +139,8 @@ class Movie extends Component {
                     </div>
 
                 </div>
-                    <Fade in delay={fadeDelay * 2} duration={fadeDuration} className="credit-fade">
-                <div className="creditAnimation">
+                <Fade in delay={fadeDelay * 2} duration={fadeDuration} className="credit-fade">
+                    <div className="creditAnimation">
 
                         <Animation
                             className="creditAnimation"
@@ -152,14 +152,14 @@ class Movie extends Component {
                             handleMouseOver={this.handlePointerEnter}
                             handleMouseLeave={this.handlePointerLeave}
                         />
-                </div>
-                    </Fade>
+                    </div>
+                </Fade>
 
-                                    <Fade in delay={fadeDelay} duration={fadeDuration}>
+                <Fade in delay={fadeDelay} duration={fadeDuration}>
 
-<ExitIcon onClick={this.handleClick} />
+                    <ExitIcon onClick={this.handleClick} className="active"/>
 
-</Fade>
+                </Fade>
             </div>
         );
     }
