@@ -6,9 +6,10 @@ import {
 } from "react-router-dom";
 import { Fade } from 'react-animation-components'
 
-import M_Advertising from "./M_Advertising";
-import Team from "./../Team";
-import Art from "./../Art"
+import MobileAdvertising from "./MobileAdvertising";
+import MobileTeam from "./MobileTeam";
+import MobileArt from "./MobileArt";
+
 import Icon from "./../Icon"
 
 export default class Mobile extends Component {
@@ -43,7 +44,7 @@ export default class Mobile extends Component {
 
         if (this.state.showMenu) {
             content =
-                <div>
+                <div className="mobile menu">
 
                     <ul>
                         <li>
@@ -66,7 +67,7 @@ export default class Mobile extends Component {
                         </li>
                         <li>
                             <Fade in delay={500} duration={500}>
-                                <NavLink to="/team">
+                                <NavLink to="/team" onClick={this.menuAnimationClick}>
                                     <h2>our team</h2>
                                 </NavLink>
                             </Fade>
@@ -75,15 +76,14 @@ export default class Mobile extends Component {
 
                 </div>
         } else {
-            console.log('conteeent')
+            let hi = <div>hi</div>
             content =
                 <div id="content" className="page">
-                    <Route path="/art" component={Art} />
-                    <Route path="/portfolio" component={() => (<M_Advertising/>)} />
-                    <Route path="/team" component={Team} />
+                    <Route path="/portfolio" component={() => (<MobileAdvertising/>)} />
+                    <Route path="/art" component={MobileArt} />
+                    <Route path="/team" component={MobileTeam} />
                
-                    <Icon src='../../assets/icon/Close.svg' onClick={this.burgerIconClick}></Icon>
-                    ikonic
+                    <Icon src={require('../../assets/icon/Close.svg')} onClick={this.burgerIconClick}></Icon>
                 </div>
 
         }

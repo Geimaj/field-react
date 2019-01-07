@@ -37,8 +37,9 @@ class Main extends Component {
             //     <Mobile></Mobile>
             // </MediaQuery>
 
-            <MediaQuery minDeviceWidth={700} className="mq">
+            <MediaQuery minWidth={700} className="mq">
             {(matches) => {
+                console.log(matches)
                 if (matches) {
                 return <Desktop></Desktop>
                 } else {

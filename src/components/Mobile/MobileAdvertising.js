@@ -1,17 +1,13 @@
 import React, { Component } from "react";
-import {
-    Route,
-    NavLink,
-    HashRouter
-} from "react-router-dom";
+
 
 const advertisingData = require('../../data/portfolioData');
 
-export default class M_Advertising extends Component {
+export default class MobileAdvertising extends Component {
 
     advertisingList(){
-        let lis = advertisingData.map((item) => {
-            return <li>{item.title}</li>
+        let lis = advertisingData.map((item, key) => {
+            return <li key={key} className="lowercase"><h2>{item.title}</h2></li>
         })
 
         return <ul>{lis}</ul>
