@@ -7,6 +7,7 @@ $cursor-default: default;
 // display: -ms-flexbox;
 // display: -webkit-flex;
 // display: flex;
+@media screen and (min-width:1224px){
 
 @font-face {
     font-family: HKGothic;
@@ -148,4 +149,10 @@ p {
 @import "./movie";
 @import "./art";
 @import "./team";
+
+}
+
+@media screen and (max-width:1224px){
+    @import "./mobile";
+}
 
