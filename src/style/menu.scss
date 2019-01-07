@@ -2,6 +2,7 @@
 
     display: none;
     opacity: 0;
+    transition: opacity $fadeTime;
     position: relative;
 
     &.active {

@@ -11,6 +11,7 @@ import Team from "./Team";
 import Art from "./Art"
 import Icon from "./Icon"
 
+const $ = require('jquery')
 const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
 const advertisingAnimation = require('../assets/animation/Advertising.json');
@@ -56,9 +57,12 @@ export default class Desktop extends Component {
     }
 
     burgerIconClick() {
-        this.setState({
-            showMenu: true
-        })
+        $("#content").addClass('exit')
+        setTimeout(()=>{
+            this.setState({
+                showMenu: true
+            })
+        }, 500)
     }
 
     render() {
