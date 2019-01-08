@@ -69,12 +69,16 @@ $fadeTime: 500ms;
 
             .bucket {
                 max-height: 86%;
+                background: darkblue;
+                width: auto;
             }
             
             img {
                 max-height: 100%;
                 max-width: 100%;
                 opacity: 1;
+                position: absolute;
+                right: 0;
                 transition-property: opacity;
                 transition-duration: $fadeTime;
             }
