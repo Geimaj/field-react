@@ -8,6 +8,7 @@ export default class Icon extends Component {
     }
 
     handleClick(){
+        console.log(this.props)
         if(this.props.onClick){
             this.props.onClick()
         } else if(this.props.href){

@@ -14,8 +14,13 @@ export class TeamMemberContent extends Component {
             showInfo = "showDetails"
         }
 
+        let active = ""
+        if(this.props.active){
+            active = "active"
+        }
+
         return (
-            <div className={`teamContent active ${showInfo} ${this.props.className}`}>
+            <div className={`teamContent ${active} ${showInfo} ${this.props.className}`}>
                 <img src={this.props.item.image} alt={this.props.item.name} />
                 <div className="details">
                     <ul>

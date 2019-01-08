@@ -7,7 +7,6 @@ $fadeTime: 500ms;
     display: -webkit-flex;
     display: flex;
 
-    // flex-direction: row;
     justify-content: space-between;
     width: 100%;
     margin: 0;
@@ -22,53 +21,21 @@ $fadeTime: 500ms;
         
 
         .name-item {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
             display: -webkit-flex;
             display: flex;
             flex-direction: row;
             margin-bottom: 5%;
             overflow: visible;
-            // background: royalblue;
-             
-            // div {
-            //     background: palevioletred;
-            // }
-            // width: 105%;
-
-            // &.simon {
-            //     background: rebeccapurple;
-            //     // width: 40%;
-
-                
-            //     svg {
-            //         background: red;
-            //         // width: 20%;
-
-            //         g {
-            //             background: palegoldenrod;
-            //         }
-            //     }
-            // }
             
             .animation {
-                
                 display: inline-block;
-                // width: 105%;
                 margin-bottom: 5%;
-                // margin-right: 4%;
                 align-self: center;
                 overflow: visible;
-
             }
-            
-            .icon.exit {
-                flex-shrink: 0;
-                opacity: 0;
-
-                &.active {
-                    opacity: 1;
-                }
-            }
-
     }
 }
 
@@ -83,6 +50,10 @@ $fadeTime: 500ms;
             transition-property: opacity;
             transition-duration: $fadeTime;
             height: 100%;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
             display: flex;
             flex-direction: row;
             position: absolute;

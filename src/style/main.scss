@@ -2,11 +2,66 @@ $fadeTime: 500ms;
 $cursor-click:  pointer;
 $cursor-default: default;
 
+$mobile-breakpoint-threshold: 700px;
+
 // display: -webkit-box;
 // display: -moz-box;
 // display: -ms-flexbox;
 // display: -webkit-flex;
 // display: flex;
+
+////
+//// GLOABL
+////
+
+@font-face {
+    font-family: HKGothic;
+    src: url("./fonts/HKGothic/WEB/HKGothicNo2-SemiBold.woff2") format("woff2"),
+      url("./fonts/HKGothic/WEB/HKGothicNo2-SemiBold.woff") format("woff"),
+      url("./fonts/HKGothic/WEB/HKGothicNo2-SemiBold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+body {
+    background: #000;
+    color: #e3e3e3;
+    height: 100%;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4rem;
+    font-weight: normal;
+}
+
+h2 {
+    font-weight: normal;
+    font-size: 3.8rem;
+    font-family: HKGothic;
+    transform: scaleY(1.1);
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+a {
+    color: #e3e3e3;
+    text-decoration: none;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+@media screen and (min-width:$mobile-breakpoint-threshold){
 
 @font-face {
     font-family: HKGothic;
@@ -22,14 +77,6 @@ html {
     overflow: hidden;
     cursor: $cursor-default;
 }
-body {
-    background: #000;
-    color: #e3e3e3;
-    height: 100%;
-
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.4rem;
-}
 
 #router {
     height: 100vh;
@@ -38,16 +85,12 @@ body {
 
 .page {
     height: 86%;
-    // width: 90%;
     margin: 4% 5%;
-    // background: royalblue;
-
     .menu {
         width: 50px;
         position: absolute;
         bottom: 0;
         right: 0;
-
     }
 }
 
@@ -55,6 +98,12 @@ body {
     position: absolute;
     top: 0;
     width: 86%;
+    opacity: 1;
+    transition: opacity $fadeTime;
+
+    &.exit {
+        opacity: 0;
+    }
     
     .menu {
         position: absolute;
@@ -77,33 +126,24 @@ body {
 
     &.exit {
         display: inline-block;
-        opacity: 1;
+        opacity: 0;
         transform: rotate(0deg);
-        transition: transform $fadeTime ease-in-out;
         margin: auto 0;
         width: 70px;
         height: 70px;
-
-        img {
-            // width: 100%;
-        }
+        flex-shrink: 0;
+        transition-property: opacity, transform;
+        transition-duration: $fadeTime;
 
         &:hover {
             transform: rotate(90deg);                    
         }
+        
+        &.active {
+            opacity: 1;
+        }
 
     }
-}
-
-h2 {
-    font-size: 3.8rem;
-    font-family: HKGothic;
-    transform: scaleY(1.1);
-}
-
-p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.4rem;
 }
 
 .animation {
@@ -120,38 +160,6 @@ p {
         }
     }
 }
-
-.fade {
-    width: 100%;
-}
-
-.example-enter {
-    opacity: 0.01;
-  }
-  
-  .example-enter.example-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-  }
-  
-  .example-leave {
-    opacity: 1;
-  }
-  
-  .example-leave.example-leave-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
-  }
-
-  .example-appear {
-    opacity: 0.01;
-  }
-  
-  .example-appear.example-appear-active {
-    opacity: 1;
-    transition: opacity .5s ease-in;
-  }
-
 
 // #lander {
 //     width: 100%;
@@ -173,4 +181,10 @@ p {
 @import "./movie";
 @import "./art";
 @import "./team";
+
+}
+
+@media screen and (max-width:$mobile-breakpoint-threshold){
+    @import "./mobile";
+}
 
