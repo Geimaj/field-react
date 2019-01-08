@@ -6,10 +6,17 @@ $mobile-breakpoint-threshold: 700px;
 
 
 //font scaling params
-$minSize: 14px;
-$maxSize: 26px;
-$minViewportWidth: 300px;
-$maxViewportWidth: 1600px;
+$min_width: 700px;
+$max_width: 2000px;
+$min_font: 30px;
+$max_font: 65px;
+
+
+////
+// global imports
+////
+@import "./breakpoints";
+@import "./mixins";
 
 ////
 //// GLOABL
@@ -184,16 +191,15 @@ html {
 
 }
 
+////
+// MOBILE
+////
+
+
 @media screen and (max-width:$mobile-breakpoint-threshold){
     @import "./mobile";
 }
 
-// @media screen and (max-width: 500px){
-//     body {
-//         background: blue;
-//     }
-// }
 
-// global imports
-@import "./breakpoints";
+//////////
 

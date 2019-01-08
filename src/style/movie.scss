@@ -5,39 +5,48 @@
     height: 100%;
     overflow: visible;
 
-    .icon {
-        position: absolute;
-        right: 0;
-    }
-
-    .credit-fade {
-        height: 100%;
-    }
-
-    .creditAnimation {
-        margin: 0;
-        padding: 0;
-        width: 100px;
+    .bucket {
         display: flex;
-        flex-direction: row;
-        overflow: visible;
-        height: 81%;
-
-        .animation {
-            align-self: flex-end;
-            position: relative;
-            right: 0;
-            overflow: visible;
-
-            svg {
-                width: 100%;
-                height: 100%;
-                overflow: visible;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        
+        .icon {
+            flex-grow: 0;
+            align-self: flex-start;
+            img {
+                max-height: 70px;
             }
         }
+        
+        .credit-fade {
+            height: 80%;
+        }
+        
+        .creditAnimation {
+            margin: 0;
+            padding: 0;
+            width: 80%;
+            // display: flex;
+            // flex-direction: row;
+            overflow: visible;
+            height: 81%;
+            
+            .animation {
+                align-self: flex-end;
+                position: relative;
+                right: 0;
+                overflow: visible;
+                
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    overflow: visible;
+                }
+            }
+        }
+        
     }
-
-    .content {
+        .content {
         width: 100%;
         height: 100%;
         display: flex;

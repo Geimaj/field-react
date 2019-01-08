@@ -139,27 +139,29 @@ class Movie extends Component {
                     </div>
 
                 </div>
-                <Fade in delay={fadeDelay * 2} duration={fadeDuration} className="credit-fade">
-                    <div className="creditAnimation">
+                <div className="bucket">
+                    <Fade in delay={fadeDelay * 2} duration={fadeDuration} className="credit-fade">
+                        <div className="creditAnimation">
 
-                        <Animation
-                            className="creditAnimation"
-                            onClick={this.creditsClicked}
-                            viewBox={viewBox}
-                            mouseOnFrames={AnimationMouseOn}
-                            mouseOffFrames={AnimationMouseOff}
-                            animationData={creditAnimation}
-                            handleMouseOver={this.handlePointerEnter}
-                            handleMouseLeave={this.handlePointerLeave}
-                        />
-                    </div>
-                </Fade>
+                            <Animation
+                                className="creditAnimation"
+                                onClick={this.creditsClicked}
+                                viewBox={viewBox}
+                                mouseOnFrames={AnimationMouseOn}
+                                mouseOffFrames={AnimationMouseOff}
+                                animationData={creditAnimation}
+                                handleMouseOver={this.handlePointerEnter}
+                                handleMouseLeave={this.handlePointerLeave}
+                            />
+                        </div>
+                    </Fade>
 
-                <Fade in delay={fadeDelay} duration={fadeDuration}>
+                    <Fade in delay={fadeDelay} duration={fadeDuration}>
 
-                    <ExitIcon onClick={this.handleClick} className="active"/>
+                        <ExitIcon onClick={this.handleClick} className="active" />
 
-                </Fade>
+                    </Fade>
+                </div>
             </div>
         );
     }
