@@ -1,8 +1,11 @@
 $fadeTime: 500ms;
 
 .page.team {
-    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: -webkit-flex;
+    display: flex;
 
     // flex-direction: row;
     justify-content: space-between;
