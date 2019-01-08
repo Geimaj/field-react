@@ -43,7 +43,9 @@
                     font-family: HKGothic;
                     padding: 0;
                     transform: scaleY(1.1);                     
-                    font-size: 7rem;                    
+                    // font-size: 7rem;                  
+                    @include fluid-type($min_width, $max_width, 30px, 90px);    
+                      
                     top: 0.6rem;
                     left: 1rem;
                 }
