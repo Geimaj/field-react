@@ -35,20 +35,11 @@ class Team extends Component {
 
   handleNameHover(key) {
     if (!this.state.showInfo) {
-
-      if(this.state.activeIndex != key){
-
-        $(".teamContent.active ").animate({"opacity": 0},250, ()=>{
-          
-          
+   
           this.setState({
             activeIndex: key
           })
-          
-          $(".teamContent.active ").animate({"opacity": 1},250)      
-          
-        })
-      }
+       
     }
   }
 
