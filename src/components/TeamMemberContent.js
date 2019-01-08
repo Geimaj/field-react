@@ -21,7 +21,9 @@ export class TeamMemberContent extends Component {
 
         return (
             <div className={`teamContent ${active} ${showInfo} ${this.props.className}`}>
-                <img src={this.props.item.image} alt={this.props.item.name} />
+                <div className="bucket">
+                    <img src={this.props.item.image} alt={this.props.item.name} />
+                </div>
                 <div className="details">
                     <ul>
                         {roles}

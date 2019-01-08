@@ -11,14 +11,13 @@ $fadeTime: 500ms;
     width: 100%;
     margin: 0;
     padding: 0;
-    
 
     .names {
         width: 50%;
+        min-width: 50%;
         justify-content: flex-start;
         margin: 0;
         padding: 0;
-        
 
         .name-item {
             display: -webkit-box;
@@ -27,8 +26,13 @@ $fadeTime: 500ms;
             display: -webkit-flex;
             display: flex;
             flex-direction: row;
+            flex-shrink: 0;
             margin-bottom: 5%;
             overflow: visible;
+
+            .icon {
+                margin-bottom: 2.2rem;
+            }
             
             .animation {
                 display: inline-block;
@@ -40,16 +44,16 @@ $fadeTime: 500ms;
 }
 
     .content {
-        width: 45%;
         height: 90%;
         margin: 0;
         padding: 0;
-
+        
         .teamContent {
             opacity: 0;
             transition-property: opacity;
             transition-duration: $fadeTime;
             height: 100%;
+            width: 45%;
             display: -webkit-box;
             display: -moz-box;
             display: -ms-flexbox;
@@ -62,10 +66,16 @@ $fadeTime: 500ms;
             &.active {
                 opacity: 1;
             }
+
+            .bucket {
+                max-height: 86%;
+            }
             
             img {
                 right: 0;
-                height: 86%;
+                max-width: 100%;
+                width: auto;
+                height: auto;
                 opacity: 1;
                 transition-property: opacity;
                 transition-duration: $fadeTime;
@@ -107,8 +117,6 @@ $fadeTime: 500ms;
             }
 
         }
-
-        
 
     }
 

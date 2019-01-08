@@ -25,7 +25,6 @@ class Team extends Component {
     this.state = {
       showInfo: false,
       activeIndex: 0,
-      className: "active"
     }
 
   }
@@ -61,13 +60,12 @@ class Team extends Component {
     this.setState({
       showInfo: true,
       activeIndex: key,
-      className: "active showDetails"
     })
 
   }
 
   exitClick() {
-    $(".teamContent").removeClass('showDetails')
+    // $(".teamContent").removeClass('showDetails')
     $(".exit").removeClass("active")
 
     this.setState({
@@ -113,6 +111,11 @@ class Team extends Component {
       )
     })
 
+    // let data = teamData[this.state.activeIndex]
+    // let content = <TeamMemberContent item={data} 
+    //   active={true}
+    //   showInfo={this.state.showInfo}/>
+  
     return (
       <div className="page team">
         <div className="names">

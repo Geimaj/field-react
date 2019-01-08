@@ -14,6 +14,7 @@
         width: 45%;
         height: 100%;
         position: relative;
+        background: rebeccapurple;
 
         .artContent {
             position: absolute;
@@ -85,12 +86,14 @@
     }
 
     ul {
+        background: red;
         list-style: none;
-        width: 50%;
+        width: 52%;
         margin: 0;
         padding: 0;
         overflow: hidden;
         // overflow-y: visible;
+        // font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
 
     }
 
@@ -105,6 +108,8 @@
             text-transform: lowercase;
             white-space: nowrap;
             overflow: visible;
+            // font-size: calc($minSize + ($maxSize - $minSize) * ((100vw - $minViewportWidth) / ($maxViewportWidth - $minViewportWidth)));
+            font-size: $minSize;
         }
             
 
