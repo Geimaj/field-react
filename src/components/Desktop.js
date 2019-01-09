@@ -35,6 +35,7 @@ const emailViewBox = {
     h: 200
 }
 const portfolioData = require('../data/portfolioData.js')
+const artData = require("../data/civviesData.js")
 
 export default class Desktop extends Component {
 
@@ -165,7 +166,8 @@ export default class Desktop extends Component {
         } else {
             content =
                 <div id="content" className="page">
-                    <Route path="/art" component={Art} />
+    
+                    <Route path="/art" component={() => (<Art artData={artData}/>)} />
                     <Route path="/portfolio" component={() => (<Portfolio portfolioData={portfolioData} />)} />
                     <Route path="/team" component={Team} />
 

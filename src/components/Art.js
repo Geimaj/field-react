@@ -5,7 +5,7 @@ import { Fade } from 'react-animation-components'
 import { hideMenu, showMenu, fadeDelay, fadeDuration } from "./Main"
 
 const $ = require('jquery')
-const artData = require("../data/civviesData")
+// const artData = require("../data/civviesData")
 const watchFilmAnimation = require("../assets/animation/WatchFilm.json")
 const watchShowAnimation = require("../assets/animation/WatchShow.json")
 const watchVideoAnimation = require("../assets/animation/WatchVideo.json")
@@ -15,6 +15,8 @@ const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
 
 let scrollInterval;
+
+let artData;
 
 class PortfolioItem extends Component {
 
@@ -31,6 +33,8 @@ class PortfolioItem extends Component {
       showDetails: false,
       in: true
     }
+
+    artData = this.props.artData;
 
     this.art = artData.map((item, key) => {
       return (
@@ -52,6 +56,8 @@ class PortfolioItem extends Component {
   componentWillUnmount() {
     $(".art").removeClass("active")
     clearInterval(scrollInterval)
+    window.removeEventListener("resize", updateListHeight)
+    window.removeEventListener("resize", watchScroll)
   }
 
   componentDidMount() {
@@ -63,8 +69,10 @@ class PortfolioItem extends Component {
     $(".artContent").eq(0).addClass('active')
     $(".artList li").eq(0).addClass('active')
 
-    watchScroll();
     watchResize();
+    setTimeout(()=>{
+      window.dispatchEvent(new Event('resize'));
+    },10)
   }
 
   artItemClick(key) {
@@ -111,7 +119,6 @@ class PortfolioItem extends Component {
 
   artLinkClicked() {
     window.open(artData[this.state.active].link, "_blank")
-
   }
 
   render() {
@@ -190,21 +197,28 @@ class PortfolioItem extends Component {
         </ul>
       </div>
     );
+
+
+
   }
 
 }
 export default PortfolioItem;
 
+function updateListHeight(){
+  let targetHeight = $(".artContent img").height();
+  $(".artList").css("height", targetHeight);
+}
+
 function watchResize(){
-  $(window).resize(()=>{
-    let targetHeight = $(".artContent img").height();
-    $(".artList").css("height", targetHeight);
-    clearInterval(scrollInterval);
-    watchScroll();
-  })
+  window.addEventListener("resize", watchScroll)
+  window.addEventListener("resize", updateListHeight)
 }
 
 function watchScroll() {
+  if(scrollInterval){
+    clearInterval(scrollInterval);
+  }
 
   var $civvies_list = $(".artList"),
     civviesHeight = $civvies_list.outerHeight(true),
@@ -222,9 +236,10 @@ function watchScroll() {
     mX = e.pageY - $(this).offset().top;
     mX2 = Math.min(Math.max(0, mX - mPadd), mmAA) * mmAAr;
   });
-
+  console.log('setting...')
   scrollInterval = setInterval(function () {
     posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
     $civvies_list.scrollTop(posX * wDiff);
+    console.log('tock')
   }, 10);
 }
