@@ -72,7 +72,7 @@ class PortfolioItem extends Component {
     watchResize();
     setTimeout(()=>{
       window.dispatchEvent(new Event('resize'));
-    },10)
+    },90)
   }
 
   artItemClick(key) {

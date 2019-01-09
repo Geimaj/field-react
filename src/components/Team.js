@@ -11,7 +11,8 @@ const AnimationMouseOff = [12, 72]
 
 const $ = require('jquery')
 
-const teamData = require("../data/teamData")
+// const teamData = require("../data/teamData")
+let teamData;
 
 class Team extends Component {
 
@@ -21,6 +22,8 @@ class Team extends Component {
     this.handleNameHover = this.handleNameHover.bind(this)
     this.teamNameClick = this.teamNameClick.bind(this)
     this.exitClick = this.exitClick.bind(this)
+
+    teamData = this.props.teamData;
 
     this.state = {
       showInfo: false,

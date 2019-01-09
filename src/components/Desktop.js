@@ -36,6 +36,20 @@ const emailViewBox = {
 }
 const portfolioData = require('../data/portfolioData.js')
 const artData = require("../data/civviesData.js")
+const teamData = require("../data/teamData.js")
+
+//preload images
+
+artData.map((item)=>{
+    const img = new Image();
+    img.src = item.image;
+})
+
+
+teamData.map((item)=>{
+    const img = new Image();
+    img.src = item.image;
+})
 
 export default class Desktop extends Component {
 
@@ -169,7 +183,7 @@ export default class Desktop extends Component {
     
                     <Route path="/art" component={() => (<Art artData={artData}/>)} />
                     <Route path="/portfolio" component={() => (<Portfolio portfolioData={portfolioData} />)} />
-                    <Route path="/team" component={Team} />
+                    <Route path="/team" component={() => (<Team teamData={teamData}/> )} />
 
                     <Animation
                         className="menu"
