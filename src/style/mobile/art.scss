@@ -1,31 +1,8 @@
 .mobile.art {
     position: relative;
 
-    .mobile.artItem {
-        position: relative;
-        margin: 12vw 0;
-
-        .bucket {
-            position: relative;
-            height: 100%;
-
-            img {
-                width: 100%;
-            }
-
-            div {
-                position: absolute;
-                bottom:  10vw;
-                right: 3.5vw;
-
-                .icon {
-                    position: absolute;
-                }
-                img {
-                    position: absolute;
-                }
-            }
-
-        }
+    
+    h2 {
+        font-size: 1.9rem;
     }
 }

@@ -20,7 +20,7 @@ export default class MobileTeam extends Component {
     render() {
 
         return (
-            <div className="mobile art">
+            <div className="mobile team">
             {this.TeamMembers()}
             </div>
         );

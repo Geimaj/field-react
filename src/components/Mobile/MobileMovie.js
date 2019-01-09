@@ -14,26 +14,20 @@ class MobileMovie extends Component {
     }
 
     render() {
-       
+
         return (
             <div id="movie" >
-
-                <div className="content">
-
-                    <div id="video" >
-
-                        <div id="player" className="active">
-                            <Vimeo videoId={this.props.vimeoID}
-                                autoplay={true} />
-                        </div>
+                <div id="video" >
+                    <div id="player" className="active">
+                        <Vimeo videoId={this.props.vimeoID}
+                            autoplay={true} />
                     </div>
+                </div>
 
-                </div>
-               
-                    <Fade in delay={fadeDelay} duration={fadeDuration}>
-                        <ExitIcon onClick={this.handleClick} className="active" />
-                    </Fade>
-                </div>
+                <Fade in delay={fadeDelay} duration={fadeDuration}>
+                    <ExitIcon onClick={this.handleClick} className="active" />
+                </Fade>
+            </div>
         );
     }
 

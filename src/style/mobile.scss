@@ -1,11 +1,22 @@
 
 body {
     overflow-y: scroll;
-    
+    // overflow-x: hidden !important;
+    margin: 0;
     padding: 10vw 8vw;
 
-    font-size: 14px;
+    // font-size: 10px;
     text-transform: lowercase;
+}
+
+h2 {
+    font-size: 45px;
+    margin: 0;
+    margin-bottom: 3%;
+}
+
+p {
+    font-size: 20px;
 }
 
 .icon {
@@ -25,3 +36,5 @@ body {
 @import "./mobile/menu.scss";
 @import "./mobile/advertising.scss";
 @import "./mobile/art.scss";
+@import "./mobile/artItem.scss";
+@import "./mobile/team.scss";
