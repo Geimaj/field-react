@@ -10,6 +10,7 @@ import Portfolio from "./Portfolio";
 import Team from "./Team";
 import Art from "./Art"
 import Icon from "./Icon"
+import { fadeDelay } from "./Main";
 
 const $ = require('jquery')
 const AnimationMouseOn = [0, 12]
@@ -51,9 +52,15 @@ export default class Desktop extends Component {
 
 
     menuAnimationClick() {
-        this.setState({
-            showMenu: false
-        })
+
+        $("#menu").removeClass("active");
+
+        setTimeout(()=>{
+            this.setState({
+                showMenu: false
+            })
+        },500)
+
     }
 
     burgerIconClick() {
