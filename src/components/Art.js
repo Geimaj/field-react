@@ -14,6 +14,8 @@ const moreInfoAnimation = require("../assets/animation/MoreInfo.json")
 const AnimationMouseOn = [0, 12]
 const AnimationMouseOff = [12, 72]
 
+let scrollInterval;
+
 class PortfolioItem extends Component {
 
   constructor(props) {
@@ -49,6 +51,7 @@ class PortfolioItem extends Component {
 
   componentWillUnmount() {
     $(".art").removeClass("active")
+    clearInterval(scrollInterval)
   }
 
   componentDidMount() {
@@ -61,6 +64,7 @@ class PortfolioItem extends Component {
     $(".artList li").eq(0).addClass('active')
 
     watchScroll();
+    watchResize();
   }
 
   artItemClick(key) {
@@ -191,6 +195,15 @@ class PortfolioItem extends Component {
 }
 export default PortfolioItem;
 
+function watchResize(){
+  $(window).resize(()=>{
+    let targetHeight = $(".artContent img").height();
+    $(".artList").css("height", targetHeight);
+    clearInterval(scrollInterval);
+    watchScroll();
+  })
+}
+
 function watchScroll() {
 
   var $civvies_list = $(".artList"),
@@ -210,7 +223,7 @@ function watchScroll() {
     mX2 = Math.min(Math.max(0, mX - mPadd), mmAA) * mmAAr;
   });
 
-  setInterval(function () {
+  scrollInterval = setInterval(function () {
     posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
     $civvies_list.scrollTop(posX * wDiff);
   }, 10);

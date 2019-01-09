@@ -73,7 +73,6 @@ class Portfolio extends Component {
   }
 
   componentDidUpdate(){
-    console.log('should update')
     if(this.state.active){
       if($("#titles")){
         watchScroll()
@@ -159,7 +158,6 @@ export function watchScroll(){
     mX2 = Math.min(Math.max(0, mX - mPadd), mmAA) * mmAAr;
   });
 
-  console.log("setting interval...")
   scrollInterval = setInterval(function() {
     posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
     $titles.scrollLeft(posX * wDiff);
