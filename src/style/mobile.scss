@@ -25,6 +25,13 @@ p {
 
 #content {
     position: relative;
+    opacity: 0;
+    transition: opacity $fadeTime;
+
+    &.active {
+        opacity: 1;
+    }
+
     .showMenuIcon {
         position: absolute;
         right: 0;

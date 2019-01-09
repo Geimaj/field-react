@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MobileMovie from "./MobileMovie"
+import { Fade } from 'react-animation-components'
 
 const advertisingData = require('../../data/portfolioData');
 
@@ -42,7 +43,9 @@ export default class MobileAdvertising extends Component {
             
             return (
                 <div>
+                    <Fade in>
                     {this.advertisingList()}
+                    </Fade>
                 </div>
             );
         }

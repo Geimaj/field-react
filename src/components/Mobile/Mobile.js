@@ -11,6 +11,9 @@ import MobileTeam from "./MobileTeam";
 import MobileArt from "./MobileArt";
 
 import Icon from "./../Icon"
+import { fadeDelay, fadeDuration } from "../Main";
+
+const $ = require('jquery')
 
 export default class Mobile extends Component {
 
@@ -27,15 +30,27 @@ export default class Mobile extends Component {
     }
 
     menuAnimationClick() {
-        this.setState({
-            showMenu: false
-        })
+        $(".menu").removeClass("active")
+
+        setTimeout(() => {
+
+            this.setState({
+                showMenu: false
+            })
+        }, fadeDuration)
     }
 
     burgerIconClick() {
-        this.setState({
-            showMenu: true
-        })
+
+        $("#content").removeClass("active")
+
+        setTimeout(() => {
+
+            this.setState({
+                showMenu: true
+            })
+        }, fadeDuration)
+
     }
 
     render() {
@@ -44,7 +59,7 @@ export default class Mobile extends Component {
 
         if (this.state.showMenu) {
             content =
-                <div className="mobile menu">
+                <div className="mobile menu active">
 
                     <ul>
                         <li>
@@ -52,7 +67,7 @@ export default class Mobile extends Component {
                             <NavLink to="/portfolio" onClick={this.menuAnimationClick}>
                                 <Fade in delay={0} duration={500}
                                     className="fade">
-                                   <h2>advertising</h2>
+                                    <h2>advertising</h2>
                                 </Fade>
                             </NavLink>
 
@@ -78,14 +93,14 @@ export default class Mobile extends Component {
         } else {
             let hi = <div>hi</div>
             content =
-                <div id="content" className="page">
-                    <Route path="/portfolio" component={() => (<MobileAdvertising/>)} />
+                <div id="content" className="page active">
+                    <Route path="/portfolio" component={() => (<MobileAdvertising />)} />
                     <Route path="/art" component={MobileArt} />
                     <Route path="/team" component={MobileTeam} />
-               
-                    <Icon src={require('../../assets/icon/Close.svg')} 
-                    onClick={this.burgerIconClick}
-                    className="showMenuIcon"></Icon>
+
+                    <Icon src={require('../../assets/icon/Close.svg')}
+                        onClick={this.burgerIconClick}
+                        className="showMenuIcon"></Icon>
                 </div>
 
         }
