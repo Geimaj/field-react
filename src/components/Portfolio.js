@@ -89,17 +89,27 @@ class Portfolio extends Component {
   }
 
   portfolioItemClick(activeItem) {
-    this.setState({
-      active: false,
-      item: activeItem
-    })
+
+    $(".portfolio").removeClass("active");
+    hideMenu();
+
+    setTimeout(()=>{
+      this.setState({
+          active: false,
+          item: activeItem
+        })
+      },fadeDelay)
   }
 
   exitMovieClick() {
-    this.setState({
-      active: true
-    })
-    
+
+    $("#movie").removeClass("active");
+
+    setTimeout(()=>{
+      this.setState({
+          active: true
+      })
+      },fadeDelay)
   }
 
   render() {
@@ -125,7 +135,7 @@ class Portfolio extends Component {
       clearInterval(this.scrollInterval)
     }
 
-    let classes = `page portfolio ${className}`;
+    let classes = `page portfolio active ${className}`;
     return (
 
         <div className={classes}

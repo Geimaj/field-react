@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Animation from "./Animation";
 import ExitIcon from "./ExitIcon";
 import { Fade } from 'react-animation-components'
-import { fadeDelay, fadeDuration } from "./Main"
+import { fadeDelay, fadeDuration, showMenu, hideMenu } from "./Main"
 
 const Vimeo = require("react-vimeo");
 const $ = require("jquery");
@@ -35,13 +35,12 @@ class Movie extends Component {
     }
 
     componentWillMount() {
-        $(".animation.menu").css('display', "none")
+        hideMenu();
     }
 
 
     componentWillUnmount() {
-        $(".animation.menu").css('display', "block")
-        console.log("movie unmounting")
+        showMenu();
     }
 
 
@@ -81,7 +80,6 @@ class Movie extends Component {
     }
 
     render() {
-
         let credits = Object.keys(this.props.credits).map((key, index) => {
             let data = this.props.credits[key];
             if (typeof data === "string") {
@@ -106,7 +104,7 @@ class Movie extends Component {
         })
 
         return (
-            <div id="movie" >
+            <div id="movie" className="active">
 
                 <div className="content">
 
