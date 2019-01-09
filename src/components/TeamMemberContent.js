@@ -28,7 +28,7 @@ export class TeamMemberContent extends Component {
                     <ul>
                         {roles}
                     </ul>
-                    <div>
+                    <div className="body">
                         {this.props.item.description}
                     </div>
                 </div>

@@ -108,8 +108,6 @@ class Movie extends Component {
         return (
             <div id="movie" >
 
-
-
                 <div className="content">
 
                     <div id="video" >
@@ -156,7 +154,7 @@ class Movie extends Component {
                         </div>
                     </Fade>
 
-                    <Fade in delay={fadeDelay} duration={fadeDuration}>
+                    <Fade className="exitFade" in delay={fadeDelay} duration={fadeDuration}>
 
                         <ExitIcon onClick={this.handleClick} className="active" />
 

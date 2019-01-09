@@ -43,11 +43,10 @@
                     font-family: HKGothic;
                     padding: 0;
                     transform: scaleY(1.1);                     
-                    // font-size: 7rem;                  
-                    @include fluid-type($min_width, $max_width, 30px, 90px);    
-                      
                     top: 0.6rem;
                     left: 1rem;
+                    @include fluid-type($min_width, $max_width, 40px, 140px);   
+
                 }
 
             }
@@ -62,9 +61,6 @@
                     .description{
                         margin: 0;
                         padding: 0;
-                        color: darkcyan;
-                      @include fluid-type($min_width, $max_width, 15px, 30px);    
-                        
                     }
                    
                 }
@@ -108,8 +104,6 @@
             text-transform: lowercase;
             white-space: nowrap;
             overflow: visible;
-              @include fluid-type($min_width, $max_width, $min_font, $max_font);    
-            
         }
             
 
@@ -120,7 +114,6 @@
                 display: inline-block;
                 margin: 0;
                 margin-right: 0.5rem;
-                font-size: 75px;
                 padding: 0;
                 vertical-align: middle;
             }

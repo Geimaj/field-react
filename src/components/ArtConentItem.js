@@ -40,17 +40,17 @@ export default class ArtContentIemt extends Component {
             </div>
             
               <div className="details">
-                <p className="description">
+                {this.props.animation}
+                <p className="description body">
                   {this.props.description}
                 </p>
-                <p className="type">
+                <p className="type body">
                   {this.props.type}
                 </p>
-                <p className="by">
+                <p className="by body">
                   By: {this.props.by}
                 </p>
       
-                {this.props.animation}
       
               </div>
           </div>
