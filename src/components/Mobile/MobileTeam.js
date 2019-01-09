@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MobileTeamItem from "./MobileArtItem"
+import MobileTeamItem from "./MobileTeamItem"
 
 const artData = require("../../data/teamData");
 export default class MobileTeam extends Component {
@@ -7,9 +7,10 @@ export default class MobileTeam extends Component {
     TeamMembers(){
         let artItems = artData.map((item, key)=> {
             return (
-                <MobileTeamItem title={item.name} 
+                <MobileTeamItem title={item.name.split(" ")[0]} 
                     src={item.image} 
                     href={item.link} 
+                    info={item.description}
                     key={key}/>
             )
         })
