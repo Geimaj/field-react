@@ -83,7 +83,9 @@ export default class Mobile extends Component {
                     <Route path="/art" component={MobileArt} />
                     <Route path="/team" component={MobileTeam} />
                
-                    <Icon src={require('../../assets/icon/Close.svg')} onClick={this.burgerIconClick}></Icon>
+                    <Icon src={require('../../assets/icon/Close.svg')} 
+                    onClick={this.burgerIconClick}
+                    className="showMenuIcon"></Icon>
                 </div>
 
         }

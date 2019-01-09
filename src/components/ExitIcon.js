@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import Icon from "./Icon"
 
 export default class ExitIcon extends Component {
-
+ 
     constructor(props){
         super(props)
         this.handleClick = this.handleClick.bind(this)
+        console.log('eieio')
     }
 
     handleClick(){
@@ -15,7 +16,6 @@ export default class ExitIcon extends Component {
     }
 
     render() {
-
         return (
             <Icon className={`exit ${this.props.className}`}
                 src={require('../assets/icon/Close.svg')}

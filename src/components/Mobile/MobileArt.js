@@ -12,6 +12,7 @@ export default class MobileArt extends Component {
                 <MobileArtItem title={item.title} 
                     src={item.image} 
                     href={item.link} 
+                    info={item.description}
                     key={key}/>
             )
         })

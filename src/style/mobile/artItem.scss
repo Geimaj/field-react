@@ -1,0 +1,48 @@
+.mobile.artItem {
+        position: relative;
+        margin: 12vw 0;
+        margin-bottom: 5rem;
+        width: 100%;
+
+        .face {
+            width: 100%;
+            opacity: 0;
+            transition: opacity $fadeTime;
+
+            &.active {
+                opacity: 1;
+            }
+
+            img {
+                width: 100%;
+            }
+
+        }
+
+        .bucket {
+            position: relative;
+        }
+
+        .info {
+            opacity: 0;
+            transition: opacity $fadeTime;
+            
+            &.active {
+                opacity: 1;
+            }
+
+            p {
+                position: absolute;
+                top: 0;
+                
+            }
+        } 
+
+        .showHideIcon {
+            position: absolute;
+            right: 3.5vw;
+            opacity: 1;
+            bottom: 8vw;
+        }
+
+}

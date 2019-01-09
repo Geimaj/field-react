@@ -8,6 +8,16 @@ body {
     text-transform: lowercase;
 }
 
+h2 {
+    font-size: 45px;
+    margin: 0;
+    margin-bottom: 3%;
+}
+
+p {
+    font-size: 20px;
+}
+
 .icon {
     width: 40px;
     height: 40px;;
@@ -15,13 +25,29 @@ body {
 
 #content {
     position: relative;
-    .icon {
+    .showMenuIcon {
         position: absolute;
         right: 0;
         top: 0;
     }
 }
 
+// .icon {
+//     width: 40px;
+//     height: 40px;;
+// }
+
+// #content {
+//     position: relative;
+//     .icon {
+//         position: absolute;
+//         right: 0;
+//         top: 0;
+//     }
+// }
+
 @import "./mobile/menu.scss";
 @import "./mobile/advertising.scss";
 @import "./mobile/art.scss";
+@import "./mobile/artItem.scss";
+@import "./mobile/team.scss";

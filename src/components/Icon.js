@@ -8,7 +8,6 @@ export default class Icon extends Component {
     }
 
     handleClick(){
-        console.log(this.props)
         if(this.props.onClick){
             this.props.onClick()
         } else if(this.props.href){
@@ -17,7 +16,7 @@ export default class Icon extends Component {
     }
 
     render() {
-
+        console.log('className: ' + this.props.className)
         return (
             <div className={`icon ${this.props.className}`}>
                     <img
