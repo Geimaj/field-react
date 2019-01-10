@@ -11,7 +11,7 @@ import MobileTeam from "./MobileTeam";
 import MobileArt from "./MobileArt";
 
 import Icon from "./../Icon"
-import { fadeDelay, fadeDuration } from "../Main";
+import { fadeDuration, fadeDelay } from "../Main";
 
 const $ = require('jquery')
 
@@ -91,7 +91,6 @@ export default class Mobile extends Component {
 
                 </div>
         } else {
-            let hi = <div>hi</div>
             content =
                 <div id="content" className="page active">
                     <Route path="/portfolio" component={() => (<MobileAdvertising />)} />
@@ -115,4 +114,18 @@ export default class Mobile extends Component {
         );
     }
 }
+
+export function hideMenu() {
+    let $menu = $(".showMenuIcon")
+    $($menu).css("opacity", 0)
+}
+
+export function showMenu(fd = fadeDelay) {
+    //delay
+    setTimeout(() => {
+        let $menu = $(".showMenuIcon")
+        $($menu).animate({ "opacity": 1 }, fadeDuration)
+    }, fd)
+}
+
 

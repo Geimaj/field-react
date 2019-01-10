@@ -1,9 +1,10 @@
-
+html {
+    height: 100%;
+}
 body {
     overflow-y: scroll;
-    
+    height: 100%;
     padding: 10vw 8vw;
-
     font-size: 14px;
     text-transform: lowercase;
 }
@@ -23,10 +24,19 @@ p {
     height: 40px;;
 }
 
+#root {
+    height: 100%;
+}
+
+#router {
+    height: 100%;    
+}
+
 #content {
     position: relative;
     opacity: 0;
     transition: opacity $fadeTime;
+    height: 100%;
 
     &.active {
         opacity: 1;

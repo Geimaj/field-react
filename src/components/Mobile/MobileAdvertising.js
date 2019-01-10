@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import MobileMovie from "./MobileMovie"
 import { Fade } from 'react-animation-components'
+import {showMenu, hideMenu} from "./Mobile"
+import { fadeDuration } from "../Main";
 
 const advertisingData = require('../../data/portfolioData');
+const $ = require('jquery');
 
 export default class MobileAdvertising extends Component {
 
     constructor(props){
         super(props)
+
+        this.exitMovieClick = this.exitMovieClick.bind(this)
 
         this.state = {
             vimeoID: null
@@ -15,6 +20,9 @@ export default class MobileAdvertising extends Component {
     }
 
     playVideo(vimeo_id){
+
+        hideMenu()
+
         this.setState({
             vimeoID: vimeo_id
         })
@@ -28,6 +36,18 @@ export default class MobileAdvertising extends Component {
         return <ul>{lis}</ul>
     }
 
+    exitMovieClick(){
+
+        $("#movie").removeClass("active");
+
+        setTimeout(()=> {
+            this.setState({
+                vimeoID: null
+            })
+            showMenu();
+        }, fadeDuration)
+    }
+
     render() {
 
         // let lis = advertisingData.map((item, key) => {
@@ -36,7 +56,8 @@ export default class MobileAdvertising extends Component {
 
         if(this.state.vimeoID){
             return (
-                <MobileMovie vimeoID={this.state.vimeoID} />
+                <MobileMovie vimeoID={this.state.vimeoID}
+                    onClick={this.exitMovieClick} />
             )
         } else {
 

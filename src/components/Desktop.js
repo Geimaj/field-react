@@ -10,7 +10,6 @@ import Portfolio from "./Portfolio";
 import Team from "./Team";
 import Art from "./Art"
 import Icon from "./Icon"
-import { fadeDelay } from "./Main";
 
 const $ = require('jquery')
 const AnimationMouseOn = [0, 12]
@@ -43,12 +42,15 @@ const teamData = require("../data/teamData.js")
 artData.map((item)=>{
     const img = new Image();
     img.src = item.image;
+    return {}
 })
 
 
 teamData.map((item)=>{
     const img = new Image();
     img.src = item.image;
+    return {}
+    
 })
 
 export default class Desktop extends Component {

@@ -174,7 +174,6 @@ class PortfolioItem extends Component {
           by={item.by}
           image={item.image}
           link={item.link}
-          by={item.by}
           showDetails={this.state.showDetails} />
       </Fade>
 

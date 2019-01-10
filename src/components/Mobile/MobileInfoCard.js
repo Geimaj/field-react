@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import Icon from "../Icon"
 import ExitIcon from "../ExitIcon"
 
-const $ = require('jquery')
-
 export default class MobileInfoCard extends Component {
 
     constructor(props) {

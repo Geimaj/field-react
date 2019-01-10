@@ -16,7 +16,7 @@ export const fadeDelay = fadeDuration / 2
 class Main extends Component {
 
     componentDidMount(){
-        let body = document.getElementsByTagName('body')[0]
+        // let body = document.getElementsByTagName('body')[0]
 
         $(window).resize(()=> {
             // body.style = body.style
