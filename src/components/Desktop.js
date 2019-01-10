@@ -45,7 +45,6 @@ artData.map((item)=>{
     return {}
 })
 
-
 teamData.map((item)=>{
     const img = new Image();
     img.src = item.image;
@@ -60,12 +59,34 @@ export default class Desktop extends Component {
 
         this.menuAnimationClick = this.menuAnimationClick.bind(this)
         this.burgerIconClick = this.burgerIconClick.bind(this)
+        this.resizeHandler = this.resizeHandler.bind(this)
+
 
         this.state = {
             showMenu: true
         }
 
     }
+
+    updateIconSize(){
+        let targetHeight = $("#email").height() /2
+        $("#icons").height(targetHeight)      
+        $(".icon").width("auto")  
+    }
+
+    resizeHandler(){
+        this.updateIconSize()
+    }
+
+    componentDidMount(){
+        this.updateIconSize()
+        window.addEventListener("resize", this.resizeHandler)
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener("resize", this.resizeHandler)        
+    }
+
 
 
     menuAnimationClick() {
@@ -194,7 +215,6 @@ export default class Desktop extends Component {
                         onClick={this.burgerIconClick}
                         animationData={require('../assets/animation/Hamburger.json')} />
                 </div>
-
         }
 
         return (
