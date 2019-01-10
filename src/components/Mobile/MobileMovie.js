@@ -20,6 +20,7 @@ class MobileMovie extends Component {
                         <div id="player" className="active">
                             <Vimeo videoId={this.props.vimeoID}
                                 autoplay={true} 
+                                width="1000px"
                                 />
                         </div>
                     </div>

@@ -171,6 +171,5 @@ export function watchScroll(){
   scrollInterval = setInterval(function() {
     posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
     $titles.scrollLeft(posX * wDiff);
-    console.log('tick')
   }, 10);
 }

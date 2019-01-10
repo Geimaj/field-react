@@ -71,7 +71,7 @@ export default class Desktop extends Component {
     updateIconSize(){
         let targetHeight = $("#email").height() /2
         $("#icons").height(targetHeight)      
-        $(".icon").width("auto")  
+        $("#icons .icon").width("auto")  
     }
 
     resizeHandler(){
