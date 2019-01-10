@@ -4,9 +4,14 @@ import { Fade } from 'react-animation-components'
 import { fadeDelay, fadeDuration } from "./../Main"
 
 const Vimeo = require("react-vimeo");
+const $ = require("jquery");
 
 
 class MobileMovie extends Component {
+
+    componentDidMount(){
+        // $("#player iframe").attr("width", "3000px")
+    }
 
     render() {
        
