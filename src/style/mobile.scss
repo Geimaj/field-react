@@ -7,6 +7,11 @@ body {
     padding: 10vw 8vw;
     font-size: 14px;
     text-transform: lowercase;
+
+    &.nopad {
+        padding: 0;
+        margin: 0;
+    }
 }
 
 h2 {

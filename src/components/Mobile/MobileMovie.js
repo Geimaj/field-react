@@ -11,9 +11,32 @@ class MobileMovie extends Component {
 
     componentDidMount(){
         // $("#player iframe").attr("width", "3000px")
+
+        $("body").addClass("nopad")
+
+    }
+
+    componentWillUnmount(){
+        $("body").removeClass("nopad")        
+    }
+
+    onLoaded(data){
+        // window.outerWidth
+        let target = window.outerWidth//$("body").outerWidth()
+        let current = $("iframe").width()
+        console.log("shooting for: " + target)
+        console.log("was: " + current)
+        $("iframe").width(target)
+        current = $("iframe").width()
+        console.log("now: " + current)        
     }
 
     render() {
+
+        let playerOptions = {
+            width: 480,
+            height: 360
+        }
        
         return (
             <div id="movie" className="active">
@@ -25,7 +48,8 @@ class MobileMovie extends Component {
                         <div id="player" className="active">
                             <Vimeo videoId={this.props.vimeoID}
                                 autoplay={true} 
-                                width="1000px"
+                                playerOptions={playerOptions}
+                                onLoaded={ this.onLoaded}
                                 />
                         </div>
                     </div>

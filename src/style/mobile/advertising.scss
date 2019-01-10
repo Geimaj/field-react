@@ -29,23 +29,79 @@ button, input[type="submit"], input[type="reset"] {
 
 	#video {
 		width: 100%;
-		// height: 100%;
 		padding: 0;
 		margin: 0;
 		align-self: center;
 		flex-grow: 3;
 		margin-top: 50%;
-
-		iframe {
+		#player {
 			width: 100%;
 
-			#player {
-				width: 100%;
-			}
+			.vimeo {
+				width: 100%;		
+				margin: 0;
+				padding: 0;
 
+				.vimeo-image {
+					width: 100%;
+					margin: 0;
+					padding: 0;
+				}
+
+				.vimeo-embed {
+					width: 100%;
+					margin: 0;
+					padding: 0;
+
+					position: relative;
+					padding-bottom: 56.25%; /* 16:9 */
+					padding-top: 25px;
+					height: 0;
+
+					iframe {
+						width: 100%;
+						padding: 0;
+						margin: 0;
+
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+					}
+
+				}
+			}
 		}
 
 	}
+
+	// #video {
+	// 	width: 100%;
+	// 	// height: 100%;
+	// 	padding: 0;
+	// 	margin: 0;
+	// 	align-self: center;
+	// 	flex-grow: 3;
+	// 	margin-top: 50%;
+	// 	background: rebeccapurple;
+
+	// 	iframe {
+	// 		width: 100%;
+
+	// 		#player {
+	// 			width: 100%;
+
+	// 			.vimeo {
+	// 				width: 100%;
+	// 				background: purple;
+	// 			}
+
+	// 		}
+
+	// 	}
+
+	// }
 
 	.icon {
 		// order: 1;
