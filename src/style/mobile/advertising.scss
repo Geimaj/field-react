@@ -33,7 +33,7 @@ button, input[type="submit"], input[type="reset"] {
 		margin: 0;
 		align-self: center;
 		flex-grow: 3;
-		margin-top: 50%;
+		// margin-top: 50%;
 		#player {
 			width: 100%;
 
@@ -105,9 +105,47 @@ button, input[type="submit"], input[type="reset"] {
 
 	.icon {
 		// order: 1;
-		align-self: flex-start;
+		// align-self: flex-start;
 		flex-grow: 0;
 		top: 0;
 		position: absolute;
+	}
+}
+
+@media screen and (orientation: portrait){
+	html {
+		overflow-x: hidden !important;
+	}
+}
+
+@media screen and (orientation: landscape){
+
+	#movie {
+		flex-direction: column-reverse;
+	
+		#video {
+			align-self: flex-start;
+			margin: 0;
+			padding: 0;
+			#player {
+				width: 100%;
+
+				.vimeo {
+				width: 100%;				
+	
+					.vimeo-embed {
+						width: 100%;				
+
+	
+						iframe {
+							width: 100% !important;				
+
+						}
+	
+					}
+				}
+			}
+	
+		}
 	}
 }

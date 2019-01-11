@@ -10,10 +10,13 @@ const $ = require("jquery");
 class MobileMovie extends Component {
 
     componentDidMount(){
-        // $("#player iframe").attr("width", "3000px")
-
         $("body").addClass("nopad")
 
+
+        let vimeo = document.getElementsByTagName('iframe')[0]
+        if(vimeo.requestFullScreen){
+            vimeo.requestFullscreen()
+        }
     }
 
     componentWillUnmount(){
@@ -21,8 +24,7 @@ class MobileMovie extends Component {
     }
 
     onLoaded(data){
-        // window.outerWidth
-        let target = window.outerWidth//$("body").outerWidth()
+        let target = window.outerWidth
         let current = $("iframe").width()
         console.log("shooting for: " + target)
         console.log("was: " + current)
@@ -33,11 +35,6 @@ class MobileMovie extends Component {
 
     render() {
 
-        let playerOptions = {
-            width: 480,
-            height: 360
-        }
-       
         return (
             <div id="movie" className="active">
 
@@ -48,7 +45,6 @@ class MobileMovie extends Component {
                         <div id="player" className="active">
                             <Vimeo videoId={this.props.vimeoID}
                                 autoplay={true} 
-                                playerOptions={playerOptions}
                                 onLoaded={ this.onLoaded}
                                 />
                         </div>
